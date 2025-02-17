@@ -1,0 +1,142 @@
+services:
+
+  postgresdb:
+    image: postgres:16-alpine
+    container_name: postgresdb
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_HOST_AUTH_METHOD=trust
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    networks:
+      - deploy_bmtsys_network
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "${POSTGRES_USER}", "-d", "${POSTGRES_DB}"]
+      interval: 10s
+      retries: 5
+      start_period: 5s
+
+  # pgadmin:
+  #   image: dpage/pgadmin4
+  #   container_name: pgadmin4_container
+  #   restart: always
+  #   ports:
+  #     - "8081:80"
+  #   environment:
+  #     - PGADMIN_DEFAULT_EMAIL=${PGADMIN_DEFAULT_EMAIL}
+  #     - PGADMIN_DEFAULT_PASSWORD=${PGADMIN_DEFAULT_PASSWORD}
+  #     - PGADMIN_DEFAULT_SERVER=postgresdb
+  #   volumes:
+  #     - pgadmin-data:/var/lib/pgadmin
+  #   networks:
+  #     - deploy_bmtsys_network
+
+  backend:
+    build:
+      context: .
+      dockerfile: ./Backend/Dockerfile
+    container_name: backend
+    restart: unless-stopped
+    ports:
+      - "5000:5000"
+    expose:
+      - 5000
+    environment:
+      - ASPNETCORE_ENVIRONMENT=${ENVIRONMENT_PROD}
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/cert/live/${HOST_NAME}/fullchain.pem
+      - ASPNETCORE_Kestrel__Certificates__Default__KeyPath=/https/cert/live/${HOST_NAME}/privkey.pem
+    command: ["dotnet", "BadmintonSystem.API.dll", "--urls", "https://*:5000"]
+    depends_on:
+      postgresdb:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+    volumes:
+      - ./certbot/conf:/https/cert
+    networks:
+      - deploy_bmtsys_network
+
+  redis:
+    image: redis:alpine
+    container_name: redis
+    restart: always
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    environment:
+      - REDIS_MAXMEMORY_POLICY=allkeys-lru
+    networks:
+      - deploy_bmtsys_network
+
+  rabbitmq:
+    container_name: rabbitmq
+    restart: always
+    image: rabbitmq:3-management-alpine
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      - RABBITMQ_DEFAULT_USER=${RABBITMQ_USER}
+      - RABBITMQ_DEFAULT_PASS=${RABBITMQ_PASS}
+      - RABBITMQ_DEFAULT_VHOST=${RABBITMQ_VHOST}
+    healthcheck:
+      test: ["CMD", "rabbitmqctl", "status"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - deploy_bmtsys_network
+
+  nginx:
+    build:
+      context: .
+      dockerfile: ./Frontend/Dockerfile
+    container_name: nginx
+    restart: unless-stopped
+    volumes:
+      - ./nginx:/etc/nginx/conf.d
+      - ./certbot/conf:/etc/letsencrypt
+      - ./certbot/www:/var/www/certbot
+    ports:
+      - "80:80"
+      - "443:443"
+    command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
+    networks:
+      - deploy_bmtsys_network
+    
+  certbot:
+    image: certbot/certbot
+    container_name: certbot
+    restart: unless-stopped
+    volumes:
+      - ./certbot/conf:/etc/letsencrypt
+      - ./certbot/www:/var/www/certbot
+    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
+
+  # jenkins:
+  #   image: jenkins/jenkins:lts
+  #   container_name: jenkins
+  #   ports:
+  #     - "8080:8080"
+  #     - "50000:50000"
+  #   volumes:
+  #     - jenkins_home:/var/jenkins_home
+  #   environment:
+  #     JENKINS_OPTS: --httpPort=8080
+
+networks:
+  deploy_bmtsys_network:
+    driver: bridge
+
+volumes:
+  postgres-data:
+  pgadmin-data:
+  redis_data:
+  # jenkins_home:
