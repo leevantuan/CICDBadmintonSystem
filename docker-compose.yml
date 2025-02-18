@@ -129,8 +129,8 @@ services:
       - "8080:8080"
       - "50000:50000"
     volumes:
-      # - /root/CICDBadmintonSystem:/var/jenkins_home
-      - jenkins_home:/var/jenkins_home
+      - /root/jenkins_home:/var/jenkins_home
+      # - jenkins_home:/var/jenkins_home
       # - C:\Users\FA506\Desktop\jenkins_home:/var/jenkins_home
     environment:
       JENKINS_OPTS: --httpPort=8080
