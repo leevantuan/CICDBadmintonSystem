@@ -120,23 +120,23 @@ services:
       - ./certbot/www:/var/www/certbot
     entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
 
-  jenkins:
-    image: jenkins/jenkins:lts
-    container_name: jenkins
-    privileged: true
-    user: root
-    restart: always
-    ports:
-      - "8080:8080"
-      - "50000:50000"
-    volumes:
-      - /home/jenkins_home:/var/jenkins_home
-      - /var/run/docker.sock:/var/run/docker.sock
-      - /usr/local/bin/docker:/usr/local/bin/docker
-      # - /root/CICDBadmintonSystem:/root/CICDBadmintonSystem
-      # - /root/Backup:/root/Backup
-    environment:
-      JENKINS_OPTS: --httpPort=8080
+    jenkins:
+      image: jenkins/jenkins:lts
+      container_name: jenkins
+      privileged: true
+      user: root
+      restart: always
+      ports:
+        - "8080:8080"
+        - "50000:50000"
+      volumes:
+        - ~/jenkins_home:/var/jenkins_home
+        - /var/run/docker.sock:/var/run/docker.sock
+        - /usr/local/bin/docker:/usr/local/bin/docker
+        - /root/CICDBadmintonSystem:/root/CICDBadmintonSystem
+        - /root/Backup:/root/Backup
+      environment:
+        JENKINS_OPTS: --httpPort=8080
 
 networks:
   deploy_bmtsys_network:
@@ -146,4 +146,4 @@ volumes:
   postgres-data:
   pgadmin-data:
   redis_data:
-  # jenkins_home:
+  jenkins_home:
