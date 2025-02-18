@@ -133,6 +133,7 @@ services:
       - ~/jenkins_home:/var/jenkins_home
       - /var/run/docker.sock:/var/run/docker.sock
       - /usr/local/bin/docker:/usr/local/bin/docker
+      - /root/CICDBadmintonSystem:/root/CICDBadmintonSystem
     environment:
       JENKINS_OPTS: --httpPort=8080
 
