@@ -1,0 +1,21 @@
+services:
+  jenkins:
+    image: jenkins/jenkins:lts
+    container_name: jenkins
+    privileged: true
+    user: root
+    restart: always
+    ports:
+      - "8080:8080"
+      - "50000:50000"
+    volumes:
+      - ~/jenkins_home:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /usr/local/bin/docker:/usr/local/bin/docker
+      - /root/CICDBadmintonSystem:/root/CICDBadmintonSystem
+      - /root/Backup:/root/Backup
+    environment:
+      JENKINS_OPTS: --httpPort=8080
+
+volumes:
+  jenkins_home:
