@@ -122,13 +122,15 @@ services:
 
   jenkins:
     image: jenkins/jenkins:lts
+    user: "998:998"
     container_name: jenkins
-    restart: unless-stopped
+    restart: always
     ports:
       - "8080:8080"
       - "50000:50000"
     volumes:
-      - jenkins_home:/var/jenkins_home
+     - /root/CICDBadmintonSystem:/var/jenkins_home
+      # - jenkins_home:/var/jenkins_home
       # - C:\Users\FA506\Desktop\jenkins_home:/var/jenkins_home
     environment:
       JENKINS_OPTS: --httpPort=8080
