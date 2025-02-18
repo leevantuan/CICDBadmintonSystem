@@ -146,4 +146,4 @@ volumes:
   postgres-data:
   pgadmin-data:
   redis_data:
-  # jenkins_home:
+  jenkins_home:
