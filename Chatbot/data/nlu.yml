@@ -20,6 +20,7 @@ nlu:
       - hi
       - hey
       - chào anh
+      - chào chị
 
   - intent: goodbye
     examples: |
