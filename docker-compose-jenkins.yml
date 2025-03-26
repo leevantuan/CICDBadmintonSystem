@@ -4,7 +4,7 @@ services:
     container_name: jenkins
     privileged: true
     user: root
-    restart: always
+    restart: unless-stopped
     ports:
       - "8080:8080"
       - "50000:50000"
@@ -16,6 +16,7 @@ services:
       - /root/Backup:/root/Backup
     environment:
       JENKINS_OPTS: --httpPort=8080
+      DOCKER_HOST: unix:///var/run/docker.sock
 
 volumes:
   jenkins_home:
