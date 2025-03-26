@@ -21,6 +21,7 @@ nlu:
       - hey
       - chào anh
       - chào chị
+      - chào cậu
 
   - intent: goodbye
     examples: |
