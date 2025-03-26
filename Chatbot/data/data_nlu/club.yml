@@ -1,0 +1,15 @@
+version: "3.1"
+
+nlu:
+- intent: ask_top_rated_clubs
+  examples: |
+    - top [3](quantity) club cầu lông đánh giá tốt nhất?
+    - top [ba](quantity:3) club hay nhất
+    - [nhất](quantity:1) về rating là club nào?
+    - [đầu](quantity:1) bảng xếp hạng là gì?
+    - [hạng hai](quantity:2) club nào?
+    - cho tôi [5](quantity) club nhiều sao nhất
+    - [số 1](quantity:1) ở đâu?
+    - [top đầu](quantity:1) là club nào?
+    - [thứ 3](quantity:3) trong danh sách?
+    - [mấy](quantity) club hàng đầu?

@@ -1,0 +1,44 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - này
+    - xin chào
+    - chào
+    - chào bạn
+    - chào buổi sáng
+    - chào buổi tối
+    - moin (tiếng lóng chào)
+    - này bạn
+    - bắt đầu thôi
+    - chào anh bạn
+    - buổi sáng tốt lành
+    - buổi tối tốt lành
+    - chào buổi chiều
+    - hello
+    - hi
+
+- intent: goodbye
+  examples: |
+    - hẹn gặp lại
+    - tạm biệt
+    - gặp lại sau nhé
+    - chúc ngủ ngon
+    - bye
+    - tạm biệt
+    - chúc một ngày tốt lành
+    - hẹn gặp lại
+    - bye bye
+    - gặp lại sau nhé
+
+- intent: bot_challenge
+  examples: |
+    - bạn là bot à?
+    - bạn là người thật à?
+    - tôi đang nói chuyện với bot phải không?
+    - tôi đang nói chuyện với người thật phải không?
+    - bạn có phải là robot không?
+    - đây có phải là trợ lý ảo?
+    - mày là máy hả?
+    - bạn là trí tuệ nhân tạo à?

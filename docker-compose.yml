@@ -1,5 +1,4 @@
 services:
-
   postgresdb:
     image: postgres:16-alpine
     container_name: postgresdb
@@ -17,7 +16,8 @@ services:
     volumes:
       - postgres-data:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD", "pg_isready", "-U", "${POSTGRES_USER}", "-d", "${POSTGRES_DB}"]
+      test:
+        ["CMD", "pg_isready", "-U", "${POSTGRES_USER}", "-d", "${POSTGRES_DB}"]
       interval: 10s
       retries: 5
       start_period: 5s
@@ -107,10 +107,10 @@ services:
     ports:
       - "80:80"
       - "443:443"
-    command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
+    command: '/bin/sh -c ''while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g "daemon off;"'''
     networks:
       - deploy_bmtsys_network
-    
+
   certbot:
     image: certbot/certbot
     container_name: certbot
@@ -137,6 +137,50 @@ services:
   #     - /root/Backup:/root/Backup
   #   environment:
   #     JENKINS_OPTS: --httpPort=8080
+
+  rasa_server:
+    container_name: rasa_server
+    build:
+      context: ./Chatbot
+      dockerfile: Dockerfile
+    ports:
+      - 5005:5005
+    volumes:
+      - ./Chatbot:/app
+      - ./Chatbot/.cache:/app/.cache
+    command:
+      [
+        "run",
+        "-m",
+        "/app/models",
+        "--enable-api",
+        "--cors",
+        "*",
+        "--debug",
+        "--endpoints",
+        "endpoints.yml",
+        "--debug",
+      ]
+    networks:
+      - deploy_bmtsys_network
+    user: root
+    depends_on:
+      - rasa_action
+
+  rasa_action:
+    container_name: rasa_action
+    build:
+      context: ./Chatbot
+      dockerfile: Dockerfile
+    volumes:
+      - ./Chatbot:/app
+      - ./Chatbot/.cache:/app/.cache
+    ports:
+      - 5055:5055
+    networks:
+      - deploy_bmtsys_network
+    command: ["run", "actions", "--actions", "actions"]
+    user: root
 
 networks:
   deploy_bmtsys_network:
