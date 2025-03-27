@@ -1,62 +1,72 @@
 version: "3.1"
 
 nlu:
-- intent: booking_yard
-  examples: |  
-    - làm sao để đặt sân cầu lông?  
-    - tôi muốn đặt sân cầu lông thì phải làm thế nào?  
-    - cách đặt sân cầu lông như thế nào?  
-    - hướng dẫn đặt sân cầu lông  
-    - các bước đặt sân cầu lông là gì?  
-    - muốn đặt sân cầu lông thì làm sao?  
-    - tôi cần đặt sân cầu lông, giúp tôi với  
-    - đặt sân cầu lông online được không?  
-    - có thể đặt sân cầu lông qua app không?  
-    - tôi muốn book sân cầu lông
+  - intent: booking_yard
+    examples: |
+      - làm sao để đặt sân cầu lông?  
+      - tôi muốn đặt sân cầu lông thì phải làm thế nào?  
+      - cách đặt sân cầu lông như thế nào?  
+      - hướng dẫn đặt sân cầu lông  
+      - các bước đặt sân cầu lông là gì?  
+      - muốn đặt sân cầu lông thì làm sao?  
+      - tôi cần đặt sân cầu lông, giúp tôi với  
+      - đặt sân cầu lông online được không?  
+      - có thể đặt sân cầu lông qua app không?  
+      - tôi muốn book sân cầu lông
 
-- intent: step_by_step
-  examples: |  
-    - quy trình đặt sân cầu lông gồm những bước nào?  
-    - tôi cần làm gì để đặt sân cầu lông?  
-    - liệt kê các bước đặt sân cầu lông  
-    - đặt sân cầu lông có khó không?  
-    - chỉ tôi cách book sân cầu lông từ A đến Z  
-    - hướng dẫn chi tiết cách đặt sân cầu lông  
-    - đặt sân cầu lông qua điện thoại như thế nào?  
-    - có cần đăng ký trước khi đặt sân không?  
-    - tôi phải thanh toán trước khi đặt sân không?  
-    
-- intent: yard_price
-  examples: |  
-    - giá đặt sân cầu lông bao nhiêu?  
-    - đặt sân cầu lông có đắt không?  
-    - bảng giá sân cầu lông như thế nào?  
-    - giá thuê sân cầu lông theo giờ là bao nhiêu?  
-    - có phụ phí khi đặt sân không?  
-    - đặt sân ban ngày và ban đêm giá khác nhau không?  
-    - giờ cao điểm đặt sân cầu lông giá bao nhiêu?  
-    
-- intent: payment_method
-  examples: |  
-    - thanh toán đặt sân cầu lông như thế nào?  
-    - có thể trả tiền mặt khi đến sân không?  
-    - chuyển khoản đặt sân cầu lông được không?  
-    - thanh toán online khi đặt sân có được không?  
-    - có hỗ trợ ví điện tử không?  
-    - tôi có thể dùng thẻ tín dụng để đặt sân không?
+  - intent: step_by_step
+    examples: |
+      - quy trình đặt sân cầu lông gồm những bước nào?  
+      - tôi cần làm gì để đặt sân cầu lông?  
+      - liệt kê các bước đặt sân cầu lông  
+      - đặt sân cầu lông có khó không?  
+      - chỉ tôi cách book sân cầu lông từ A đến Z  
+      - hướng dẫn chi tiết cách đặt sân cầu lông  
+      - đặt sân cầu lông qua điện thoại như thế nào?  
+      - có cần đăng ký trước khi đặt sân không?  
+      - tôi phải thanh toán trước khi đặt sân không?
 
-- intent: cancelled_booking
-  examples: |
-    - làm thế nào để hủy sân cầu lông?
-    - tôi muốn hủy sân đã đặt thì làm sao?
-    - có thể hủy sân sau khi đặt không?
-    - cách hủy sân cầu lông như thế nào?
-    - tôi đặt nhầm sân, làm sao để hủy?
-    - hủy sân cầu lông online được không?
-    - thủ tục hủy sân cầu lông gồm những gì?
-    - có bị phạt khi hủy sân không?
-    - thời hạn hủy sân trước bao lâu?
-    - hủy sân qua điện thoại được không?
-    - tôi cần hủy sân đã book, giúp tôi với
-    - nếu hủy sân thì có được hoàn tiền không?
-    - tôi muốn cancel sân cầu lông đã đặt
+  - intent: yard_price
+    examples: |
+      - giá đặt sân cầu lông bao nhiêu?  
+      - đặt sân cầu lông có đắt không?  
+      - bảng giá sân cầu lông như thế nào?  
+      - giá thuê sân cầu lông theo giờ là bao nhiêu?  
+      - có phụ phí khi đặt sân không?  
+      - đặt sân ban ngày và ban đêm giá khác nhau không?  
+      - giờ cao điểm đặt sân cầu lông giá bao nhiêu?  
+      - giá thuê sân cầu lông vào cuối tuần là bao nhiêu?
+      - có giảm giá khi đặt sân cầu lông cho nhóm lớn không?
+      - giá thuê sân cầu lông trong mùa hè có khác không?
+      - có chương trình khuyến mãi nào cho việc đặt sân cầu lông không?
+      - giá thuê sân cầu lông có bao gồm thiết bị không?
+      - đặt sân cầu lông vào giờ thấp điểm có rẻ hơn không?
+      - có phí hủy đặt sân cầu lông không?
+      - giá thuê sân cầu lông có thay đổi theo thời gian không?
+      - có thể đặt sân cầu lông qua mạng không và giá có khác không?
+      - giá thuê sân cầu lông cho một giờ là bao nhiêu vào buổi tối?
+
+  - intent: payment_method
+    examples: |
+      - thanh toán đặt sân cầu lông như thế nào?  
+      - có thể trả tiền mặt khi đến sân không?  
+      - chuyển khoản đặt sân cầu lông được không?  
+      - thanh toán online khi đặt sân có được không?  
+      - có hỗ trợ ví điện tử không?  
+      - tôi có thể dùng thẻ tín dụng để đặt sân không?
+
+  - intent: cancelled_booking
+    examples: |
+      - làm thế nào để hủy sân cầu lông?
+      - tôi muốn hủy sân đã đặt thì làm sao?
+      - có thể hủy sân sau khi đặt không?
+      - cách hủy sân cầu lông như thế nào?
+      - tôi đặt nhầm sân, làm sao để hủy?
+      - hủy sân cầu lông online được không?
+      - thủ tục hủy sân cầu lông gồm những gì?
+      - có bị phạt khi hủy sân không?
+      - thời hạn hủy sân trước bao lâu?
+      - hủy sân qua điện thoại được không?
+      - tôi cần hủy sân đã book, giúp tôi với
+      - nếu hủy sân thì có được hoàn tiền không?
+      - tôi muốn cancel sân cầu lông đã đặt

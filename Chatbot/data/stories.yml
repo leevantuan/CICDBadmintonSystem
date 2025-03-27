@@ -1,47 +1,61 @@
 version: "3.1"
 
 stories:
+  - story: user communication core
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: bot_challenge
+      - action: utter_iamabot
+      - intent: goodbye
+      - action: utter_goodbye
 
-- story: user communication core
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: bot_challenge
-  - action: utter_iamabot
-  - intent: goodbye
-  - action: utter_goodbye
+  - story: example_step_by_step
+    steps:
+      - intent: step_by_step
+      - action: utter_step_by_step
 
-- story: example_step_by_step
-  steps:
-  - intent: step_by_step
-  - action: utter_step_by_step
+  - story: Work flow booking
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: booking_yard
+      - action: utter_step_by_step
+      - intent: yard_price
+      - action: utter_yard_price
+      - intent: payment_method
+      - action: utter_payment_method
+      - intent: goodbye
+      - action: utter_goodbye
 
-- story: Work flow booking
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: booking_yard
-  - action: utter_step_by_step
-  - intent: yard_price
-  - action: utter_yard_price
-  - intent: payment_method
-  - action: utter_payment_method
-  - intent: goodbye
-  - action: utter_goodbye
+  - story: Work flow cancelled booking
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: cancelled_booking
+      - action: utter_huong_dan_huy_san
+      - intent: goodbye
+      - action: utter_goodbye
 
-- story: Work flow cancelled booking
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: cancelled_booking
-  - action: utter_huong_dan_huy_san
-  - intent: goodbye
-  - action: utter_goodbye
+  - story: User ask top clubs
+    steps:
+      - intent: ask_top_rated_clubs
+      - slot_was_set:
+          - quantity: "3" # Mặc định
+      - action: action_fetch_top_clubs
 
-- story: User ask top clubs
-  steps:
-  - intent: ask_top_rated_clubs
-  - slot_was_set:
-    - quantity: "3"  # Mặc định
-  - action: action_fetch_top_clubs
-
+  # Free time
+  - story: Happy path - check yard availability with all info
+    steps:
+      - intent: ask_yard_availability
+        # entities:
+        #   - yardName
+        #   - startTime
+        #   - endTime
+        #   - quantityDate
+      - slot_was_set:
+          - yardName: "Cầu Lông Long Vũ"
+          - startTime: "14:00"
+          - endTime: "16:00"
+          - quantityDate: 0
+      - action: action_check_yard_availability

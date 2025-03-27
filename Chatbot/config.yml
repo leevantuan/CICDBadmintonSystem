@@ -16,15 +16,41 @@ pipeline:
     case_sensitive: false
     use_word_boundaries: true
     patterns:
+      # Pattern cho số lượng (top 3, hạng nhất...)
       - pattern: "\\b(top|hạng|số)\\s?([1-5]|nhất|hai|ba|bốn|năm)\\b"
         entity: "quantity"
-        value: "$2"
-      - pattern: "\\b(nhất|đầu|số\\s?1)\\b"
+        value: "$2" # Lấy group thứ 2
+
+      # Pattern riêng cho các số thứ tự
+      - pattern: "\\b(nhất|đầu|số\\s?1|thứ\\s?1)\\b"
         entity: "quantity"
         value: "1"
-      - pattern: "\\b(hai|nhì|số\\s?2)\\b"
+      - pattern: "\\b(hai|nhì|số\\s?2|thứ\\s?2)\\b"
         entity: "quantity"
         value: "2"
+      - pattern: "\\b(ba|số\\s?3|thứ\\s?3)\\b"
+        entity: "quantity"
+        value: "3"
+
+      # Pattern cho thời gian (HH:MM)
+      - pattern: "\\b((0?[0-9]|1[0-9]|2[0-3]):([0-5][0-9])\\b"
+        entity: "startTime"
+      - pattern: "\\b((0?[0-9]|1[0-9]|2[0-3]):([0-5][0-9])\\b"
+        entity: "endTime"
+
+      # Pattern cho ngày tháng
+      - pattern: "\\b(hôm nay|chiều nay|tối nay|sáng nay|nay)\\b"
+        entity: "quantityDate"
+        value: "0"
+      - pattern: "\\b(ngày mai|mai|sáng mai|chiều mai|tối mai)\\b"
+        entity: "quantityDate"
+        value: "1"
+      - pattern: "\\b(ngày kia|hôm kia|2 ngày (nữa|sau))\\b"
+        entity: "quantityDate"
+        value: "2"
+      - pattern: "\\b(3 ngày (nữa|sau))\\b"
+        entity: "quantityDate"
+        value: "3"
   - name: RegexFeaturizer
   - name: LexicalSyntacticFeaturizer
   - name: CountVectorsFeaturizer

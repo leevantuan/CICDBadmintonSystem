@@ -10,16 +10,46 @@ intents:
   - payment_method
   - cancelled_booking
   - ask_top_rated_clubs
+  - ask_yard_availability
 
 entities:
   - quantity
+  - yardName
+  - startTime
+  - endTime
+  - quantityDate
 
+# Định nghĩa các slots
 slots:
   quantity:
     type: text
     mappings:
       - type: from_entity
         entity: quantity
+
+  yardName:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: yardName
+
+  startTime:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: startTime
+
+  endTime:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: endTime
+
+  quantityDate:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: quantityDate
 
 synonyms:
   "nhất": "1"
@@ -31,48 +61,59 @@ synonyms:
   "ba": "3"
   "bốn": "4"
   "năm": "5"
-
+  "hôm nay": "0"
+  "chiều nay": "0"
+  "tối nay": "0"
+  "ngày mai": "1"
+  "ngày kia": "2"
+  "2 ngày sau": "2"
+  "2 ngày nữa": "2"
+  "3 ngày sau": "3"
+  "3 ngày nữa": "3"
 
 responses:
   utter_greet:
-  - text: "Chào bạn! Tôi có thể giúp gì được cho bạn?"
+    - text: "Chào bạn! Tôi có thể giúp gì được cho bạn?"
 
   utter_goodbye:
-  - text: "Rất vui khi được phục vụ bạn!"
+    - text: "Rất vui khi được phục vụ bạn!"
 
   utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
+    - text: "I am a bot, powered by Rasa."
 
   utter_yard_price:
-  - text: "Giá từ 60.000/h - 120.000/h phụ thuộc vào club."
+    - text: "Giá từ 60.000/h - 120.000/h phụ thuộc vào club."
 
   utter_payment_method:
-  - text: "Bạn có thể thanh toán thông qua mã QRCode hoặc STK ngân hàng."
+    - text: "Bạn có thể thanh toán thông qua mã QRCode hoặc STK ngân hàng."
 
   utter_step_by_step:
-  - text: |
-      Để đặt sân cầu lông, bạn có thể làm theo các bước sau:
-      1. Truy cập website: https://bookingweb.shop
-      2. Chọn địa điểm hoặc club
-      3. Chọn khung giờ
-      4. Xác nhận thanh toán
-      5. Quét mã QRCode và thanh toán
-      6. Nhận mã đặt sân qua Email
+    - text: |
+        Để đặt sân cầu lông, bạn có thể làm theo các bước sau:
+        1. Truy cập website: https://bookingweb.shop
+        2. Chọn địa điểm hoặc club
+        3. Chọn khung giờ
+        4. Xác nhận thanh toán
+        5. Quét mã QRCode và thanh toán
+        6. Nhận mã đặt sân qua Email
 
   utter_huong_dan_huy_san:
-  - text: |
-      Bạn có thể hủy sân cầu lông theo các cách sau:
-      1. Đăng nhập vào tài khoản đặt sân > Chọn "Lịch sử đặt sân" > Nhấn "Hủy sân"
-      2. Gọi hotline (số điện thoại) để hủy trực tiếp
-      *Lưu ý:*
-      - Hủy trước 24h: Được hoàn 100% phí
-      - Hủy trong vòng 12h: Phí hủy 50%
-      - Hủy dưới 6h: Không hoàn phí
-      Bạn cần hỗ trợ thêm không ạ?
+    - text: |
+        Bạn có thể hủy sân cầu lông theo các cách sau:
+        1. Đăng nhập vào tài khoản đặt sân > Chọn "Lịch sử đặt sân" > Nhấn "Hủy sân"
+        2. Gọi hotline (số điện thoại) để hủy trực tiếp
+        *Lưu ý:*
+        - Hủy trước 24h: Được hoàn 100% phí
+        - Hủy trong vòng 12h: Phí hủy 50%
+        - Hủy dưới 6h: Không hoàn phí
+        Bạn cần hỗ trợ thêm không ạ?
+
+  utter_ask_yard_name:
+    - text: "Bạn muốn kiểm tra sân nào?"
 
 actions:
   - action_fetch_top_clubs
-
+  - action_check_yard_availability
 
 session_config:
   session_expiration_time: 60

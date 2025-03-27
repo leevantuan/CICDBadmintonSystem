@@ -1,0 +1,25 @@
+version: "3.1"
+
+nlu:
+  - intent: ask_yard_availability
+    examples: |
+      - [The Champion](yardName) còn sân [sáng nay](quantityDate:0) từ [8:00](startTime) tới [10:00](endTime) không?
+      - [Tối nay](quantityDate:0) [Smash Arena](yardName) còn sân trống khoảng [19:30](startTime) không?
+      - [Ngày kia](quantityDate:2) [Racket Pro](yardName) còn sân cả ngày không?
+      - [1 ngày nữa](quantityDate:1) [Cầu Lông Long Vũ](yardName) còn sân buổi chiều không?
+      - [Sân Cầu Lông ABC](yardName) [hôm nay](quantityDate:0) còn trống từ [15:30](startTime) đến [17:00](endTime) chứ?
+      - [3 ngày tới](quantityDate:3) [Net King](yardName) còn sân tối không?
+      - [Sáng mai](quantityDate:1) [Shuttle Master](yardName) còn sân từ [7:00](startTime) đến [9:00](endTime) không?
+      - [Chiều mai](quantityDate:1) [Club B](yardName) còn sân trống không?
+      - [2 ngày sau](quantityDate:2) [Sân Cầu Lông XYZ](yardName) còn sân từ [13:00](startTime) tới [15:00](endTime) chứ?
+      - [Tối mai](quantityDate:1) [Way Station](yardName) còn sân sau [20:00](startTime) không?
+      - [Club A](yardName) có còn sân trống không?
+      - [Cầu Lông Long Vũ](yardName) còn sân từ [14:00](startTime) đến [16:00](endTime) không?
+      - [Smash Arena](yardName) còn sân [ngày mai](quantityDate:1) không?
+      - [Net King](yardName) còn sân từ [18:00](startTime) đến [20:00](endTime) [ngày kia](quantityDate:2) không?
+      - [3 ngày sau](quantityDate:3) [Racket Pro](yardName) còn sân trống không?
+      - [Hôm nay](quantityDate:0) [The Champion](yardName) còn sân từ [09:00](startTime) đến [11:00](endTime) không?
+      - [Club Cầu Lông Way Station](yardName) còn sân [chiều nay](quantityDate:0) không?
+      - [Ngày mai](quantityDate:1) [Shuttle Master](yardName) còn sân buổi tối không?
+      - [2 ngày nữa](quantityDate:2) [Club A](yardName) còn sân không?
+      - [Sân Cầu Lông XYZ](yardName) còn trống [tối nay](quantityDate:0) từ [19:00](startTime) đến [21:00](endTime) không?
