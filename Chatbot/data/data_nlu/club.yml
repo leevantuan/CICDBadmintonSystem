@@ -1,15 +1,34 @@
 version: "3.1"
 
 nlu:
-- intent: ask_top_rated_clubs
-  examples: |
-    - top [3](quantity) club cầu lông đánh giá tốt nhất?
-    - top [ba](quantity:3) club hay nhất
-    - [nhất](quantity:1) về rating là club nào?
-    - [đầu](quantity:1) bảng xếp hạng là gì?
-    - [hạng hai](quantity:2) club nào?
-    - cho tôi [5](quantity) club nhiều sao nhất
-    - [số 1](quantity:1) ở đâu?
-    - [top đầu](quantity:1) là club nào?
-    - [thứ 3](quantity:3) trong danh sách?
-    - [mấy](quantity) club hàng đầu?
+  - intent: ask_top_rated_clubs
+    examples: |
+      - top [3](quantity) club cầu lông đánh giá tốt nhất?
+      - top [ba](quantity:3) club hay nhất
+      - [nhất](quantity:1) về rating là club nào?
+      - [đầu](quantity:1) bảng xếp hạng là gì?
+      - [hạng hai](quantity:2) club nào?
+      - cho tôi [5](quantity) club nhiều sao nhất
+      - [số 1](quantity:1) ở đâu?
+      - [top đầu](quantity:1) là club nào?
+      - [thứ 3](quantity:3) trong danh sách?
+      - [mấy](quantity) club hàng đầu?
+
+  - intent: ask_general_club_info
+    examples: |
+      - [CLB Cầu Lông A](club_name) ở đâu?
+      - Địa chỉ [Sân Bách Khoa](club_name)?
+      - [Way Station Club](club_name) nằm ở chỗ nào?
+      - Chỉ đường tới [Sân VĐV Quận 7](club_name)
+      - [Cầu Lông Phú Thọ](club_name) ở quận mấy?
+      - Vị trí [Hồng Hà Sport](club_name) trên bản đồ?
+      - [Cầu Lông Q10](club_name) địa chỉ cụ thể?
+      - [Sân 24/7](club_name) ở địa phương nào?
+      - Thông tin cơ bản về [Sân Lam Sơn](club_name)
+      - Giới thiệu ngắn về [CLB Nguyễn Du](club_name)
+      - [Alpha Badminton](club_name) có những gì?
+      - Mô tả sơ lược [Sân Tân Phú](club_name)
+      - [Sân ĐH Bách Khoa](club_name) ở khu vực nào?
+      - [KTX Khu A](club_name) có gì đặc biệt?
+      - [Cầu Lông Việt Nhật](club_name) thuộc quận nào?
+      - [Trung tâm TDTT Q1](club_name) nằm ở đâu?

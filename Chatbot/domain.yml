@@ -11,6 +11,7 @@ intents:
   - cancelled_booking
   - ask_top_rated_clubs
   - ask_yard_availability
+  - ask_general_club_info
 
 entities:
   - quantity
@@ -18,6 +19,7 @@ entities:
   - startTime
   - endTime
   - quantityDate
+  - club_name
 
 # Định nghĩa các slots
 slots:
@@ -50,6 +52,12 @@ slots:
     mappings:
       - type: from_entity
         entity: quantityDate
+
+  club_name:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: club_name
 
 synonyms:
   "nhất": "1"
@@ -111,9 +119,15 @@ responses:
   utter_ask_yard_name:
     - text: "Bạn muốn kiểm tra sân nào?"
 
+  utter_default:
+    - text: "Xin lỗi! Vui lòng thử lại!"
+    - text: "Mình chưa hiểu ý bạn. Bạn có thể diễn đạt lại không?"
+    - text: "Hiện mình chưa xử lý được yêu cầu này. Vui lòng thử cách khác!"
+
 actions:
   - action_fetch_top_clubs
   - action_check_yard_availability
+  - action_provide_club_info
 
 session_config:
   session_expiration_time: 60

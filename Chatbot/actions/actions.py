@@ -3,10 +3,13 @@ from rasa_sdk import Action, Tracker, executor
 from rasa_sdk.events import SlotSet
 from utils.quantity_processcor import process_quantity
 from urllib.parse import quote
+from datetime import datetime, timedelta
 
 import requests
 
 url = "https://bookingweb.shop/api/v1"
+
+# =========================== ACTION GET TOP CLUBS ====================================
 
 class ActionFetchTopClubs(Action):
     def name(self) -> Text:
@@ -68,7 +71,7 @@ class ActionFetchTopClubs(Action):
         return response
 
 
-# ===============================================================
+# =========================== ACTION FREE TIMES ====================================
 
 class ActionCheckYardAvailability(Action):
     def name(self) -> Text:
@@ -89,35 +92,78 @@ class ActionCheckYardAvailability(Action):
             dispatcher.utter_message(text="Vui lòng cung cấp tên sân cầu lông.")
             return []
 
-        yard_code = self._fetch_code_clubs(yard_name)
-        # try:
-        #     # Gọi API kiểm tra sân trống
-        #     # availability = self._check_availability_api(
-        #     #     yard_name,
-        #     #     start_time,
-        #     #     end_time,
-        #     #     int(days_ahead)
-        #     # )
-
-        #     isYardName = self._check_availability_api(
-        #         yard_name
-        #     )
-
-        #     # if isYardName.get("is_available", False):
-        #     if isYardName:
-        #         dispatcher.utter_message(text=f"Sân {yard_name} còn trống từ {start_time} đến {end_time}!")
-        #     else:
-        #         dispatcher.utter_message(text=f"Hiện sân {yard_name} không còn trống trong khoảng thời gian này.")
-
-        # except Exception as e:
-        #     # dispatcher.utter_message(text="Xin lỗi, hiện không thể kiểm tra sân. Vui lòng thử lại sau.")
-        #     dispatcher.utter_message(text=f"Vui lòng cung cấp tên sân cầu lông.{yard_name}{start_time}{end_time}{days_ahead}")
-            
-        dispatcher.utter_message(text=f"Vui lòng cung cấp tên sân cầu lông. Code: {yard_code}")
+        # Handle Data input
+        response = self._fetch_free_times(days_ahead,start_time,end_time,yard_name)
+        
+        dispatcher.utter_message(text=response)
         
         return []
 
-    def _fetch_code_clubs(self, yardName: str) -> List[Dict]:
+    # GET API FREE TIME
+    def _fetch_free_times(self, date: int,startTime:str,endTime:str,yardName:str) -> str:
+        """Lấy free times"""
+        try:
+            time_now = "00:00"
+
+            # Handler date format and time now format
+            if date == 0:
+                target_date = datetime.now().strftime("%Y-%m-%d")  # Format: 2025-03-27
+                time_now = datetime.now().strftime("%H:%M")
+            else:
+                target_date = (datetime.now() + timedelta(days=date)).strftime("%Y-%m-%d")
+            
+            # Handler tenant Code
+            tenant_code = self._fetch_code_clubs(yardName)
+            
+            params = {
+                "date": target_date,
+                "startTime": startTime,
+                "endTime": endTime,
+                "tenant": tenant_code,
+                "timeNow": time_now
+            }
+            
+            response = requests.get(
+                f"{url}/yard-prices/filter-by-date/free-yard?",
+                params=params,
+                timeout=5
+            )
+            
+            response.raise_for_status()
+
+            api_data = response.json()
+
+            if not api_data.get("isSuccess") or not api_data.get("value"):
+                raise ValueError("API returned unsuccessful status")
+            
+            # Tạo response text
+            response_text = self._format_response(api_data["value"], yardName)
+            
+            return response_text
+        
+        except Exception as e:
+            return f"Error: {str(e)}"
+    
+    # Format response
+    def _format_response(self, time_slots: List[Dict], yard_name: str) -> str:
+        """Chuyển đổi dữ liệu API thành text format"""
+        result = [f"Các khung giờ còn trống của {yard_name}:\n"]
+        
+        for slot in time_slots:
+            # Format thời gian (bỏ giây)
+            start = slot["startTime"][:5]
+            end = slot["endTime"][:5]
+            
+            # Sắp xếp và format danh sách sân
+            yards = sorted(slot["yardNames"])
+            yards_text = ", ".join([f"sân {y}" for y in yards])
+            
+            result.append(f"⏰ Khung giờ: {start} - {end} | Còn trống: {yards_text}")
+        
+        return "\n".join(result)
+    
+    # GET API CODE CLUBS
+    def _fetch_code_clubs(self, yardName: str) -> str:
         """Lấy Code Club"""
         try:
             encoded_name = quote(yardName)
@@ -133,35 +179,59 @@ class ActionCheckYardAvailability(Action):
             if not api_data.get("isSuccess", False):
                 raise ValueError("API returned unsuccessful status")
 
-            return api_data.get("value", [])
+            return api_data.get("value", {}).get("code", "")
 
         except Exception as e:
             return []
+ 
+# =========================== ACTION INFO CLUB ====================================
+
+class ActionProvideClubInfo(Action):
+    def name(self) -> Text:
+        return "action_provide_club_info"
+
+    def run(self, dispatcher: executor.CollectingDispatcher, tracker: Tracker, domain: Dict):
+        club_name = tracker.get_slot("club_name")
         
+        response = self._fetch_info_club(club_name)
         
+        dispatcher.utter_message(text=response)
+        
+        return []
+    
+    # Call API
+    def _fetch_info_club(self, clubName: str) -> str:
+        """Lấy Info Club"""
+        try:
+            encoded_name = quote(clubName)
+            
+            response = requests.get(
+                f"{url}/tenants/get-by-tenant-name/{encoded_name}",
+                timeout=5
+            )
+            response.raise_for_status()
 
-    # def _get_fallback_clubs(self, quantity: int) -> List[Dict]:
-    #     """Dữ liệu dự phòng đơn giản"""
-    #     return [
-    #                {"name": "The Champion", "rating": 4.9, "hotline": "0232921582"},
-    #                {"name": "Smash Arena", "rating": 4.8, "hotline": "032921582"}
-    #            ][:quantity]
+            api_data = response.json()
 
-    # def _fetch_clubs(self, quantity: int) -> List[Dict]:
-    #     """Lấy danh sách club (mock data)"""
-    #     return [
-    #         {"name": "The Champion", "rating": 4.9},
-    #         {"name": "Smash Arena", "rating": 4.8},
-    #         {"name": "Net King", "rating": 4.7},
-    #         {"name": "Racket Pro", "rating": 4.6},
-    #         {"name": "Shuttle Master", "rating": 4.5}
-    #     ][:quantity]
+            if not api_data.get("isSuccess", False):
+                raise ValueError("API returned unsuccessful status")
 
-    # def _generate_response(self, clubs: List[Dict], quantity: int) -> str:
-    #     """Tạo message response"""
-    #     return (
-    #         f"🏆 Top {quantity} club:\n" +
-    #         "\n".join(f"{i}. {c['name']} (⭐️{c['rating']})"
-    #                  for i, c in enumerate(clubs, 1)) +
-    #         ("\nBạn muốn đặt sân ở đây không?" if quantity == 1 else "")
-    #     )
+            club_info = api_data.get("value", {})
+        
+            if not club_info:
+                return "Không tìm thấy thông tin club! Vui lòng kiểm tra lại."
+                
+            # Format information for clubs
+            return (
+                f"Thông tin {club_info.get('name', '')}:\n"
+                f"📞 Hotline: {club_info.get('hotLine', 'Chưa cập nhật')}\n"
+                f"📍 Địa chỉ: {club_info.get('address', '')}, {club_info.get('city', '')}\n"
+                f"✉️  Email: {club_info.get('email', 'Chưa cập nhật')}\n"
+                f"📢 Slogan: {club_info.get('slogan', '')}\n"
+            )
+
+        except Exception as e:
+            return []
+    # Format response
+   
+# =========================== ACTION Fall Back ====================================

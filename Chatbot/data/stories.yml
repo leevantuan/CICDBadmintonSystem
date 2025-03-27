@@ -59,3 +59,11 @@ stories:
           - endTime: "16:00"
           - quantityDate: 0
       - action: action_check_yard_availability
+
+  # Info
+  - story: ask general club info
+    steps:
+      - intent: ask_general_club_info
+      - slot_was_set:
+          - club_name: "Way station"
+      - action: action_provide_club_info
