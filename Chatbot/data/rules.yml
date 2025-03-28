@@ -11,7 +11,7 @@ rules:
       - intent: bot_challenge
       - action: utter_iamabot
 
-  - rule: Handle top clubs
-    steps:
-      - intent: ask_top_rated_clubs
-      - action: action_fetch_top_clubs
+  # - rule: Handle top clubs
+  #   steps:
+  #     - intent: ask_top_rated_clubs
+  #     - action: action_fetch_top_clubs

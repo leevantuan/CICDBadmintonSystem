@@ -3,32 +3,89 @@ version: "3.1"
 nlu:
   - intent: ask_top_rated_clubs
     examples: |
-      - top [3](quantity) club cầu lông đánh giá tốt nhất?
-      - top [ba](quantity:3) club hay nhất
+      - top [1](quantity) club cầu lông đánh giá tốt nhất?
+      - top [2](quantity) club được review cao nhất?
+      - top [3](quantity) sân cầu lông hay nhất?
+      - top [4](quantity) club phổ biến nhất?
+      - top [5](quantity) sân chất lượng nhất?
+      - top [một](quantity:1) club hay nhất?
+      - top [hai](quantity:2) sân được yêu thích nhất?
+      - danh sách [ba](quantity:3) sân cầu lông tốt nhất?
+      - cho tôi danh sách [bốn](quantity:4) sân nổi bật?
+      - liệt kê danh sách [năm](quantity:5) CLB được đánh giá cao?
       - [nhất](quantity:1) về rating là club nào?
+      - club nào được đánh giá [cao nhất](quantity:1)?
+      - đâu là CLB [tốt nhất](quantity:1)?
       - [đầu](quantity:1) bảng xếp hạng là gì?
+      - ai đứng [hạng nhất](quantity:1)?
       - [hạng hai](quantity:2) club nào?
-      - cho tôi [5](quantity) club nhiều sao nhất
+      - club nào đứng [thứ 2](quantity:2)?
+      - sân nào được xếp ở [vị trí thứ ba](quantity:3)?
+      - danh sách [4](quantity) sân nổi tiếng nhất?
+      - cho tôi [5](quantity) club nhiều sao nhất?
+      - danh sách [3](quantity) CLB được đánh giá cao nhất?
       - [số 1](quantity:1) ở đâu?
-      - [top đầu](quantity:1) là club nào?
+      - club [top đầu](quantity:1) là gì?
       - [thứ 3](quantity:3) trong danh sách?
-      - [mấy](quantity) club hàng đầu?
+      - [thứ 4](quantity:4) trong bảng xếp hạng là ai?
+      - [thứ 5](quantity:5) trong danh sách?
+      - [mấy](quantity) club hàng đầu? (mặc định là 3 nếu không chỉ rõ)
+      - danh sách top các club tốt nhất?
+      - cho tôi danh sách club hàng đầu?
+      - có thể cho tôi danh sách các CLB đánh giá tốt không?
+      - danh sách mặc định top club cầu lông?
+      - có những sân cầu lông nào nổi bật?
+      - danh sách các club cầu lông?
+      - tôi muốn biết danh sách sân cầu lông phổ biến?
+      - tổng hợp các CLB tốt nhất?
 
   - intent: ask_general_club_info
     examples: |
       - [CLB Cầu Lông A](club_name) ở đâu?
+      - [CLB Cầu Lông B](club_name) nằm ở đâu?
+      - [CLB Cầu Lông C](club_name) địa chỉ ở đâu?
       - Địa chỉ [Sân Bách Khoa](club_name)?
+      - Địa chỉ chính xác của [Sân Quốc Tế](club_name)?
+      - Bạn có biết địa chỉ của [Sân Chuyên Nghiệp](club_name) không?
       - [Way Station Club](club_name) nằm ở chỗ nào?
+      - [Elite Badminton](club_name) ở vị trí nào?
+      - [Sân Chấn Hưng](club_name) tọa lạc ở đâu?
       - Chỉ đường tới [Sân VĐV Quận 7](club_name)
+      - Chỉ giúp tôi đường đi đến [Sân Cầu Lông Hòa Bình](club_name)
+      - Làm sao để đến [Sân Phú Mỹ](club_name)?
       - [Cầu Lông Phú Thọ](club_name) ở quận mấy?
+      - [Cầu Lông Thống Nhất](club_name) thuộc quận nào?
+      - [Sân Phạm Văn Hai](club_name) nằm ở quận nào?
       - Vị trí [Hồng Hà Sport](club_name) trên bản đồ?
+      - Định vị [Sân Cầu Lông Long Biên](club_name) trên bản đồ giúp tôi.
+      - [Sân Bùi Đình Túy](club_name) có thể tìm trên bản đồ không?
       - [Cầu Lông Q10](club_name) địa chỉ cụ thể?
+      - [CLB Nguyễn Tri Phương](club_name) nằm ở đâu chính xác?
+      - [Sân Đại Học Sư Phạm](club_name) có địa chỉ cụ thể không?
       - [Sân 24/7](club_name) ở địa phương nào?
+      - [Cầu Lông Thanh Xuân](club_name) nằm ở khu vực nào?
+      - [Sân Cầu Lông Lê Lợi](club_name) thuộc tỉnh nào?
       - Thông tin cơ bản về [Sân Lam Sơn](club_name)
+      - [Cầu Lông Bình Thạnh](club_name) có thông tin gì?
+      - Tôi muốn biết thông tin của [Sân Elite Badminton](club_name)
       - Giới thiệu ngắn về [CLB Nguyễn Du](club_name)
+      - Cho tôi biết sơ lược về [Sân Cầu Lông Trần Hưng Đạo](club_name)
+      - Bạn có thể giới thiệu về [Sân Quận 12](club_name) không?
       - [Alpha Badminton](club_name) có những gì?
+      - [Sân Ngọc Lan](club_name) có tiện nghi gì không?
+      - [CLB Quốc Tế](club_name) có những dịch vụ nào?
       - Mô tả sơ lược [Sân Tân Phú](club_name)
+      - [Sân Phan Đăng Lưu](club_name) có gì đặc biệt?
+      - [Sân Tân Bình](club_name) có những tiện ích nào?
       - [Sân ĐH Bách Khoa](club_name) ở khu vực nào?
+      - [Sân ĐH Kinh Tế](club_name) thuộc khu vực nào?
+      - [Sân Cầu Lông Quang Trung](club_name) nằm trong khu vực nào?
       - [KTX Khu A](club_name) có gì đặc biệt?
+      - [Sân Cầu Lông Đại Học Quốc Gia](club_name) có điểm gì nổi bật?
+      - [Sân Cầu Lông Công Viên Gia Định](club_name) có tiện ích gì?
       - [Cầu Lông Việt Nhật](club_name) thuộc quận nào?
+      - [Sân Nhà Văn Hóa Thanh Niên](club_name) thuộc địa bàn nào?
+      - [Sân Cầu Lông Quận 5](club_name) có thuộc quận nào không?
       - [Trung tâm TDTT Q1](club_name) nằm ở đâu?
+      - [Sân Quận 3](club_name) ở vị trí nào?
+      - [Sân Trung Tâm Thể Thao Hồ Chí Minh](club_name) có thể tìm thấy ở đâu?

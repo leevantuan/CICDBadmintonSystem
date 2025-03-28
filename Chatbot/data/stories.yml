@@ -33,37 +33,128 @@ stories:
       - intent: greet
       - action: utter_greet
       - intent: cancelled_booking
-      - action: utter_huong_dan_huy_san
+      - action: utter_cancelled_booking
       - intent: goodbye
       - action: utter_goodbye
 
-  - story: User ask top clubs
+  # Top clubs
+  - story: User ask top clubs core
     steps:
       - intent: ask_top_rated_clubs
       - slot_was_set:
           - quantity: "3" # Mặc định
       - action: action_fetch_top_clubs
+      - action: utter_ask_more_club_info
 
-  # Free time
-  - story: Happy path - check yard availability with all info
+  - story: User ask top clubs
     steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: ask_top_rated_clubs
+      - slot_was_set:
+          - quantity: "3"
+      - action: action_fetch_top_clubs
+      - action: utter_ask_more_club_info
+      - intent: ask_general_club_info
+      - slot_was_set:
+          - club_name: "Way station"
+      - action: action_provide_club_info
+      - action: utter_ask_booking
       - intent: ask_yard_availability
-        # entities:
-        #   - yardName
-        #   - startTime
-        #   - endTime
-        #   - quantityDate
       - slot_was_set:
           - yardName: "Cầu Lông Long Vũ"
           - startTime: "14:00"
           - endTime: "16:00"
           - quantityDate: 0
       - action: action_check_yard_availability
+      - action: utter_ask_booking
+      - intent: booking_yard
+      - action: utter_step_by_step
+      - intent: yard_price
+      - action: utter_yard_price
+      - intent: payment_method
+      - action: utter_payment_method
+      - intent: goodbye
+      - action: utter_goodbye
+
+  # Free time
+  - story: Happy path - check yard availability with all info core
+    steps:
+      - intent: ask_yard_availability
+      - slot_was_set:
+          - yardName: "Cầu Lông Long Vũ"
+          - startTime: "14:00"
+          - endTime: "16:00"
+          - quantityDate: 0
+      - action: action_check_yard_availability
+      - action: utter_ask_support
+
+  - story: Happy path - check yard availability with all info
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: ask_yard_availability
+      - slot_was_set:
+          - yardName: "Cầu Lông Long Vũ"
+          - startTime: "14:00"
+          - endTime: "16:00"
+          - quantityDate: 0
+      - action: action_check_yard_availability
+      - action: utter_ask_support
+      - intent: booking_yard
+      - action: utter_step_by_step
+      - intent: yard_price
+      - action: utter_yard_price
+      - intent: payment_method
+      - action: utter_payment_method
+      - intent: goodbye
+      - action: utter_goodbye
 
   # Info
-  - story: ask general club info
+  - story: ask general club info core
     steps:
       - intent: ask_general_club_info
       - slot_was_set:
           - club_name: "Way station"
       - action: action_provide_club_info
+      - action: utter_ask_support
+
+  - story: ask general club info
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: ask_general_club_info
+      - slot_was_set:
+          - club_name: "Way station"
+      - action: action_provide_club_info
+      - action: utter_ask_support
+      - intent: ask_yard_availability
+      - slot_was_set:
+          - yardName: "Cầu Lông Long Vũ"
+          - startTime: "14:00"
+          - endTime: "16:00"
+          - quantityDate: 0
+      - action: action_check_yard_availability
+      - action: utter_ask_booking
+      - intent: booking_yard
+      - action: utter_step_by_step
+      - intent: yard_price
+      - action: utter_yard_price
+      - intent: payment_method
+      - action: utter_payment_method
+      - intent: goodbye
+      - action: utter_goodbye
+
+  - story: User asks about yard services core
+    steps:
+      - intent: ask_yard_services
+      - action: utter_yard_services
+
+  - story: User asks about yard services
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: ask_yard_services
+      - action: utter_yard_services
+      - intent: goodbye
+      - action: utter_goodbye

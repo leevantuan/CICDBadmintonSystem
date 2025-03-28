@@ -81,48 +81,130 @@ synonyms:
 
 responses:
   utter_greet:
-    - text: "Chào bạn! Tôi có thể giúp gì được cho bạn?"
+    - text: "Chào bạn! Tôi có thể giúp gì cho bạn hôm nay?"
+    - text: "Xin chào! Bạn cần hỗ trợ gì không?"
+    - text: "Chào bạn, tôi có thể giúp bạn với điều gì?"
 
   utter_goodbye:
-    - text: "Rất vui khi được phục vụ bạn!"
+    - text: "Rất vui khi được hỗ trợ bạn. Hẹn gặp lại!"
+    - text: "Cảm ơn bạn đã sử dụng dịch vụ! Chúc bạn một ngày tốt lành!"
+    - text: "Hẹn gặp lại bạn lần sau. Chúc bạn có một trải nghiệm tuyệt vời!"
 
   utter_iamabot:
-    - text: "I am a bot, powered by Rasa."
+    - text: "Tôi là một chatbot, được xây dựng trên nền tảng Rasa."
+    - text: "Xin chào, tôi là trợ lý ảo của bạn!"
+    - text: "Tôi là bot hỗ trợ bạn đặt sân cầu lông!"
 
   utter_yard_price:
-    - text: "Giá từ 60.000/h - 120.000/h phụ thuộc vào club."
+    - text: "Giá sân dao động từ 60.000đ đến 120.000đ/giờ, tùy vào câu lạc bộ."
+    - text: "Chi phí thuê sân từ 60.000đ đến 120.000đ mỗi giờ, tùy thuộc vào sân."
+    - text: "Giá sân thay đổi theo khu vực, từ 60.000đ - 120.000đ/giờ."
 
   utter_payment_method:
-    - text: "Bạn có thể thanh toán thông qua mã QRCode hoặc STK ngân hàng."
+    - text: "Bạn có thể thanh toán qua QRCode hoặc chuyển khoản ngân hàng."
+    - text: "Phương thức thanh toán gồm: QRCode và STK ngân hàng."
+    - text: "Chúng tôi hỗ trợ thanh toán qua mã QR và tài khoản ngân hàng."
 
   utter_step_by_step:
     - text: |
-        Để đặt sân cầu lông, bạn có thể làm theo các bước sau:
+        Để đặt sân cầu lông, bạn hãy làm theo các bước sau:
         1. Truy cập website: https://bookingweb.shop
-        2. Chọn địa điểm hoặc club
-        3. Chọn khung giờ
-        4. Xác nhận thanh toán
-        5. Quét mã QRCode và thanh toán
-        6. Nhận mã đặt sân qua Email
-
-  utter_huong_dan_huy_san:
+        2. Tìm kiếm sân phù hợp
+        3. Chọn thời gian đặt sân
+        4. Xác nhận và thanh toán
+        5. Nhận mã đặt sân qua email
     - text: |
-        Bạn có thể hủy sân cầu lông theo các cách sau:
-        1. Đăng nhập vào tài khoản đặt sân > Chọn "Lịch sử đặt sân" > Nhấn "Hủy sân"
-        2. Gọi hotline (số điện thoại) để hủy trực tiếp
-        *Lưu ý:*
-        - Hủy trước 24h: Được hoàn 100% phí
-        - Hủy trong vòng 12h: Phí hủy 50%
+        Bạn có thể đặt sân theo các bước sau:
+        1. Mở trang web: https://bookingweb.shop
+        2. Chọn sân mong muốn
+        3. Đặt giờ chơi
+        4. Hoàn tất thanh toán
+        5. Kiểm tra email để nhận mã đặt sân
+    - text: |
+        Hướng dẫn đặt sân cầu lông:
+        1. Truy cập https://bookingweb.shop
+        2. Chọn sân và giờ chơi
+        3. Thanh toán trực tuyến
+        4. Nhận mã đặt sân qua email
+
+  utter_cancelled_booking:
+    - text: |
+        Để hủy sân, bạn có thể làm như sau:
+        1. Đăng nhập vào tài khoản > Chọn "Lịch sử đặt sân" > Nhấn "Hủy"
+        2. Liên hệ hotline để hủy trực tiếp
+        *Chính sách hoàn phí:*
+        - Hủy trước 24h: Hoàn 100%
+        - Hủy trong 12h: Mất 50% phí
         - Hủy dưới 6h: Không hoàn phí
-        Bạn cần hỗ trợ thêm không ạ?
+        Cần hỗ trợ thêm không ạ?
+    - text: |
+        Bạn có thể hủy sân bằng cách:
+        1. Truy cập "Lịch sử đặt sân" trên tài khoản của bạn và chọn "Hủy sân"
+        2. Gọi đến hotline để yêu cầu hủy sân
+        *Chính sách hoàn tiền:*
+        - Trước 24h: Hoàn đủ
+        - Trong 12h: Hoàn 50%
+        - Dưới 6h: Không hoàn phí
+        Tôi có thể hỗ trợ gì thêm không?
+    - text: |
+        Cách hủy sân cầu lông:
+        1. Đăng nhập vào hệ thống, vào mục "Lịch sử đặt sân" và nhấn "Hủy"
+        2. Liên hệ với tổng đài hỗ trợ để yêu cầu hủy sân
+        *Quy định hủy sân:*
+        - Hủy sớm hơn 24h: Hoàn tiền 100%
+        - Hủy trong vòng 12h: Hoàn 50%
+        - Hủy trong 6h: Không hoàn phí
+        Bạn có cần hỗ trợ gì nữa không?
 
   utter_ask_yard_name:
-    - text: "Bạn muốn kiểm tra sân nào?"
+    - text: "Bạn muốn kiểm tra tình trạng sân nào?"
+    - text: "Vui lòng cho tôi biết tên sân bạn cần kiểm tra!"
+    - text: "Bạn cần kiểm tra sân nào để tôi hỗ trợ bạn?"
 
   utter_default:
     - text: "Xin lỗi! Vui lòng thử lại!"
     - text: "Mình chưa hiểu ý bạn. Bạn có thể diễn đạt lại không?"
     - text: "Hiện mình chưa xử lý được yêu cầu này. Vui lòng thử cách khác!"
+
+  utter_ask_more_club_info:
+    - text: "Bạn có muốn xem thêm thông tin club nào không?"
+    - text: "Bạn có cần biết thêm chi tiết về club nào không?"
+    - text: "Bạn có muốn tìm hiểu thêm về club nào không?"
+
+  utter_ask_booking:
+    - text: "Bạn có muốn đặt sân không?"
+    - text: "Bạn có cần đặt sân ngay không?"
+    - text: "Bạn muốn tiến hành đặt sân chứ?"
+
+  utter_ask_support:
+    - text: "Bạn cần tôi hỗ trợ không?"
+    - text: "Tôi có thể giúp gì cho bạn không?"
+    - text: "Bạn có cần tôi giúp đỡ không?"
+
+  utter_yard_services:
+    - text: |
+        Tại sân có các dịch vụ như:  
+        - Cho thuê vợt và cầu lông  
+        - Bán nước uống, nước tăng lực  
+        - Cung cấp phụ kiện thể thao như giày, vớ, băng tay  
+        - Tổ chức giải đấu theo nhóm và câu lạc bộ  
+        - Dịch vụ đặt sân định kỳ theo tháng
+
+    - text: |
+        Các dịch vụ tại sân bao gồm:  
+        - Cho thuê vợt, giày thể thao  
+        - Bán nước giải khát, thức ăn nhẹ  
+        - Có khu vực nghỉ ngơi, massage nhẹ  
+        - Phòng thay đồ và tủ đồ cá nhân  
+        - Hỗ trợ huấn luyện viên hướng dẫn
+
+    - text: |
+        Sân cung cấp nhiều dịch vụ tiện ích như:  
+        - Bán và cho thuê dụng cụ cầu lông  
+        - Cung cấp nước uống và đồ ăn nhẹ  
+        - Cho thuê sân dài hạn với ưu đãi đặc biệt  
+        - Tổ chức sự kiện thể thao và giải đấu nội bộ  
+        - Hỗ trợ đặt sân linh hoạt theo khung giờ mong muốn
 
 actions:
   - action_fetch_top_clubs

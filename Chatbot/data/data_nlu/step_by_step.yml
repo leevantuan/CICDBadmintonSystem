@@ -13,6 +13,11 @@ nlu:
       - đặt sân cầu lông online được không?  
       - có thể đặt sân cầu lông qua app không?  
       - tôi muốn book sân cầu lông
+      - Bạn có thể giúp tôi đặt sân được không?  
+      - Mình muốn đặt sân, bạn giúp được chứ?  
+      - Bạn có thể hỗ trợ mình đặt sân cầu lông không?  
+      - Làm thế nào để bạn giúp tôi đặt sân?  
+      - Tôi cần đặt sân ngay, bạn giúp tôi được không?
 
   - intent: step_by_step
     examples: |
@@ -54,6 +59,16 @@ nlu:
       - thanh toán online khi đặt sân có được không?  
       - có hỗ trợ ví điện tử không?  
       - tôi có thể dùng thẻ tín dụng để đặt sân không?
+      - Tôi có thể thanh toán đặt sân bằng Momo không?  
+      - Khi đặt sân có cần thanh toán trước không?  
+      - Sân có hỗ trợ quét mã QR để thanh toán không?  
+      - Tôi có thể thanh toán bằng ZaloPay không?  
+      - Có thể trả bằng thẻ ATM nội địa không?  
+      - Đặt sân xong có thể thanh toán sau không?  
+      - Có hoàn tiền nếu hủy sân sau khi thanh toán không?  
+      - Tôi có thể thanh toán một phần trước rồi trả sau không?  
+      - Có thể dùng PayPal để thanh toán không?  
+      - Thanh toán đặt sân có mất phí giao dịch không?
 
   - intent: cancelled_booking
     examples: |
@@ -70,3 +85,36 @@ nlu:
       - tôi cần hủy sân đã book, giúp tôi với
       - nếu hủy sân thì có được hoàn tiền không?
       - tôi muốn cancel sân cầu lông đã đặt
+      - Tôi có thể hủy sân trực tiếp tại sân không?  
+      - Nếu hủy sát giờ thì có mất phí không?  
+      - Làm sao để kiểm tra tình trạng hủy sân của tôi?  
+      - Tôi hủy sân nhưng chưa nhận được xác nhận, phải làm sao?  
+      - Có cách nào hủy sân nhanh nhất không?  
+      - Hủy sân xong có thể đặt lại ngay không?  
+      - Nếu không đến sân thì có tự động hủy không?  
+      - Tôi có thể đổi lịch thay vì hủy sân không?  
+      - Hủy sân có cần lý do cụ thể không?  
+      - Nếu tôi hủy nhiều lần có bị hạn chế đặt sân không?
+
+  - intent: ask_yard_services
+    examples: |
+      - Sân cầu lông có dịch vụ gì khác không?  
+      - Ngoài đặt sân, ở đây có dịch vụ nào khác không?  
+      - Sân có cho thuê vợt không?  
+      - Ở đây có bán cầu lông không?  
+      - Có huấn luyện viên hướng dẫn không?  
+      - Sân có hỗ trợ cho người mới tập không?  
+      - Ở sân có khu vực nghỉ ngơi không?  
+      - Sân có phòng thay đồ không?  
+      - Ở đây có phục vụ nước uống không?  
+      - Sân có chỗ để xe miễn phí không?  
+      - Có thể thuê huấn luyện viên riêng không?  
+      - Ở sân có bán phụ kiện cầu lông không?  
+      - Sân có cho thuê giày thể thao không?  
+      - Có dịch vụ massage hoặc giãn cơ không?  
+      - Sân có cho thuê tủ đồ cá nhân không?  
+      - Ở đây có wifi miễn phí không?  
+      - Có khu vực ăn uống gần sân không?  
+      - Sân có cho đặt sân theo tháng không?  
+      - Có tổ chức giải đấu tại sân không?  
+      - Sân có chương trình giảm giá nào không?

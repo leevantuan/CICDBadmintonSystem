@@ -100,6 +100,9 @@ class ActionCheckYardAvailability(Action):
         return []
 
     # GET API FREE TIME
+    def format_time(self, s: str) -> str:
+        return s[:2] + ":00" if len(s) >= 2 else "00:00"
+
     def _fetch_free_times(self, date: int,startTime:str,endTime:str,yardName:str) -> str:
         """Lấy free times"""
         try:
@@ -114,6 +117,8 @@ class ActionCheckYardAvailability(Action):
             
             # Handler tenant Code
             tenant_code = self._fetch_code_clubs(yardName)
+            startTime = self.format_time(startTime)
+            endTime = self.format_time(endTime)
             
             params = {
                 "date": target_date,
@@ -134,7 +139,7 @@ class ActionCheckYardAvailability(Action):
             api_data = response.json()
 
             if not api_data.get("isSuccess") or not api_data.get("value"):
-                raise ValueError("API returned unsuccessful status")
+                raise ValueError("Rất xin lỗi! Hệ thống đang gặp sự cố vui lòng kiểm tra lại!")
             
             # Tạo response text
             response_text = self._format_response(api_data["value"], yardName)
