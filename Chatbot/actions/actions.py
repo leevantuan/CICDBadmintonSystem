@@ -162,8 +162,7 @@ class ActionCheckYardAvailability(Action):
             # Sắp xếp và format danh sách sân
             yards = sorted(slot["yardNames"])
             yards_text = ", ".join([f"sân {y}" for y in yards])
-            
-            result.append(f"⏰ Khung giờ: {start} - {end} | Còn trống: {yards_text}")
+            result.append(f"⏰ Khung giờ: {start} - {end} \n- Còn trống: {yards_text}")
         
         return "\n".join(result)
     
