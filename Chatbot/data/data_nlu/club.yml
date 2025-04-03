@@ -89,3 +89,26 @@ nlu:
       - [Trung tâm TDTT Q1](club_name) nằm ở đâu?
       - [Sân Quận 3](club_name) ở vị trí nào?
       - [Sân Trung Tâm Thể Thao Hồ Chí Minh](club_name) có thể tìm thấy ở đâu?
+
+  - intent: ask_badminton_court_list
+    examples: |
+      - Tôi cần danh sách sân cầu lông.
+      - Danh sách sân cầu lông là gì?
+      - Hãy cho tôi danh sách sân cầu lông gần đây.
+      - Có những sân cầu lông nào gần đây?
+      - Tôi đang tìm danh sách sân cầu lông.
+      - Làm sao để có danh sách sân cầu lông?
+      - Tôi muốn danh sách sân cầu lông gần nhất.
+      - Có danh sách sân cầu lông không?
+      - Cung cấp danh sách sân cầu lông cho tôi.
+      - Tôi cần biết về danh sách các sân cầu lông.
+      - Danh sách sân cầu lông trong khu vực là gì?
+      - Sân cầu lông nào nằm trong danh sách?
+      - Hãy đưa cho tôi danh sách sân cầu lông.
+      - Sân cầu lông nào có trong danh sách?
+      - Tôi muốn biết danh sách các sân cầu lông.
+      - Làm cách nào để lấy danh sách sân cầu lông?
+      - Những sân cầu lông nào được liệt kê trong danh sách?
+      - Cần tìm danh sách sân cầu lông ngay bây giờ.
+      - Danh sách sân cầu lông có những gì?
+      - Sân cầu lông nào hiện nằm trong danh sách?

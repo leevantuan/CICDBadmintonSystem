@@ -158,3 +158,13 @@ stories:
       - action: utter_yard_services
       - intent: goodbye
       - action: utter_goodbye
+
+  # Get clubs Default
+  - story: Get clubs default
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: ask_badminton_court_list
+      - slot_was_set:
+          - quantity: "3"
+      - action: action_fetch_top_clubs
