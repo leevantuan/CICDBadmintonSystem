@@ -70,7 +70,6 @@ class ActionFetchTopClubs(Action):
             response += f"{idx}. {club['name']} (⭐️{club['rating']}) 📞{club['hotline']}\n"
         return response
 
-
 # =========================== ACTION FREE TIMES ====================================
 
 class ActionCheckYardAvailability(Action):

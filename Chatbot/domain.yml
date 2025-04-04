@@ -12,6 +12,7 @@ intents:
   - ask_top_rated_clubs
   - ask_yard_availability
   - ask_general_club_info
+  - ask_badminton_court_list
 
 entities:
   - quantity
