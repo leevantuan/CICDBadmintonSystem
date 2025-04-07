@@ -250,12 +250,89 @@ class ActionConfirmBooking(Action):
         club_name = tracker.get_slot("book_clubName")
         start_time = tracker.get_slot("book_startTime")
         end_time = tracker.get_slot("book_endTime")
-        booking_date = tracker.get_slot("book_date")
+        booking_date = int(tracker.get_slot("book_date"))
 
-        message = f"✅ Hãy nhập email của bạn để đặt sân tại {club_name} từ {start_time} đến {end_time} vào {booking_date} nhé!"
+        message = self._fetch_check_free_times(booking_date,start_time,end_time,club_name);
         dispatcher.utter_message(text=message)
 
         return []
+
+    def format_time(self, s: str) -> str:
+        return s[:2] + ":00" if len(s) >= 2 else "00:00"
+    
+    # Check free time
+    def _fetch_check_free_times(self, date: int,startTime:str,endTime:str,yardName:str) -> str:
+        """Lấy free times"""
+        try:
+            # Handler date format and time now format
+            if date == 0:
+                target_date = datetime.now().strftime("%Y-%m-%d")  # Format: 2025-03-27
+            else:
+                target_date = (datetime.now() + timedelta(days=date)).strftime("%Y-%m-%d")
+            
+            # Handler tenant Code
+            tenant_code = self._fetch_code_clubs(yardName)
+            startTime = self.format_time(startTime)
+            endTime = self.format_time(endTime)
+            
+            params = {
+                "date": target_date,
+                "startTime": startTime,
+                "endTime": endTime,
+                "tenant": tenant_code,
+            }
+            
+            response = requests.get(
+                f"{url}/bookings/check-unbooked?",
+                params=params,
+                timeout=5
+            )
+            
+            response.raise_for_status()
+
+            api_data = response.json()
+
+            if not api_data.get("isSuccess") or not api_data.get("value"):
+                raise ValueError("Rất xin lỗi! Thời gian bạn chọn không còn sân trống. Vui lòng kiểm tra lại!")
+            
+            # Tạo response text
+            response_text = self._format_response(api_data["value"], yardName)
+            
+            return response_text
+        
+        except Exception as e:
+            return f"Error: {str(e)}"
+    
+    def _format_response(self, value_data, yardName):
+        start_time = value_data[0]["startTime"]
+        end_time = value_data[0]["endTime"]
+        
+        response_text = f"✅ Hãy nhập email của bạn để đặt sân tại {yardName} từ {start_time} đến {end_time} nhé!"
+        
+        return response_text
+
+     # GET API CODE CLUBS
+    def _fetch_code_clubs(self, yardName: str) -> str:
+        """Lấy Code Club"""
+        try:
+            encoded_name = quote(yardName)
+            
+            response = requests.get(
+                f"{url}/clubs/get-code/{encoded_name}",
+                timeout=5
+            )
+            response.raise_for_status()
+
+            api_data = response.json()
+
+            if not api_data.get("isSuccess", False):
+                raise ValueError("API returned unsuccessful status")
+
+            return api_data.get("value", {}).get("code", "")
+
+        except Exception as e:
+            return []
+ 
 
 class ActionCreateBooking(Action):
     def name(self) -> Text:
@@ -269,9 +346,94 @@ class ActionCreateBooking(Action):
         club_name = tracker.get_slot("book_clubName")
         start_time = tracker.get_slot("book_startTime")
         end_time = tracker.get_slot("book_endTime")
-        booking_date = tracker.get_slot("book_date")
+        booking_date = int(tracker.get_slot("book_date"))
 
-        message = f"✅ Hãy nhập email: {email} của bạn để đặt sân tại {club_name} từ {start_time} đến {end_time} vào {booking_date} nhé!"
+        message = self._fetch_create_times(booking_date,start_time,end_time,club_name,email);
+        dispatcher.utter_message(text=message)
+        # message = f"✅ Hãy nhập email: {email} của bạn để đặt sân tại {club_name} từ {start_time} đến {end_time} vào {booking_date} nhé!"
         dispatcher.utter_message(text=message)
 
         return []
+    
+    def format_time(self, s: str) -> str:
+        return s[:2] + ":00" if len(s) >= 2 else "00:00"
+    
+    # Check free time
+    def _fetch_create_times(self, date: int,startTime:str,endTime:str,yardName:str, email:str) -> str:
+        """Lấy free times"""
+        try:
+            # Handler date format and time now format
+            if date == 0:
+                target_date = datetime.now().strftime("%Y-%m-%d")  # Format: 2025-03-27
+            else:
+                target_date = (datetime.now() + timedelta(days=date)).strftime("%Y-%m-%d")
+            
+            # Handler tenant Code
+            tenant_code = self._fetch_code_clubs(yardName)
+            startTime = self.format_time(startTime)
+            endTime = self.format_time(endTime)
+            
+            params = {
+                "date": target_date,
+                "startTime": startTime,
+                "endTime": endTime,
+                "tenantCode": tenant_code,
+                "email": email,
+            }
+            
+            response = requests.get(
+                f"{url}/bookings/create-booking-by-chat?",
+                params=params,
+                timeout=30
+            )
+            
+            response.raise_for_status()
+
+            api_data = response.json()
+
+            if not api_data.get("isSuccess") or not api_data.get("value"):
+                raise ValueError("Rất xin lỗi! Thời gian bạn chọn không còn sân trống. Vui lòng kiểm tra lại!")
+            
+            # Tạo response text
+            response_text = self._format_response(api_data["value"])
+            
+            return response_text
+        
+        except Exception as e:
+            return f"Error: {str(e)}"
+    
+    def _format_response(self, value_data):
+        if not value_data:
+            return "No payment information available"
+        
+        # Get the payment URL
+        pay_url = value_data.get("payUrl", "")
+        
+        if not pay_url:
+            return "Vui lòng thanh toán qua QRCode. Url thanh toán không khả dụng"
+        
+        # Return your message with the payment URL appended
+        return f"Vui lòng thanh toán qua QRCode. Url = {pay_url}"
+
+     # GET API CODE CLUBS
+    def _fetch_code_clubs(self, yardName: str) -> str:
+        """Lấy Code Club"""
+        try:
+            encoded_name = quote(yardName)
+            
+            response = requests.get(
+                f"{url}/clubs/get-code/{encoded_name}",
+                timeout=5
+            )
+            response.raise_for_status()
+
+            api_data = response.json()
+
+            if not api_data.get("isSuccess", False):
+                raise ValueError("API returned unsuccessful status")
+
+            return api_data.get("value", {}).get("code", "")
+
+        except Exception as e:
+            return []
+ 
