@@ -13,6 +13,8 @@ intents:
   - ask_yard_availability
   - ask_general_club_info
   - ask_badminton_court_list
+  - book_court_date_only
+  - provide_email
 
 entities:
   - quantity
@@ -21,6 +23,11 @@ entities:
   - endTime
   - quantityDate
   - club_name
+  - book_clubName
+  - book_startTime
+  - book_endTime
+  - book_date
+  - email
 
 # Định nghĩa các slots
 slots:
@@ -59,6 +66,36 @@ slots:
     mappings:
       - type: from_entity
         entity: club_name
+
+  book_clubName:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: book_clubName
+
+  book_startTime:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: book_startTime
+
+  book_endTime:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: book_endTime
+
+  book_date:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: book_date
+
+  email:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: email
 
 synonyms:
   "nhất": "1"
@@ -211,6 +248,8 @@ actions:
   - action_fetch_top_clubs
   - action_check_yard_availability
   - action_provide_club_info
+  - action_confirm_booking
+  - action_create_booking
 
 session_config:
   session_expiration_time: 60

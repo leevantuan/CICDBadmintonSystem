@@ -168,3 +168,17 @@ stories:
       - slot_was_set:
           - quantity: "3"
       - action: action_fetch_top_clubs
+
+  - story: book full court with all info
+    steps:
+      - intent: book_court_full
+        entities:
+          - book_clubName: "Cầu lông Way station"
+          - book_startTime: "16:00"
+          - book_endTime: "20:00"
+          - book_date: "ngày mai"
+      - action: action_confirm_booking
+      - intent: provide_email
+        entities:
+          - email: "leevantuan2002@gmail.com"
+      - action: action_create_booking

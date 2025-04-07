@@ -238,3 +238,40 @@ class ActionProvideClubInfo(Action):
     # Format response
    
 # =========================== ACTION Fall Back ====================================
+
+class ActionConfirmBooking(Action):
+    def name(self) -> Text:
+        return "action_confirm_booking"
+
+    def run(self, dispatcher: executor.CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        club_name = tracker.get_slot("book_clubName")
+        start_time = tracker.get_slot("book_startTime")
+        end_time = tracker.get_slot("book_endTime")
+        booking_date = tracker.get_slot("book_date")
+
+        message = f"✅ Hãy nhập email của bạn để đặt sân tại {club_name} từ {start_time} đến {end_time} vào {booking_date} nhé!"
+        dispatcher.utter_message(text=message)
+
+        return []
+
+class ActionCreateBooking(Action):
+    def name(self) -> Text:
+        return "action_create_booking"
+
+    def run(self, dispatcher: executor.CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        email = tracker.get_slot("email")
+        club_name = tracker.get_slot("book_clubName")
+        start_time = tracker.get_slot("book_startTime")
+        end_time = tracker.get_slot("book_endTime")
+        booking_date = tracker.get_slot("book_date")
+
+        message = f"✅ Hãy nhập email: {email} của bạn để đặt sân tại {club_name} từ {start_time} đến {end_time} vào {booking_date} nhé!"
+        dispatcher.utter_message(text=message)
+
+        return []
