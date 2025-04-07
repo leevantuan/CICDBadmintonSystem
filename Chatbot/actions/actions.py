@@ -257,6 +257,7 @@ class ActionConfirmBooking(Action):
 
         return []
 
+
 class ActionCreateBooking(Action):
     def name(self) -> Text:
         return "action_create_booking"
