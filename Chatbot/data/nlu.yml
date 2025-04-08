@@ -531,3 +531,36 @@ nlu:
       - Sân có cho đặt sân theo tháng không?  
       - Có tổ chức giải đấu tại sân không?  
       - Sân có chương trình giảm giá nào không?
+
+  - intent: check_booking
+    examples: |
+      - Lịch đặt sân [hôm nay](check_date) của tôi
+      - [Hôm nay](check_date) tôi có lịch nào không?
+      - Kiểm tra lịch sân [hôm nay](check_date) giúp tôi
+      - Cho tôi biết lịch sân [ngày mai](check_date)
+      - Có lịch đặt sân nào vào [ngày mai](check_date) không?
+      - Tôi đã đặt sân [hôm nay](check_date) chưa?
+      - Lịch sân của tôi vào [ngày mai](check_date) là gì?
+      - Tôi có chơi cầu lông vào [hôm nay](check_date) không?
+      - Sân tôi đặt [ngày mai](check_date) ở đâu?
+      - Có sân nào đã được đặt [hôm nay](check_date) không?
+      - Check giúp lịch [ngày mai](check_date) có sân chưa?
+      - [Hôm nay](check_date) có lịch sân nào của tôi không?
+      - Xem lịch chơi cầu lông [ngày mai](check_date)
+      - Lịch thi đấu của tôi vào [hôm nay](check_date) là gì?
+      - Tôi có lịch đánh cầu lông [hôm nay](check_date) không?
+      - Kiểm tra hộ tôi xem [ngày mai](check_date) có sân nào không?
+      - Lịch sử đặt sân [hôm nay](check_date) của tôi đâu?
+      - Tôi có phải đến sân [ngày mai](check_date) không?
+      - Có đặt sân nào cho [ngày mai](check_date) chưa?
+      - Nhắc lịch đánh cầu lông [hôm nay](check_date) đi
+      - Cho tôi xem lịch chơi [ngày mai](check_date)
+      - Có booking nào [hôm nay](check_date) không?
+      - Booking sân [ngày mai](check_date) là lúc mấy giờ?
+      - Tôi có lịch vào [hôm nay](check_date) không?
+      - Giúp tôi kiểm tra lịch đặt vào [ngày mai](check_date)
+      - Tôi đã đặt sân lúc nào vào [hôm nay](check_date)?
+      - Cho tôi lịch đánh cầu lông [ngày mai](check_date)
+      - [Ngày mai](check_date) có lịch sân chưa?
+      - Có lịch chơi nào [hôm nay](check_date) không?
+      - Danh sách lịch sân [ngày mai](check_date) giúp tôi

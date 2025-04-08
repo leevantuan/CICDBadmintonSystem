@@ -192,3 +192,15 @@ stories:
       - slot_was_set:
           - quantity: "3" # Mặc định
       - action: action_fetch_top_clubs
+
+  # Check booking
+  - story: check booking
+    steps:
+      - intent: check_booking
+      - slot_was_set:
+          - check_date: "hôm nay"
+      - action: action_check_booking
+      - intent: provide_email
+        entities:
+          - email: "leevantuan2002@gmail.com"
+      - action: action_handle_booking

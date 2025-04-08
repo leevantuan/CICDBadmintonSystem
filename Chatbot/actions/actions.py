@@ -306,12 +306,23 @@ class ActionConfirmBooking(Action):
             return f"Error: {str(e)}"
     
     def _format_response(self, value_data, yardName):
-        start_time = value_data[0]["startTime"]
-        end_time = value_data[0]["endTime"]
-        
-        response_text = f"✅ Hãy nhập email của bạn để đặt sân tại {yardName} từ {start_time} đến {end_time} nhé!"
-        
+        if not value_data:
+            return "❌ Hiện tại chưa có khung giờ nào khả dụng để đặt sân."
+
+        time_slots = []
+        for item in value_data:
+            start = item.get("startTime", "??:??")
+            end = item.get("endTime", "??:??")
+            time_slots.append(f"{start} đến {end}")
+
+        time_slots_str = ", ".join(time_slots)
+
+        response_text = (
+            f"✅ Hãy nhập email của bạn để đặt sân tại **{yardName}** vào các khung giờ sau: {time_slots_str} nhé!"
+        )
+
         return response_text
+
 
      # GET API CODE CLUBS
     def _fetch_code_clubs(self, yardName: str) -> str:
@@ -451,3 +462,99 @@ class ActionFallback(Action):
         dispatcher.utter_message(response="utter_default")
 
         return [UserUtteranceReverted()]
+    
+# =========================== ACTION Check booking ====================================
+
+class ActionCheckBooking(Action):
+    def name(self) -> Text:
+        return "action_check_booking"
+
+    def run(self, dispatcher: executor.CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        date = int(tracker.get_slot("check_date"))
+        
+        if date is None:
+            dispatcher.utter_message(text="Vui lòng cung cấp thời gian chính xác.")
+            return []
+
+        if date == 0:
+            target_date = datetime.now().strftime("%d-%m-%Y")  # Format: 2025-03-27
+        else:
+            target_date = (datetime.now() + timedelta(days=date)).strftime("%Y-%m-%d")
+            
+        dispatcher.utter_message(text=f"Vui lòng nhập Email cần kiểm tra lịch cho ngày {target_date}")
+
+        return []
+
+
+class ActionHandleCheckBooking(Action):
+    def name(self) -> Text:
+        return "action_handle_booking"
+
+    def run(self, dispatcher: executor.CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        date = int(tracker.get_slot("check_date"))
+        email = tracker.get_slot("email")
+        
+        message = self._fetch_check_booking(date,email);
+        dispatcher.utter_message(text=message)
+        
+        return []
+    
+        
+    # Check free time
+    def _fetch_check_booking(self, date: int, email:str) -> str:
+        """Lấy free times"""
+        try:
+            # Handler date format and time now format
+            if date == 0:
+                target_date = datetime.now().strftime("%Y-%m-%d")  # Format: 2025-03-27
+            else:
+                target_date = (datetime.now() + timedelta(days=date)).strftime("%Y-%m-%d")
+            
+            params = {
+                "date": target_date,
+                "email": email,
+            }
+            
+            response = requests.get(
+                f"{url}/api/v1/booking-histories/get-by-date?",
+                params=params,
+                timeout=30
+            )
+            
+            # response = requests.get(
+            #     f"{url}/bookings/create-booking-by-chat?",
+            #     params=params,
+            #     timeout=30
+            # )
+            
+            response.raise_for_status()
+            api_data = response.json()
+
+            if not api_data.get("isSuccess") or not api_data.get("value"):
+                raise ValueError("Rất xin lỗi thông tin không chính xác! Vui lòng kiểm tra lại!")
+            
+            # Tạo response text
+            response_text = self._format_response(api_data["value"])
+            
+            return response_text
+        
+        except Exception as e:
+            return f"Error: {str(e)}"
+    
+    def _format_response(self, bookings: list) -> str:
+        responses = []
+
+        for booking in bookings:
+            club_name = booking.get("clubName", "không rõ sân")
+            start_time = booking.get("startTime", "không rõ thời gian")
+
+            response = f"Hôm nay bạn có lịch tại sân {club_name} lúc {start_time}"
+            responses.append(response)
+
+        return "\n".join(responses)
