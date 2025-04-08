@@ -522,7 +522,7 @@ class ActionHandleCheckBooking(Action):
             }
             
             response = requests.get(
-                f"{url}/api/v1/booking-histories/get-by-date?",
+                f"{url}/booking-histories/get-by-date?",
                 params=params,
                 timeout=30
             )
