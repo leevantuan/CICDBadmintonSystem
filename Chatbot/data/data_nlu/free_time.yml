@@ -101,49 +101,97 @@ nlu:
       - [Tối mai](quantityDate:1) [Way Station](yardName) còn sân từ [16h](startTime) đến [20h](endTime) không?
       - [Tối ngày kia](quantityDate:2) [Shuttle Master](yardName) có sân từ [16h](startTime) đến [20h](endTime) không?
       - [Tối 3 ngày sau](quantityDate:3) [Elite Stadium](yardName) còn sân từ [16h](startTime) đến [20h](endTime) không?
+      - Cho tôi đặt sân ở [The Champion](yardName) [sáng mai](quantityDate:1) từ [7:00](startTime) đến [9:00](endTime).
+      - Làm ơn kiểm tra giúp sân ở [Smash Arena](yardName) tối [ngày mai](quantityDate:1) khoảng [18:00](startTime) đến [20:00](endTime) có trống không?
+      - Tôi cần đặt sân ở [Way Station](yardName) [ngày kia](quantityDate:2) từ [16:00](startTime) tới [18:00](endTime).
+      - [Thứ sáu tuần này](quantityDate:4) sân [Club A](yardName) có khung [19:00](startTime) - [21:00](endTime) không?
+      - [Smash Arena](yardName) có sân trống [ngày mốt](quantityDate:2) từ [17:00](startTime) đến [19:00](endTime) không?
+      - Đặt trước sân [Galaxy Court](yardName) [ngày mai](quantityDate:1) từ [10:00](startTime) tới [12:00](endTime) nhé.
+      - Em muốn book sân ở [Elite Court](yardName) [thứ bảy](quantityDate:5) từ [8:00](startTime) đến [10:00](endTime).
+      - Có sân nào ở [Smash Center](yardName) trống [tối nay](quantityDate:0) sau [19:00](startTime) không?
+      - Tối mai [Galaxy Sports](yardName) có sân từ [18:00](startTime) đến [20:00](endTime) không vậy?
+      - [The Champion](yardName) có khung giờ từ [6:00](startTime) đến [7:30](endTime) [sáng mai](quantityDate:1) không?
+      - Kiểm tra giúp mình slot [15:00](startTime) - [17:00](endTime) ở [Shuttle Master](yardName) [ngày kia](quantityDate:2).
+      - Sân [Smash Arena](yardName) trống lúc nào [cuối tuần này](quantityDate:5)?
+      - Em muốn đặt khung [20:00](startTime) - [22:00](endTime) tại [Way Station](yardName) vào [thứ bảy](quantityDate:5).
+      - Mai [Shuttle Master](yardName) có khung [17:30](startTime) đến [19:30](endTime) không?
+      - Đặt sân tại [Smash Center](yardName) [ngày kia](quantityDate:2) buổi sáng khung nào cũng được.
+      - [Galaxy Court](yardName) có sân nào rảnh [tối mai](quantityDate:1) từ [18:30](startTime)?
+      - [Cầu Lông Long Vũ](yardName) trống slot từ [7:00](startTime) tới [9:00](endTime) [ngày mai](quantityDate:1) không?
+      - Book sân ở [Elite Court](yardName) vào [thứ hai tới](quantityDate:7) từ [13:00](startTime) đến [15:00](endTime).
+      - Có khung nào buổi chiều ở [Galaxy Sports](yardName) [thứ năm này](quantityDate:3) không?
+      - [Shuttle Master](yardName) có trống buổi sáng [ngày mốt](quantityDate:2) từ [9:00](startTime)?
+      - Em cần sân [Smash Arena](yardName) [sáng chủ nhật](quantityDate:5) khung [6:00](startTime) đến [8:00](endTime).
+      - [Way Station](yardName) có slot [15:00](startTime) đến [17:00](endTime) [ngày kia](quantityDate:2) không?
+      - Cho mình xem khung giờ trống ở [The Champion](yardName) vào [cuối tuần](quantityDate:5).
+      - Đặt sân ở [Galaxy Court](yardName) [tối mai](quantityDate:1) từ [20:00](startTime) đến [22:00](endTime).
+      - [Cầu Lông Long Vũ](yardName) [ngày mai](quantityDate:1) còn sân khung [14:00](startTime) tới [16:00](endTime) không?
+      - Em muốn giữ sân [Smash Center](yardName) từ [9:00](startTime) đến [11:00](endTime) [ngày mốt](quantityDate:2).
+      - Cho mình check slot ở [Smash Arena](yardName) [tối nay](quantityDate:0) sau [19:00](startTime).
+      - [Elite Court](yardName) còn sân buổi chiều [ngày kia](quantityDate:2) không?
+      - Mình muốn book khung [10:00](startTime) - [12:00](endTime) tại [Way Station](yardName) [sáng mai](quantityDate:1).
+      - Hỏi giúp sân [The Champion](yardName) tối [thứ bảy](quantityDate:5) có từ [18:00](startTime) không?
 
   - intent: book_court_date_only
     examples: |
-      - Tôi muốn đặt sân tại [Cầu lông Quận 1](book_clubName) lúc [16:00](book_startTime) đến [18:00](book_endTime) vào [hôm nay](book_date)
-      - Đặt giúp mình sân [Cầu lông Nguyễn Tri Phương](book_clubName) [ngày mai](book_date) từ [17:00](book_startTime) đến [19:00](book_endTime)
-      - Em muốn thuê sân [Cầu lông Lý Thường Kiệt](book_clubName) [ngày mai](book_date), [15:00](book_startTime) đến [17:00](book_endTime)
-      - Mình cần đặt ở [Cầu lông Thống Nhất](book_clubName), từ [18:00](book_startTime) đến [20:00](book_endTime) vào [hôm nay](book_date)
-      - Book giúp mình sân [Cầu lông Hòa Bình](book_clubName) từ [09:00](book_startTime) đến [11:00](book_endTime) [ngày mai](book_date)
-      - Cho mình đặt lịch ở [Cầu lông Tân Bình](book_clubName) [hôm nay](book_date), [19:00](book_startTime) tới [21:00](book_endTime)
-      - Tôi muốn chơi ở [Cầu lông Bình Thạnh](book_clubName) từ [08:00](book_startTime) đến [10:00](book_endTime) [hôm nay](book_date)
-      - Book sân tại [Cầu lông Gia Định](book_clubName) vào [ngày mai](book_date) [13:00](book_startTime) tới [15:00](book_endTime)
-      - Mình đặt ở [Cầu lông Nguyễn Văn Cừ](book_clubName) từ [14:00](book_startTime) đến [16:00](book_endTime) vào [hôm nay](book_date)
-      - Em đặt sân [Cầu lông Hưng Phú](book_clubName) [ngày mai](book_date), [10:00](book_startTime) đến [12:00](book_endTime)
-      - Tôi muốn chơi tại [Cầu lông Linh Trung](book_clubName) vào [ngày mai](book_date) từ [07:00](book_startTime) đến [09:00](book_endTime)
-      - Cho tôi đặt ở [Cầu lông Phú Thọ](book_clubName) từ [17:00](book_startTime) đến [19:00](book_endTime) vào [hôm nay](book_date)
-      - Book nhanh sân [Cầu lông Cộng Hòa](book_clubName) [ngày mai](book_date), từ [11:00](book_startTime) tới [13:00](book_endTime)
-      - Mình muốn đặt lịch ở [Cầu lông Tân Sơn Nhất](book_clubName), [hôm nay](book_date), [12:00](book_startTime) đến [14:00](book_endTime)
-      - Đặt giúp em sân [Cầu lông Trường Sơn](book_clubName) [ngày mai](book_date), từ [15:00](book_startTime) đến [17:00](book_endTime)
-      - Tôi đặt sân [Cầu lông An Phú Đông](book_clubName) [ngày mai](book_date), lúc [16:00](book_startTime) đến [18:00](book_endTime)
-      - Em muốn chơi ở [Cầu lông Tân Phú](book_clubName) [ngày mai](book_date), [08:00](book_startTime) tới [10:00](book_endTime)
-      - Đặt ở [Cầu lông Bình Dương](book_clubName) vào [hôm nay](book_date) [09:00](book_startTime) đến [11:00](book_endTime)
-      - Mình cần book [Cầu lông Mega Club](book_clubName) [ngày mai](book_date), [13:00](book_startTime) đến [15:00](book_endTime)
-      - Book sân tại [Cầu lông Quận 7](book_clubName), [hôm nay](book_date), [17:00](book_startTime) đến [19:00](book_endTime)
-      - Tôi muốn đặt sân tại [Cầu lông Quận 1](book_clubName) lúc [16h](book_startTime) đến [18h](book_endTime) vào [hôm nay](book_date)
-      - Đặt giúp mình sân [Cầu lông Nguyễn Tri Phương](book_clubName) [ngày mai](book_date) từ [17h](book_startTime) đến [19h](book_endTime)
-      - Em muốn thuê sân [Cầu lông Lý Thường Kiệt](book_clubName) [ngày mai](book_date), [15h](book_startTime) đến [17h](book_endTime)
-      - Mình cần đặt ở [Cầu lông Thống Nhất](book_clubName), từ [18h](book_startTime) đến [20h](book_endTime) vào [hôm nay](book_date)
-      - Book giúp mình sân [Cầu lông Hòa Bình](book_clubName) từ [9h](book_startTime) đến [11h](book_endTime) [ngày mai](book_date)
-      - Cho mình đặt lịch ở [Cầu lông Tân Bình](book_clubName) [hôm nay](book_date), [19h](book_startTime) tới [21h](book_endTime)
-      - Tôi muốn chơi ở [Cầu lông Bình Thạnh](book_clubName) từ [8h](book_startTime) đến [10h](book_endTime) [hôm nay](book_date)
-      - Book sân tại [Cầu lông Gia Định](book_clubName) vào [ngày mai](book_date) [13h](book_startTime) tới [15h](book_endTime)
-      - Mình đặt ở [Cầu lông Nguyễn Văn Cừ](book_clubName) từ [14h](book_startTime) đến [16h](book_endTime) vào [hôm nay](book_date)
-      - Em đặt sân [Cầu lông Hưng Phú](book_clubName) [ngày mai](book_date), [10h](book_startTime) đến [12h](book_endTime)
-      - Tôi muốn chơi tại [Cầu lông Linh Trung](book_clubName) vào [ngày mai](book_date) từ [7h](book_startTime) đến [9h](book_endTime)
-      - Cho tôi đặt ở [Cầu lông Phú Thọ](book_clubName) từ [17h](book_startTime) đến [19h](book_endTime) vào [hôm nay](book_date)
-      - Book nhanh sân [Cầu lông Cộng Hòa](book_clubName) [ngày mai](book_date), từ [11h](book_startTime) tới [13h](book_endTime)
-      - Mình muốn đặt lịch ở [Cầu lông Tân Sơn Nhất](book_clubName), [hôm nay](book_date), [12h](book_startTime) đến [14h](book_endTime)
-      - Đặt giúp em sân [Cầu lông Trường Sơn](book_clubName) [ngày mai](book_date), từ [15h](book_startTime) đến [17h](book_endTime)
-      - Tôi đặt sân [Cầu lông An Phú Đông](book_clubName) [ngày mai](book_date), lúc [16h](book_startTime) đến [18h](book_endTime)
-      - Em muốn chơi ở [Cầu lông Tân Phú](book_clubName) [ngày mai](book_date), [8h](book_startTime) tới [10h](book_endTime)
-      - Đặt ở [Cầu lông Bình Dương](book_clubName) vào [hôm nay](book_date) [9h](book_startTime) đến [11h](book_endTime)
-      - Mình cần book [Cầu lông Mega Club](book_clubName) [ngày mai](book_date), [13h](book_startTime) đến [15h](book_endTime)
-      - Book sân tại [Cầu lông Quận 7](book_clubName), [hôm nay](book_date), [17h](book_startTime) đến [19h](book_endTime)
+      - Mình muốn đặt sân ở [Cầu lông Quận 5](book_clubName) vào [hôm nay](book_date) từ [19h](book_startTime) tới [21h](book_endTime)
+      - Mình muốn đặt sân ở [Cầu lông Bình Dương](book_clubName) vào [ngày mai](book_date) từ [16h](book_startTime) tới [18h](book_endTime)
+      - Đặt giúp em sân [Cầu lông Hà Đông](book_clubName) [ngày mai](book_date), [17:00](book_startTime) - [19:00](book_endTime)
+      - Đặt giúp em sân [Cầu lông Long An](book_clubName) [hôm nay](book_date), [15:00](book_startTime) - [17:00](book_endTime)
+      - Cho hỏi [Cầu lông Linh Đàm](book_clubName) còn trống từ [16h](book_startTime) đến [18h](book_endTime) [hôm nay](book_date) không?
+      - Cho hỏi [Cầu lông Thái Nguyên](book_clubName) còn trống từ [14h](book_startTime) đến [16h](book_endTime) [ngày mai](book_date) không?
+      - Bác ơi, giúp cháu book sân [Cầu lông Huế Center](book_clubName) [ngày mai](book_date), [18h](book_startTime) đến [20h](book_endTime) với
+      - Bác ơi, giúp cháu book sân [Cầu lông Phan Thiết](book_clubName) [hôm nay](book_date), [10h](book_startTime) đến [12h](book_endTime) với
+      - Làm ơn đặt giúp mình sân [Cầu lông Đà Nẵng Sports](book_clubName) từ [15h](book_startTime) tới [17h](book_endTime) vào [ngày mai](book_date)
+      - Làm ơn đặt giúp mình sân [Cầu lông Gia Lai](book_clubName) từ [13h](book_startTime) tới [15h](book_endTime) vào [hôm nay](book_date)
+      - Tui muốn đặt sân ở [Cầu lông Gò Vấp](book_clubName) [hôm nay](book_date), [14h](book_startTime) tới [16h](book_endTime) nhe
+      - Tui muốn đặt sân ở [Cầu lông Sóc Trăng](book_clubName) [ngày mai](book_date), [11h](book_startTime) tới [13h](book_endTime) nhe
+      - Em hỏi chút, giờ [Cầu lông Quận 10](book_clubName) còn trống lúc [9h](book_startTime) [ngày mai](book_date) không?
+      - Em hỏi chút, giờ [Cầu lông Bến Tre](book_clubName) còn trống lúc [8h](book_startTime) [hôm nay](book_date) không?
+      - Cô giúp con book sân [Cầu lông Hội An](book_clubName) vào [hôm nay](book_date) [16:00](book_startTime) - [18:00](book_endTime) nha cô
+      - Cô giúp con book sân [Cầu lông Tuy Hòa](book_clubName) vào [ngày mai](book_date) [13:00](book_startTime) - [15:00](book_endTime) nha cô
+      - Mình cần sân ở [Cầu lông Bình Tân](book_clubName) [ngày mai](book_date), từ [11:00](book_startTime) đến [13:00](book_endTime)
+      - Mình cần sân ở [Cầu lông Lâm Đồng](book_clubName) [hôm nay](book_date), từ [9:00](book_startTime) đến [11:00](book_endTime)
+      - Chị ơi, book giúp em [Cầu lông Thủ Đức](book_clubName) từ [10h](book_startTime) đến [12h](book_endTime), [ngày mai](book_date) nhé
+      - Chị ơi, book giúp em [Cầu lông Cà Mau](book_clubName) từ [8h](book_startTime) đến [10h](book_endTime), [hôm nay](book_date) nhé
+      - Còn sân nào trống ở [Cầu lông Cần Thơ](book_clubName) [hôm nay](book_date) lúc [13h](book_startTime) không nhỉ?
+      - Còn sân nào trống ở [Cầu lông Trà Vinh](book_clubName) [ngày mai](book_date) lúc [15h](book_startTime) không nhỉ?
+      - Lịch rảnh hôm nay [18h](book_startTime) đến [20h](book_endTime), book cho tui ở [Cầu lông Cầu Giấy](book_clubName) nha
+      - Lịch rảnh ngày mai [14h](book_startTime) đến [16h](book_endTime), book cho tui ở [Cầu lông Bắc Giang](book_clubName) nha
+      - Mày book giúp tao sân [Cầu lông Láng Hạ](book_clubName) [ngày mai](book_date) từ [15h](book_startTime) đến [17h](book_endTime) cái coi
+      - Mày book giúp tao sân [Cầu lông Hà Tĩnh](book_clubName) [hôm nay](book_date) từ [9h](book_startTime) đến [11h](book_endTime) cái coi
+      - Anh/chị đặt giúp sân [Cầu lông Huỳnh Tấn Phát](book_clubName) từ [8h](book_startTime) đến [10h](book_endTime) [hôm nay](book_date) nha
+      - Anh/chị đặt giúp sân [Cầu lông Nha Trang](book_clubName) từ [7h](book_startTime) đến [9h](book_endTime) [ngày mai](book_date) nha
+      - Book giúp bé sân [Cầu lông Mỹ Tho](book_clubName) [ngày mai](book_date), giờ [7h](book_startTime) tới [9h](book_endTime) đi ạ
+      - Book giúp bé sân [Cầu lông Phan Rang](book_clubName) [hôm nay](book_date), giờ [6h](book_startTime) tới [8h](book_endTime) đi ạ
+      - Làm ơn check giúp [Cầu lông Hải Châu](book_clubName) có trống khung [14h](book_startTime) - [16h](book_endTime) [ngày mai](book_date) không?
+      - Làm ơn check giúp [Cầu lông Cẩm Lệ](book_clubName) có trống khung [15h](book_startTime) - [17h](book_endTime) [ngày mai](book_date) không?
+      - Anh đặt giúp em sân [Cầu lông Ninh Kiều](book_clubName), từ [9h](book_startTime) đến [11h](book_endTime) vào [ngày mai](book_date) nha
+      - Anh đặt giúp em sân [Cầu lông Long Xuyên](book_clubName), từ [10h](book_startTime) đến [12h](book_endTime) vào [ngày mai](book_date) nha
+      - Mình muốn book liền sân [Cầu lông Lê Văn Sỹ](book_clubName), [hôm nay](book_date), [17:00](book_startTime) tới [19:00](book_endTime)
+      - Mình muốn book liền sân [Cầu lông Nguyễn Tri Phương](book_clubName), [hôm nay](book_date), [18:00](book_startTime) tới [20:00](book_endTime)
+      - Đặt dùm sân ở [Cầu lông Quận 6](book_clubName), [ngày mai](book_date), [16:00](book_startTime) tới [18:00](book_endTime)
+      - Đặt dùm sân ở [Cầu lông Quận 11](book_clubName), [ngày mai](book_date), [17:00](book_startTime) tới [19:00](book_endTime)
+      - Còn slot nào ở [Cầu lông Huế Green](book_clubName) lúc [19h](book_startTime) không bạn? [hôm nay](book_date) nha
+      - Còn slot nào ở [Cầu lông Bến Tre](book_clubName) lúc [20h](book_startTime) không bạn? [hôm nay](book_date) nha
+      - Tôi cần sân [Cầu lông Tây Hồ](book_clubName) [ngày mai](book_date), giờ [15:00](book_startTime) - [17:00](book_endTime)
+      - Tôi cần sân [Cầu lông Thanh Xuân](book_clubName) [ngày mai](book_date), giờ [16:00](book_startTime) - [18:00](book_endTime)
+      - Book sân [Cầu lông Hàm Nghi](book_clubName) từ [13h](book_startTime) tới [15h](book_endTime) [hôm nay](book_date) giúp em
+      - Book sân [Cầu lông Hoàng Diệu](book_clubName) từ [14h](book_startTime) tới [16h](book_endTime) [hôm nay](book_date) giúp em
+      - Mình hỏi lịch sân [Cầu lông Vũng Tàu](book_clubName) [ngày mai](book_date) buổi sáng có không?
+      - Mình hỏi lịch sân [Cầu lông Biên Hòa](book_clubName) [ngày mai](book_date) buổi sáng có không?
+      - Còn giờ đẹp nào [Cầu lông Trảng Bàng](book_clubName) hôm nay không? Tầm [14h](book_startTime) - [16h](book_endTime)
+      - Còn giờ đẹp nào [Cầu lông Tân Bình](book_clubName) hôm nay không? Tầm [15h](book_startTime) - [17h](book_endTime)
+      - Đặt lẹ sân [Cầu lông Rạch Giá](book_clubName), [ngày mai](book_date), từ [17h](book_startTime) đến [19h](book_endTime) nha
+      - Đặt lẹ sân [Cầu lông Sa Đéc](book_clubName), [ngày mai](book_date), từ [18h](book_startTime) đến [20h](book_endTime) nha
+      - Cho em hỏi [Cầu lông Hải Phòng](book_clubName) hôm nay có sân trống [16h](book_startTime) không ạ?
+      - Cho em hỏi [Cầu lông Nam Định](book_clubName) hôm nay có sân trống [17h](book_startTime) không ạ?
+      - Cô giúp con book [Cầu lông Đồng Nai](book_clubName) [ngày mai](book_date) [10h](book_startTime) tới [12h](book_endTime) nha cô
+      - Cô giúp con book [Cầu lông Tây Ninh](book_clubName) [ngày mai](book_date) [9h](book_startTime) tới [11h](book_endTime) nha cô
+      - Anh/chị book giúp mình ở [Cầu lông Tân Uyên](book_clubName), [hôm nay](book_date), từ [18h](book_startTime) tới [20h](book_endTime)
+      - Anh/chị book giúp mình ở [Cầu lông Dĩ An](book_clubName), [hôm nay](book_date), từ [17h](book_startTime) tới [19h](book_endTime)
+      - Mình rảnh [ngày mai](book_date) buổi sáng, có sân nào trống ở [Cầu lông Quận 4](book_clubName) từ [7h](book_startTime) không?
+      - Mình rảnh [ngày mai](book_date) buổi sáng, có sân nào trống ở [Cầu lông Quận 3](book_clubName) từ [8h](book_startTime) không?
 
   - intent: provide_email
     examples: |

@@ -11,7 +11,22 @@ rules:
       - intent: bot_challenge
       - action: utter_iamabot
 
-  # - rule: Handle top clubs
-  #   steps:
-  #     - intent: ask_top_rated_clubs
-  #     - action: action_fetch_top_clubs
+  - rule: Handle fallback
+    steps:
+      - intent: nlu_fallback
+      - action: action_default_fallback
+
+  - rule: Ask support again after step_by_step
+    steps:
+      - intent: step_by_step
+      - action: utter_step_by_step
+
+  - rule: User asks for yard price
+    steps:
+      - intent: yard_price
+      - action: utter_yard_price
+
+  - rule: Greet user
+    steps:
+      - intent: greet
+      - action: utter_greet

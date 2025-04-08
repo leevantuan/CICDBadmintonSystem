@@ -1,6 +1,7 @@
 from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker, executor
 from rasa_sdk.events import SlotSet
+from rasa_sdk.events import UserUtteranceReverted
 from utils.quantity_processcor import process_quantity
 from urllib.parse import quote
 from datetime import datetime, timedelta
@@ -25,15 +26,16 @@ class ActionFetchTopClubs(Action):
             response = self._generate_response(clubs, quantity)
             dispatcher.utter_message(text=response)
             return [SlotSet("quantity", str(quantity))]
+        
         except Exception:
             dispatcher.utter_message(text="Xin lỗi, có lỗi khi tìm club. Vui lòng thử lại.")
             return []
 
     def _process_quantity(self, tracker: Tracker) -> int:
         """Validate và chuẩn hóa quantity"""
-        quantity = tracker.get_slot("quantity") or process_quantity(
+        quantity = int(process_quantity(
             tracker.latest_message.get('text', ''),
-            next(tracker.get_latest_entity_values("quantity"), None))
+            next(tracker.get_latest_entity_values("quantity"), None)))
 
         return max(1, min(5, int(quantity or 3)))
 
@@ -237,7 +239,7 @@ class ActionProvideClubInfo(Action):
             return []
     # Format response
    
-# =========================== ACTION Fall Back ====================================
+# =========================== ACTION Confirm ====================================
 
 class ActionConfirmBooking(Action):
     def name(self) -> Text:
@@ -333,6 +335,7 @@ class ActionConfirmBooking(Action):
         except Exception as e:
             return []
  
+# =========================== ACTION Create ====================================
 
 class ActionCreateBooking(Action):
     def name(self) -> Text:
@@ -349,8 +352,6 @@ class ActionCreateBooking(Action):
         booking_date = int(tracker.get_slot("book_date"))
 
         message = self._fetch_create_times(booking_date,start_time,end_time,club_name,email);
-        dispatcher.utter_message(text=message)
-        # message = f"✅ Hãy nhập email: {email} của bạn để đặt sân tại {club_name} từ {start_time} đến {end_time} vào {booking_date} nhé!"
         dispatcher.utter_message(text=message)
 
         return []
@@ -437,3 +438,16 @@ class ActionCreateBooking(Action):
         except Exception as e:
             return []
  
+# =========================== ACTION Fall Back ====================================
+
+class ActionFallback(Action):
+    def name(self) -> Text:
+        return "action_default_fallback"
+
+    def run(self, dispatcher: executor.CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        dispatcher.utter_message(response="utter_default")
+
+        return [UserUtteranceReverted()]

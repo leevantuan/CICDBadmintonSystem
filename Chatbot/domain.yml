@@ -15,7 +15,6 @@ intents:
   - ask_badminton_court_list
   - book_court_date_only
   - provide_email
-
 entities:
   - quantity
   - yardName
@@ -29,7 +28,6 @@ entities:
   - book_date
   - email
 
-# Định nghĩa các slots
 slots:
   quantity:
     type: text
@@ -103,15 +101,29 @@ synonyms:
   "top đầu": "1"
   "số 1": "1"
   "hạng nhất": "1"
+  "thứ 1": "1"
   "hai": "2"
+  "số 2": "2"
+  "thứ 2": "2"
   "ba": "3"
+  "số 3": "3"
+  "thứ 3": "3"
   "bốn": "4"
   "năm": "5"
+
+  # Ngày
   "hôm nay": "0"
   "chiều nay": "0"
   "tối nay": "0"
+  "sáng nay": "0"
+  "nay": "0"
   "ngày mai": "1"
+  "mai": "1"
+  "sáng mai": "1"
+  "chiều mai": "1"
+  "tối mai": "1"
   "ngày kia": "2"
+  "hôm kia": "2"
   "2 ngày sau": "2"
   "2 ngày nữa": "2"
   "3 ngày sau": "3"
@@ -121,7 +133,6 @@ responses:
   utter_greet:
     - text: "Chào bạn! Tôi có thể giúp gì cho bạn hôm nay?"
     - text: "Xin chào! Bạn cần hỗ trợ gì không?"
-    - text: "Chào bạn, tôi có thể giúp bạn với điều gì?"
 
   utter_goodbye:
     - text: "Rất vui khi được hỗ trợ bạn. Hẹn gặp lại!"
@@ -219,6 +230,11 @@ responses:
     - text: "Tôi có thể giúp gì cho bạn không?"
     - text: "Bạn có cần tôi giúp đỡ không?"
 
+  utter_please_rephrase:
+    - text: "Xin lỗi, tôi chưa hiểu bạn muốn gì. Bạn có thể nhập lại được không?"
+    - text: "Rất tiếc, tôi chưa rõ yêu cầu của bạn. Bạn vui lòng nói lại giúp tôi nhé!"
+    - text: "Tôi xin lỗi, hiện tại tôi chưa hiểu ý bạn. Bạn có thể diễn đạt lại không?"
+
   utter_yard_services:
     - text: |
         Tại sân có các dịch vụ như:  
@@ -250,6 +266,7 @@ actions:
   - action_provide_club_info
   - action_confirm_booking
   - action_create_booking
+  - action_default_fallback
 
 session_config:
   session_expiration_time: 60
