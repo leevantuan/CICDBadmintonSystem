@@ -46,3 +46,521 @@ nlu:
       - đây có phải là trợ lý ảo?
       - mày là máy hả?
       - bạn là trí tuệ nhân tạo à?
+
+  - intent: ask_top_rated_clubs
+    examples: |
+      - top [1](quantity) club cầu lông đánh giá tốt nhất?
+      - top [2](quantity) club được review cao nhất?
+      - top [3](quantity) sân cầu lông hay nhất?
+      - top [4](quantity) club phổ biến nhất?
+      - top [5](quantity) sân chất lượng nhất?
+      - top [một](quantity:1) club hay nhất?
+      - top [hai](quantity:2) sân được yêu thích nhất?
+      - danh sách [ba](quantity:3) sân cầu lông tốt nhất?
+      - cho tôi danh sách [bốn](quantity:4) sân nổi bật?
+      - liệt kê danh sách [năm](quantity:5) CLB được đánh giá cao?
+      - [nhất](quantity:1) về rating là club nào?
+      - club nào được đánh giá [cao nhất](quantity:1)?
+      - đâu là CLB [tốt nhất](quantity:1)?
+      - [đầu](quantity:1) bảng xếp hạng là gì?
+      - ai đứng [hạng nhất](quantity:1)?
+      - [hạng hai](quantity:2) club nào?
+      - club nào đứng [thứ 2](quantity:2)?
+      - sân nào được xếp ở [vị trí thứ ba](quantity:3)?
+      - danh sách [4](quantity) sân nổi tiếng nhất?
+      - cho tôi [5](quantity) club nhiều sao nhất?
+      - danh sách [3](quantity) CLB được đánh giá cao nhất?
+      - [số 1](quantity:1) ở đâu?
+      - club [top đầu](quantity:1) là gì?
+      - [thứ 3](quantity:3) trong danh sách?
+      - [thứ 4](quantity:4) trong bảng xếp hạng là ai?
+      - [thứ 5](quantity:5) trong danh sách?
+      - [mấy](quantity) club hàng đầu? (mặc định là 3 nếu không chỉ rõ)
+      - danh sách top các club tốt nhất?
+      - cho tôi danh sách club hàng đầu?
+      - có thể cho tôi danh sách các CLB đánh giá tốt không?
+      - danh sách mặc định top club cầu lông?
+      - có những sân cầu lông nào nổi bật?
+      - danh sách các club cầu lông?
+      - tôi muốn biết danh sách sân cầu lông phổ biến?
+      - tổng hợp các CLB tốt nhất?
+
+  - intent: ask_general_club_info
+    examples: |
+      - [CLB Cầu Lông A](club_name) ở đâu?
+      - [CLB Cầu Lông B](club_name) nằm ở đâu?
+      - [CLB Cầu Lông C](club_name) địa chỉ ở đâu?
+      - Địa chỉ [Sân Bách Khoa](club_name)?
+      - Địa chỉ chính xác của [Sân Quốc Tế](club_name)?
+      - Bạn có biết địa chỉ của [Sân Chuyên Nghiệp](club_name) không?
+      - [Way Station Club](club_name) nằm ở chỗ nào?
+      - [Elite Badminton](club_name) ở vị trí nào?
+      - [Sân Chấn Hưng](club_name) tọa lạc ở đâu?
+      - Chỉ đường tới [Sân VĐV Quận 7](club_name)
+      - Chỉ giúp tôi đường đi đến [Sân Cầu Lông Hòa Bình](club_name)
+      - Làm sao để đến [Sân Phú Mỹ](club_name)?
+      - [Cầu Lông Phú Thọ](club_name) ở quận mấy?
+      - [Cầu Lông Thống Nhất](club_name) thuộc quận nào?
+      - [Sân Phạm Văn Hai](club_name) nằm ở quận nào?
+      - Vị trí [Hồng Hà Sport](club_name) trên bản đồ?
+      - Định vị [Sân Cầu Lông Long Biên](club_name) trên bản đồ giúp tôi.
+      - [Sân Bùi Đình Túy](club_name) có thể tìm trên bản đồ không?
+      - [Cầu Lông Q10](club_name) địa chỉ cụ thể?
+      - [CLB Nguyễn Tri Phương](club_name) nằm ở đâu chính xác?
+      - [Sân Đại Học Sư Phạm](club_name) có địa chỉ cụ thể không?
+      - [Sân 24/7](club_name) ở địa phương nào?
+      - [Cầu Lông Thanh Xuân](club_name) nằm ở khu vực nào?
+      - [Sân Cầu Lông Lê Lợi](club_name) thuộc tỉnh nào?
+      - Thông tin cơ bản về [Sân Lam Sơn](club_name)
+      - [Cầu Lông Bình Thạnh](club_name) có thông tin gì?
+      - Tôi muốn biết thông tin của [Sân Elite Badminton](club_name)
+      - Giới thiệu ngắn về [CLB Nguyễn Du](club_name)
+      - Cho tôi biết sơ lược về [Sân Cầu Lông Trần Hưng Đạo](club_name)
+      - Bạn có thể giới thiệu về [Sân Quận 12](club_name) không?
+      - [Alpha Badminton](club_name) có những gì?
+      - [Sân Ngọc Lan](club_name) có tiện nghi gì không?
+      - [CLB Quốc Tế](club_name) có những dịch vụ nào?
+      - Mô tả sơ lược [Sân Tân Phú](club_name)
+      - [Sân Phan Đăng Lưu](club_name) có gì đặc biệt?
+      - [Sân Tân Bình](club_name) có những tiện ích nào?
+      - [Sân ĐH Bách Khoa](club_name) ở khu vực nào?
+      - [Sân ĐH Kinh Tế](club_name) thuộc khu vực nào?
+      - [Sân Cầu Lông Quang Trung](club_name) nằm trong khu vực nào?
+      - [KTX Khu A](club_name) có gì đặc biệt?
+      - [Sân Cầu Lông Đại Học Quốc Gia](club_name) có điểm gì nổi bật?
+      - [Sân Cầu Lông Công Viên Gia Định](club_name) có tiện ích gì?
+      - [Cầu Lông Việt Nhật](club_name) thuộc quận nào?
+      - [Sân Nhà Văn Hóa Thanh Niên](club_name) thuộc địa bàn nào?
+      - [Sân Cầu Lông Quận 5](club_name) có thuộc quận nào không?
+      - [Trung tâm TDTT Q1](club_name) nằm ở đâu?
+      - [Sân Quận 3](club_name) ở vị trí nào?
+      - [Sân Trung Tâm Thể Thao Hồ Chí Minh](club_name) có thể tìm thấy ở đâu?
+
+  - intent: ask_badminton_court_list
+    examples: |
+      - Tôi cần danh sách sân cầu lông.
+      - Danh sách sân cầu lông là gì?
+      - Hãy cho tôi danh sách sân cầu lông gần đây.
+      - Có những sân cầu lông nào gần đây?
+      - Tôi đang tìm danh sách sân cầu lông.
+      - Làm sao để có danh sách sân cầu lông?
+      - Tôi muốn danh sách sân cầu lông gần nhất.
+      - Có danh sách sân cầu lông không?
+      - Cung cấp danh sách sân cầu lông cho tôi.
+      - Tôi cần biết về danh sách các sân cầu lông.
+      - Danh sách sân cầu lông trong khu vực là gì?
+      - Sân cầu lông nào nằm trong danh sách?
+      - Hãy đưa cho tôi danh sách sân cầu lông.
+      - Sân cầu lông nào có trong danh sách?
+      - Tôi muốn biết danh sách các sân cầu lông.
+      - Làm cách nào để lấy danh sách sân cầu lông?
+      - Những sân cầu lông nào được liệt kê trong danh sách?
+      - Cần tìm danh sách sân cầu lông ngay bây giờ.
+      - Danh sách sân cầu lông có những gì?
+      - Sân cầu lông nào hiện nằm trong danh sách?
+
+  - intent: ask_yard_availability
+    examples: |
+      - [The Champion](yardName) còn sân [sáng nay](quantityDate:0) từ [8:00](startTime) tới [10:00](endTime) không?
+      - [Victory Arena](yardName) còn sân [chiều nay](quantityDate:0) từ [14:00](startTime) tới [16:00](endTime) không?
+      - [Golden Field](yardName) còn sân [tối mai](quantityDate:1) từ [18:00](startTime) tới [20:00](endTime) không?
+      - [Tối nay](quantityDate:0) [Smash Arena](yardName) còn sân trống khoảng [19:30](startTime) không?
+      - [Tối nay](quantityDate:0) [Galaxy Court](yardName) còn sân trống khoảng [20:00](startTime) không?  
+      - [Tối nay](quantityDate:0) [Elite Stadium](yardName) còn sân trống khoảng [18:45](startTime) không?  
+      - [Ngày kia](quantityDate:2) [Racket Pro](yardName) còn sân cả ngày không?
+      - [Ngày kia](quantityDate:2) [Smash Center](yardName) còn sân cả ngày không?  
+      - [Ngày kia](quantityDate:2) [Power Court](yardName) còn sân cả ngày không?  
+      - [Ngày mai](quantityDate:1) [Grand Arena](yardName) còn sân cả ngày không?  
+      - [1 ngày nữa](quantityDate:1) [Cầu Lông Long Vũ](yardName) còn sân buổi chiều không?
+      - [1 ngày nữa](quantityDate:1) [Smash Arena](yardName) còn sân buổi chiều không?
+      - [1 ngày nữa](quantityDate:1) [Elite Court](yardName) còn sân buổi chiều không?
+      - [1 ngày nữa](quantityDate:1) [Galaxy Sports](yardName) còn sân buổi chiều không?
+      - [Sân Cầu Lông ABC](yardName) [hôm nay](quantityDate:0) còn trống từ [15:30](startTime) đến [17:00](endTime) chứ?
+      - [Sân Elite Club](yardName) [ngày mai](quantityDate:1) còn sân từ [16:00](startTime) đến [18:00](endTime) không?
+      - [Sân Smash Center](yardName) [2 ngày sau](quantityDate:2) còn sân buổi chiều không?
+      - [3 ngày tới](quantityDate:3) [Net King](yardName) còn sân tối không?
+      - [4 ngày tới](quantityDate:4) [Racket Pro](yardName) còn sân sau [19:00](startTime) không?
+      - [5 ngày tới](quantityDate:5) [Shuttle Master](yardName) có sân trống buổi tối không?
+      - [Sáng mai](quantityDate:1) [Shuttle Master](yardName) còn sân từ [7:00](startTime) đến [9:00](endTime) không?
+      - [Sáng ngày kia](quantityDate:2) [Elite Court](yardName) có sân từ [6:30](startTime) đến [8:30](endTime) không?
+      - [Sáng 3 ngày sau](quantityDate:3) [Way Station](yardName) còn sân sớm không?
+      - [Chiều mai](quantityDate:1) [Club B](yardName) còn sân trống không?
+      - [Chiều ngày kia](quantityDate:2) [Smash Arena](yardName) có sân từ [14:00](startTime) đến [16:00](endTime) không?
+      - [Chiều 4 ngày sau](quantityDate:4) [Power Court](yardName) còn sân buổi chiều không?
+      - [2 ngày sau](quantityDate:2) [Sân Cầu Lông XYZ](yardName) còn sân từ [13:00](startTime) tới [15:00](endTime) chứ?
+      - [3 ngày nữa](quantityDate:3) [Galaxy Sports](yardName) còn sân từ [14:00](startTime) tới [16:00](endTime) không?
+      - [5 ngày sau](quantityDate:5) [The Champion](yardName) có sân trống không?
+      - [Tối mai](quantityDate:1) [Way Station](yardName) còn sân sau [20:00](startTime) không?
+      - [Tối ngày kia](quantityDate:2) [Shuttle Master](yardName) còn sân từ [19:30](startTime) không?
+      - [Tối 3 ngày sau](quantityDate:3) [Elite Stadium](yardName) có sân trống buổi tối không?
+      - [Club A](yardName) có còn sân trống không?
+      - [Club C](yardName) còn sân không?
+      - [Club D](yardName) có sân nào trống hôm nay không?
+      - [Cầu Lông Long Vũ](yardName) còn sân từ [14:00](startTime) đến [16:00](endTime) không?
+      - [Net King](yardName) còn sân từ [15:00](startTime) đến [17:00](endTime) không?
+      - [Racket Pro](yardName) có sân trống buổi chiều không?
+      - [Smash Arena](yardName) còn sân [ngày mai](quantityDate:1) không?
+      - [The Champion](yardName) còn sân trống vào [2 ngày sau](quantityDate:2) không?
+      - [Way Station](yardName) còn sân nào sáng [3 ngày sau](quantityDate:3) không?
+      - [Net King](yardName) còn sân từ [18:00](startTime) đến [20:00](endTime) [ngày kia](quantityDate:2) không?
+      - [Shuttle Master](yardName) còn sân từ [17:30](startTime) đến [19:30](endTime) [3 ngày sau](quantityDate:3) không?
+      - [Elite Court](yardName) có sân trống [4 ngày tới](quantityDate:4) buổi tối không?
+      - [3 ngày sau](quantityDate:3) [Racket Pro](yardName) còn sân trống không?
+      - [4 ngày sau](quantityDate:4) [Club B](yardName) còn sân nào sáng không?
+      - [5 ngày sau](quantityDate:5) [Power Court](yardName) có sân trống nguyên ngày không?
+      - [Hôm nay](quantityDate:0) [The Champion](yardName) còn sân từ [09:00](startTime) đến [11:00](endTime) không?
+      - [Ngày mai](quantityDate:1) [Smash Arena](yardName) còn sân từ [10:00](startTime) đến [12:00](endTime) không?
+      - [2 ngày sau](quantityDate:2) [Way Station](yardName) có sân trống buổi sáng không?
+      - [Club Cầu Lông Way Station](yardName) còn sân [chiều nay](quantityDate:0) không?
+      - [Club Shuttle Master](yardName) còn sân trống [chiều mai](quantityDate:1) không?
+      - [Club Power Court](yardName) có sân nào trống vào [chiều ngày kia](quantityDate:2) không?
+      - [Ngày mai](quantityDate:1) [Shuttle Master](yardName) còn sân buổi tối không?
+      - [2 ngày sau](quantityDate:2) [Elite Court](yardName) còn sân từ [19:00](startTime) không?
+      - [3 ngày sau](quantityDate:3) [Club A](yardName) có sân trống sau [18:30](startTime) không?
+      - [2 ngày nữa](quantityDate:2) [Club A](yardName) còn sân không?
+      - [3 ngày tới](quantityDate:3) [Club C](yardName) còn sân trống vào buổi tối không?
+      - [5 ngày sau](quantityDate:5) [Club D](yardName) có sân nào trống không?
+      - [Sân Cầu Lông XYZ](yardName) còn trống [tối nay](quantityDate:0) từ [19:00](startTime) đến [21:00](endTime) không?
+      - [Sân Elite Club](yardName) còn sân [ngày mai](quantityDate:1) từ [18:30](startTime) đến [20:30](endTime) không?
+      - [Sân Shuttle Master](yardName) có sân nào trống vào [3 ngày sau](quantityDate:3) không?
+      - [Cầu Lông Long Vũ](yardName) [ngày mai](quantityDate:1) có sân trống từ [16:00](startTime) đến [20:00](endTime) không?
+      - [Ngày mai](quantityDate:1) sân [Cầu Lông Long Vũ](yardName) còn trống từ [17:00](startTime) đến [21:00](endTime) chứ?
+      - Tôi muốn kiểm tra sân trống tại [Cầu Lông Long Vũ](yardName) [ngày mai](quantityDate:1) từ [14:00](startTime) đến [19:00](endTime).
+      - [Cầu Lông Long Vũ](yardName) có sân nào trống vào [ngày mai](quantityDate:1) từ [18:00](startTime) đến [22:00](endTime) không?
+      - Sân [Cầu Lông Long Vũ](yardName) [mai](quantityDate:1) có slot trống từ [13:00](startTime) đến [16:00](endTime) không?
+      - [Ngày mai](quantityDate:1) từ [15:00](startTime) đến [20:00](endTime) còn sân trống ở [Cầu Lông Long Vũ](yardName) không?
+      - Tôi muốn đặt sân ở [Cầu Lông Long Vũ](yardName) vào [ngày mai](quantityDate:1) lúc [17:00](startTime) - [20:00](endTime), còn sân không?
+      - [Cầu Lông Long Vũ](yardName) có sân nào rảnh [ngày mai](quantityDate:1) từ [12:00](startTime) đến [14:00](endTime) không?
+      - [Ngày mai](quantityDate:1) sân ở [Cầu Lông Long Vũ](yardName) từ [10:00](startTime) đến [12:00](endTime) còn chỗ không?
+      - [Cầu Lông Long Vũ](yardName) có sân free vào [ngày mai](quantityDate:1) lúc [19:00](startTime) - [22:00](endTime) không?
+      - Kiểm tra giúp tôi xem [Cầu Lông Long Vũ](yardName) có sân trống [mai](quantityDate:1) từ [09:00](startTime) đến [11:00](endTime) không?
+      - [Ngày mai](quantityDate:1) sân [Cầu Lông Long Vũ](yardName) còn chỗ trống từ [08:00](startTime) đến [10:00](endTime) chứ?
+      - [Mai](quantityDate:1) từ [20:00](startTime) đến [22:00](endTime) [Cầu Lông Long Vũ](yardName) có sân nào không?
+      - [Cầu Lông Long Vũ](yardName) [mai](quantityDate:1) có thể đặt sân từ [07:00](startTime) đến [09:00](endTime) không?
+      - Cho tôi kiểm tra sân [Cầu Lông Long Vũ](yardName) [ngày mai](quantityDate:1) từ [06:00](startTime) đến [08:00](endTime) còn chỗ không?
+      - [Ngày mai](quantityDate:1) sân cầu lông ở [Long Vũ](yardName) có thể đặt từ [14:00](startTime) đến [16:00](endTime) không?
+      - Sân [Cầu Lông Long Vũ](yardName) [ngày mai](quantityDate:1) từ [11:00](startTime) đến [13:00](endTime) còn trống không?
+      - [Ngày mai](quantityDate:1) tôi muốn book sân ở [Cầu Lông Long Vũ](yardName) từ [10:00](startTime) đến [14:00](endTime), còn sân không?
+      - [Mai](quantityDate:1) từ [18:00](startTime) đến [21:00](endTime) còn sân trống ở [Cầu Lông Long Vũ](yardName) chứ?
+      - Sân cầu lông [Long Vũ](yardName) [ngày mai](quantityDate:1) từ [15:30](startTime) đến [17:30](endTime) có thể đặt không?
+      - [Cầu Lông Long Vũ](yardName) [ngày mai](quantityDate:1) từ [17:00](startTime) đến [19:00](endTime) còn sân trống không?
+      - Tôi cần kiểm tra lịch sân [Cầu Lông Long Vũ](yardName) [ngày mai](quantityDate:1) từ [12:00](startTime) đến [16:00](endTime), còn sân không?
+      - Sân [Cầu Lông Long Vũ](yardName) [ngày mai](quantityDate:1) còn slot nào từ [09:00](startTime) đến [11:00](endTime) không?
+      - [The Champion](yardName) còn sân [hôm nay](quantityDate:0) từ [16h](startTime) đến [20h](endTime) không?
+      - [Victory Arena](yardName) còn sân [chiều nay](quantityDate:0) từ [16h](startTime) tới [20h](endTime) không?
+      - [Golden Field](yardName) còn sân [tối mai](quantityDate:1) từ [16h](startTime) tới [20h](endTime) không?
+      - [Sáng mai](quantityDate:1) [Smash Arena](yardName) còn sân từ [16h](startTime) đến [20h](endTime) không?
+      - [Chiều mai](quantityDate:1) [Galaxy Court](yardName) có sân từ [16h](startTime) đến [20h](endTime) không?
+      - [Sân Elite Club](yardName) [ngày mai](quantityDate:1) còn sân từ [16h](startTime) đến [20h](endTime) không?
+      - [Sân Smash Center](yardName) [2 ngày sau](quantityDate:2) còn sân từ [16h](startTime) đến [20h](endTime) không?
+      - [Sáng 3 ngày sau](quantityDate:3) [Net King](yardName) còn sân từ [16h](startTime) đến [20h](endTime) không?
+      - [Chiều 4 ngày sau](quantityDate:4) [Power Court](yardName) có sân từ [16h](startTime) đến [20h](endTime) không?
+      - [5 ngày sau](quantityDate:5) [Shuttle Master](yardName) còn sân từ [16h](startTime) đến [20h](endTime) không?
+      - [Tối mai](quantityDate:1) [Way Station](yardName) còn sân từ [16h](startTime) đến [20h](endTime) không?
+      - [Tối ngày kia](quantityDate:2) [Shuttle Master](yardName) có sân từ [16h](startTime) đến [20h](endTime) không?
+      - [Tối 3 ngày sau](quantityDate:3) [Elite Stadium](yardName) còn sân từ [16h](startTime) đến [20h](endTime) không?
+      - Cho tôi đặt sân ở [The Champion](yardName) [sáng mai](quantityDate:1) từ [7:00](startTime) đến [9:00](endTime).
+      - Làm ơn kiểm tra giúp sân ở [Smash Arena](yardName) tối [ngày mai](quantityDate:1) khoảng [18:00](startTime) đến [20:00](endTime) có trống không?
+      - Tôi cần đặt sân ở [Way Station](yardName) [ngày kia](quantityDate:2) từ [16:00](startTime) tới [18:00](endTime).
+      - [Thứ sáu tuần này](quantityDate:4) sân [Club A](yardName) có khung [19:00](startTime) - [21:00](endTime) không?
+      - [Smash Arena](yardName) có sân trống [ngày mốt](quantityDate:2) từ [17:00](startTime) đến [19:00](endTime) không?
+      - Đặt trước sân [Galaxy Court](yardName) [ngày mai](quantityDate:1) từ [10:00](startTime) tới [12:00](endTime) nhé.
+      - Em muốn book sân ở [Elite Court](yardName) [thứ bảy](quantityDate:5) từ [8:00](startTime) đến [10:00](endTime).
+      - Có sân nào ở [Smash Center](yardName) trống [tối nay](quantityDate:0) sau [19:00](startTime) không?
+      - Tối mai [Galaxy Sports](yardName) có sân từ [18:00](startTime) đến [20:00](endTime) không vậy?
+      - [The Champion](yardName) có khung giờ từ [6:00](startTime) đến [7:30](endTime) [sáng mai](quantityDate:1) không?
+      - Kiểm tra giúp mình slot [15:00](startTime) - [17:00](endTime) ở [Shuttle Master](yardName) [ngày kia](quantityDate:2).
+      - Sân [Smash Arena](yardName) trống lúc nào [cuối tuần này](quantityDate:5)?
+      - Em muốn đặt khung [20:00](startTime) - [22:00](endTime) tại [Way Station](yardName) vào [thứ bảy](quantityDate:5).
+      - Mai [Shuttle Master](yardName) có khung [17:30](startTime) đến [19:30](endTime) không?
+      - Đặt sân tại [Smash Center](yardName) [ngày kia](quantityDate:2) buổi sáng khung nào cũng được.
+      - [Galaxy Court](yardName) có sân nào rảnh [tối mai](quantityDate:1) từ [18:30](startTime)?
+      - [Cầu Lông Long Vũ](yardName) trống slot từ [7:00](startTime) tới [9:00](endTime) [ngày mai](quantityDate:1) không?
+      - Book sân ở [Elite Court](yardName) vào [thứ hai tới](quantityDate:7) từ [13:00](startTime) đến [15:00](endTime).
+      - Có khung nào buổi chiều ở [Galaxy Sports](yardName) [thứ năm này](quantityDate:3) không?
+      - [Shuttle Master](yardName) có trống buổi sáng [ngày mốt](quantityDate:2) từ [9:00](startTime)?
+      - Em cần sân [Smash Arena](yardName) [sáng chủ nhật](quantityDate:5) khung [6:00](startTime) đến [8:00](endTime).
+      - [Way Station](yardName) có slot [15:00](startTime) đến [17:00](endTime) [ngày kia](quantityDate:2) không?
+      - Cho mình xem khung giờ trống ở [The Champion](yardName) vào [cuối tuần](quantityDate:5).
+      - Đặt sân ở [Galaxy Court](yardName) [tối mai](quantityDate:1) từ [20:00](startTime) đến [22:00](endTime).
+      - [Cầu Lông Long Vũ](yardName) [ngày mai](quantityDate:1) còn sân khung [14:00](startTime) tới [16:00](endTime) không?
+      - Em muốn giữ sân [Smash Center](yardName) từ [9:00](startTime) đến [11:00](endTime) [ngày mốt](quantityDate:2).
+      - Cho mình check slot ở [Smash Arena](yardName) [tối nay](quantityDate:0) sau [19:00](startTime).
+      - [Elite Court](yardName) còn sân buổi chiều [ngày kia](quantityDate:2) không?
+      - Mình muốn book khung [10:00](startTime) - [12:00](endTime) tại [Way Station](yardName) [sáng mai](quantityDate:1).
+      - Hỏi giúp sân [The Champion](yardName) tối [thứ bảy](quantityDate:5) có từ [18:00](startTime) không?
+
+  - intent: book_court_date_only
+    examples: |
+      - Mình muốn đặt sân ở [Cầu lông Quận 5](book_clubName) vào [hôm nay](book_date) từ [19h](book_startTime) tới [21h](book_endTime)
+      - Mình muốn đặt sân ở [Cầu lông Bình Dương](book_clubName) vào [ngày mai](book_date) từ [16h](book_startTime) tới [18h](book_endTime)
+      - Đặt giúp em sân [Cầu lông Hà Đông](book_clubName) [ngày mai](book_date), [17:00](book_startTime) - [19:00](book_endTime)
+      - Đặt giúp em sân [Cầu lông Long An](book_clubName) [hôm nay](book_date), [15:00](book_startTime) - [17:00](book_endTime)
+      - Cho hỏi [Cầu lông Linh Đàm](book_clubName) còn trống từ [16h](book_startTime) đến [18h](book_endTime) [hôm nay](book_date) không?
+      - Cho hỏi [Cầu lông Thái Nguyên](book_clubName) còn trống từ [14h](book_startTime) đến [16h](book_endTime) [ngày mai](book_date) không?
+      - Bác ơi, giúp cháu book sân [Cầu lông Huế Center](book_clubName) [ngày mai](book_date), [18h](book_startTime) đến [20h](book_endTime) với
+      - Bác ơi, giúp cháu book sân [Cầu lông Phan Thiết](book_clubName) [hôm nay](book_date), [10h](book_startTime) đến [12h](book_endTime) với
+      - Làm ơn đặt giúp mình sân [Cầu lông Đà Nẵng Sports](book_clubName) từ [15h](book_startTime) tới [17h](book_endTime) vào [ngày mai](book_date)
+      - Làm ơn đặt giúp mình sân [Cầu lông Gia Lai](book_clubName) từ [13h](book_startTime) tới [15h](book_endTime) vào [hôm nay](book_date)
+      - Tui muốn đặt sân ở [Cầu lông Gò Vấp](book_clubName) [hôm nay](book_date), [14h](book_startTime) tới [16h](book_endTime) nhe
+      - Tui muốn đặt sân ở [Cầu lông Sóc Trăng](book_clubName) [ngày mai](book_date), [11h](book_startTime) tới [13h](book_endTime) nhe
+      - Em hỏi chút, giờ [Cầu lông Quận 10](book_clubName) còn trống lúc [9h](book_startTime) [ngày mai](book_date) không?
+      - Em hỏi chút, giờ [Cầu lông Bến Tre](book_clubName) còn trống lúc [8h](book_startTime) [hôm nay](book_date) không?
+      - Cô giúp con book sân [Cầu lông Hội An](book_clubName) vào [hôm nay](book_date) [16:00](book_startTime) - [18:00](book_endTime) nha cô
+      - Cô giúp con book sân [Cầu lông Tuy Hòa](book_clubName) vào [ngày mai](book_date) [13:00](book_startTime) - [15:00](book_endTime) nha cô
+      - Mình cần sân ở [Cầu lông Bình Tân](book_clubName) [ngày mai](book_date), từ [11:00](book_startTime) đến [13:00](book_endTime)
+      - Mình cần sân ở [Cầu lông Lâm Đồng](book_clubName) [hôm nay](book_date), từ [9:00](book_startTime) đến [11:00](book_endTime)
+      - Chị ơi, book giúp em [Cầu lông Thủ Đức](book_clubName) từ [10h](book_startTime) đến [12h](book_endTime), [ngày mai](book_date) nhé
+      - Chị ơi, book giúp em [Cầu lông Cà Mau](book_clubName) từ [8h](book_startTime) đến [10h](book_endTime), [hôm nay](book_date) nhé
+      - Còn sân nào trống ở [Cầu lông Cần Thơ](book_clubName) [hôm nay](book_date) lúc [13h](book_startTime) không nhỉ?
+      - Còn sân nào trống ở [Cầu lông Trà Vinh](book_clubName) [ngày mai](book_date) lúc [15h](book_startTime) không nhỉ?
+      - Lịch rảnh hôm nay [18h](book_startTime) đến [20h](book_endTime), book cho tui ở [Cầu lông Cầu Giấy](book_clubName) nha
+      - Lịch rảnh ngày mai [14h](book_startTime) đến [16h](book_endTime), book cho tui ở [Cầu lông Bắc Giang](book_clubName) nha
+      - Mày book giúp tao sân [Cầu lông Láng Hạ](book_clubName) [ngày mai](book_date) từ [15h](book_startTime) đến [17h](book_endTime) cái coi
+      - Mày book giúp tao sân [Cầu lông Hà Tĩnh](book_clubName) [hôm nay](book_date) từ [9h](book_startTime) đến [11h](book_endTime) cái coi
+      - Anh/chị đặt giúp sân [Cầu lông Huỳnh Tấn Phát](book_clubName) từ [8h](book_startTime) đến [10h](book_endTime) [hôm nay](book_date) nha
+      - Anh/chị đặt giúp sân [Cầu lông Nha Trang](book_clubName) từ [7h](book_startTime) đến [9h](book_endTime) [ngày mai](book_date) nha
+      - Book giúp bé sân [Cầu lông Mỹ Tho](book_clubName) [ngày mai](book_date), giờ [7h](book_startTime) tới [9h](book_endTime) đi ạ
+      - Book giúp bé sân [Cầu lông Phan Rang](book_clubName) [hôm nay](book_date), giờ [6h](book_startTime) tới [8h](book_endTime) đi ạ
+      - Làm ơn check giúp [Cầu lông Hải Châu](book_clubName) có trống khung [14h](book_startTime) - [16h](book_endTime) [ngày mai](book_date) không?
+      - Làm ơn check giúp [Cầu lông Cẩm Lệ](book_clubName) có trống khung [15h](book_startTime) - [17h](book_endTime) [ngày mai](book_date) không?
+      - Anh đặt giúp em sân [Cầu lông Ninh Kiều](book_clubName), từ [9h](book_startTime) đến [11h](book_endTime) vào [ngày mai](book_date) nha
+      - Anh đặt giúp em sân [Cầu lông Long Xuyên](book_clubName), từ [10h](book_startTime) đến [12h](book_endTime) vào [ngày mai](book_date) nha
+      - Mình muốn book liền sân [Cầu lông Lê Văn Sỹ](book_clubName), [hôm nay](book_date), [17:00](book_startTime) tới [19:00](book_endTime)
+      - Mình muốn book liền sân [Cầu lông Nguyễn Tri Phương](book_clubName), [hôm nay](book_date), [18:00](book_startTime) tới [20:00](book_endTime)
+      - Đặt dùm sân ở [Cầu lông Quận 6](book_clubName), [ngày mai](book_date), [16:00](book_startTime) tới [18:00](book_endTime)
+      - Đặt dùm sân ở [Cầu lông Quận 11](book_clubName), [ngày mai](book_date), [17:00](book_startTime) tới [19:00](book_endTime)
+      - Còn slot nào ở [Cầu lông Huế Green](book_clubName) lúc [19h](book_startTime) không bạn? [hôm nay](book_date) nha
+      - Còn slot nào ở [Cầu lông Bến Tre](book_clubName) lúc [20h](book_startTime) không bạn? [hôm nay](book_date) nha
+      - Tôi cần sân [Cầu lông Tây Hồ](book_clubName) [ngày mai](book_date), giờ [15:00](book_startTime) - [17:00](book_endTime)
+      - Tôi cần sân [Cầu lông Thanh Xuân](book_clubName) [ngày mai](book_date), giờ [16:00](book_startTime) - [18:00](book_endTime)
+      - Book sân [Cầu lông Hàm Nghi](book_clubName) từ [13h](book_startTime) tới [15h](book_endTime) [hôm nay](book_date) giúp em
+      - Book sân [Cầu lông Hoàng Diệu](book_clubName) từ [14h](book_startTime) tới [16h](book_endTime) [hôm nay](book_date) giúp em
+      - Mình hỏi lịch sân [Cầu lông Vũng Tàu](book_clubName) [ngày mai](book_date) buổi sáng có không?
+      - Mình hỏi lịch sân [Cầu lông Biên Hòa](book_clubName) [ngày mai](book_date) buổi sáng có không?
+      - Còn giờ đẹp nào [Cầu lông Trảng Bàng](book_clubName) hôm nay không? Tầm [14h](book_startTime) - [16h](book_endTime)
+      - Còn giờ đẹp nào [Cầu lông Tân Bình](book_clubName) hôm nay không? Tầm [15h](book_startTime) - [17h](book_endTime)
+      - Đặt lẹ sân [Cầu lông Rạch Giá](book_clubName), [ngày mai](book_date), từ [17h](book_startTime) đến [19h](book_endTime) nha
+      - Đặt lẹ sân [Cầu lông Sa Đéc](book_clubName), [ngày mai](book_date), từ [18h](book_startTime) đến [20h](book_endTime) nha
+      - Cho em hỏi [Cầu lông Hải Phòng](book_clubName) hôm nay có sân trống [16h](book_startTime) không ạ?
+      - Cho em hỏi [Cầu lông Nam Định](book_clubName) hôm nay có sân trống [17h](book_startTime) không ạ?
+      - Cô giúp con book [Cầu lông Đồng Nai](book_clubName) [ngày mai](book_date) [10h](book_startTime) tới [12h](book_endTime) nha cô
+      - Cô giúp con book [Cầu lông Tây Ninh](book_clubName) [ngày mai](book_date) [9h](book_startTime) tới [11h](book_endTime) nha cô
+      - Anh/chị book giúp mình ở [Cầu lông Tân Uyên](book_clubName), [hôm nay](book_date), từ [18h](book_startTime) tới [20h](book_endTime)
+      - Anh/chị book giúp mình ở [Cầu lông Dĩ An](book_clubName), [hôm nay](book_date), từ [17h](book_startTime) tới [19h](book_endTime)
+      - Mình rảnh [ngày mai](book_date) buổi sáng, có sân nào trống ở [Cầu lông Quận 4](book_clubName) từ [7h](book_startTime) không?
+      - Mình rảnh [ngày mai](book_date) buổi sáng, có sân nào trống ở [Cầu lông Quận 3](book_clubName) từ [8h](book_startTime) không?
+
+  - intent: provide_email
+    examples: |
+      - email của tôi: [tuan@gmail.com](email)
+      - Email liên hệ: [tuan@gmail.com](email)
+      - Bạn có thể gửi tới [tuan@gmail.com](email)
+      - Vui lòng email cho tôi qua [tuan@gmail.com](email)
+      - Gửi phản hồi đến địa chỉ: [tuan@gmail.com](email)
+      - Thư đến [tuan@gmail.com](email) nhé
+      - Liên hệ tại email [tuan@gmail.com](email)
+      - Email đăng ký: [tuan@gmail.com](email)
+      - Đây là email của tôi: [tuan@gmail.com](email)
+      - Email: [tuan@gmail.com](email)
+      - Mail: [tuan@gmail.com](email)
+      - Email chính: [tuan@gmail.com](email)
+      - Tài khoản email: [tuan@gmail.com](email)
+      - Địa chỉ email là [tuan@gmail.com](email)
+      - Mọi thứ gửi về: [tuan@gmail.com](email)
+      - Xin gửi qua: [tuan@gmail.com](email)
+      - Liên hệ qua email: [tuan@gmail.com](email)
+      - Mình dùng email: [tuan@gmail.com](email)
+      - Gmail của mình: [tuan@gmail.com](email)
+      - Đăng nhập bằng [tuan@gmail.com](email)
+      - Email cũ: [tuan@gmail.com](email)
+      - Gửi thông tin về [tuan@gmail.com](email)
+      - Đây là địa chỉ mail: [tuan@gmail.com](email)
+      - Dùng [tuan@gmail.com](email) nhé
+      - Bạn có thể liên hệ tại [tuan@gmail.com](email)
+      - Email phụ: [tuan@gmail.com](email)
+      - Gmail: [tuan@gmail.com](email)
+      - Email tôi đang dùng: [tuan@gmail.com](email)
+      - Dưới đây là email: [tuan@gmail.com](email)
+      - Thông tin chi tiết xin gửi về [tuan@gmail.com](email)
+      - [tuan@gmail.com](email)
+      - Email liên hệ: [linhtran@yahoo.com](email)
+      - Bạn có thể gửi tới [minh.nguyen98@gmail.com](email)
+      - Vui lòng email cho tôi qua [huydo123@outlook.com](email)
+      - Gửi phản hồi đến địa chỉ: [thao.le@zmail.vn](email)
+      - Thư đến [hanh.vo1996@gmail.com](email) nhé
+      - Liên hệ tại email [ngoc.bui@mail.com](email)
+      - Email đăng ký: [cuongpham@gmail.com](email)
+      - Đây là email của tôi: [anhtuan.dev@gmail.com](email)
+      - Email: [meo_meo99@yahoo.com](email)
+      - Mail: [longtran@abc.vn](email)
+      - Email chính: [user001@example.com](email)
+      - Tài khoản email: [tien.nguyen@zmail.com](email)
+      - Địa chỉ email là [hiep.le.1993@gmail.com](email)
+      - Mọi thứ gửi về: [phuongtrang@domain.vn](email)
+      - Xin gửi qua: [contact.lananh@gmail.com](email)
+      - Liên hệ qua email: [khoa.tran@hotmail.com](email)
+      - Mình dùng email: [duyen.dang@email.com](email)
+      - Gmail của mình: [bich.nguyen2110@gmail.com](email)
+      - Đăng nhập bằng [admin@myapp.com](email)
+      - Email cũ: [testing.mail@demo.vn](email)
+      - Gửi thông tin về [sonpham.official@gmail.com](email)
+      - Đây là địa chỉ mail: [user_test2001@ymail.com](email)
+      - Dùng [huynh.hoa@fakemail.org](email) nhé
+      - Bạn có thể liên hệ tại [leminh.tester@gmail.com](email)
+      - Email phụ: [backup.email@something.com](email)
+      - Gmail: [quangvinh2020@gmail.com](email)
+      - Email tôi đang dùng: [guest.email@host.com](email)
+      - Dưới đây là email: [my.name@company.vn](email)
+      - Thông tin chi tiết xin gửi về [info@domain.com](email)
+
+  - intent: booking_yard
+    examples: |
+      - làm sao để đặt sân cầu lông?  
+      - tôi muốn đặt sân cầu lông thì phải làm thế nào?  
+      - cách đặt sân cầu lông như thế nào?  
+      - hướng dẫn đặt sân cầu lông  
+      - các bước đặt sân cầu lông là gì?  
+      - muốn đặt sân cầu lông thì làm sao?  
+      - tôi cần đặt sân cầu lông, giúp tôi với  
+      - đặt sân cầu lông online được không?  
+      - có thể đặt sân cầu lông qua app không?  
+      - tôi muốn book sân cầu lông
+      - Bạn có thể giúp tôi đặt sân được không?  
+      - Mình muốn đặt sân, bạn giúp được chứ?  
+      - Bạn có thể hỗ trợ mình đặt sân cầu lông không?  
+      - Làm thế nào để bạn giúp tôi đặt sân?  
+      - Tôi cần đặt sân ngay, bạn giúp tôi được không?
+
+  - intent: step_by_step
+    examples: |
+      - quy trình đặt sân cầu lông gồm những bước nào?  
+      - tôi cần làm gì để đặt sân cầu lông?  
+      - liệt kê các bước đặt sân cầu lông  
+      - đặt sân cầu lông có khó không?  
+      - chỉ tôi cách book sân cầu lông từ A đến Z  
+      - hướng dẫn chi tiết cách đặt sân cầu lông  
+      - đặt sân cầu lông qua điện thoại như thế nào?  
+      - có cần đăng ký trước khi đặt sân không?  
+      - tôi phải thanh toán trước khi đặt sân không?
+
+  - intent: yard_price
+    examples: |
+      - giá đặt sân cầu lông bao nhiêu?  
+      - đặt sân cầu lông có đắt không?  
+      - bảng giá sân cầu lông như thế nào?  
+      - giá thuê sân cầu lông theo giờ là bao nhiêu?  
+      - có phụ phí khi đặt sân không?  
+      - đặt sân ban ngày và ban đêm giá khác nhau không?  
+      - giờ cao điểm đặt sân cầu lông giá bao nhiêu?  
+      - giá thuê sân cầu lông vào cuối tuần là bao nhiêu?
+      - có giảm giá khi đặt sân cầu lông cho nhóm lớn không?
+      - giá thuê sân cầu lông trong mùa hè có khác không?
+      - có chương trình khuyến mãi nào cho việc đặt sân cầu lông không?
+      - giá thuê sân cầu lông có bao gồm thiết bị không?
+      - đặt sân cầu lông vào giờ thấp điểm có rẻ hơn không?
+      - có phí hủy đặt sân cầu lông không?
+      - giá thuê sân cầu lông có thay đổi theo thời gian không?
+      - có thể đặt sân cầu lông qua mạng không và giá có khác không?
+      - giá thuê sân cầu lông cho một giờ là bao nhiêu vào buổi tối?
+
+  - intent: payment_method
+    examples: |
+      - thanh toán đặt sân cầu lông như thế nào?  
+      - có thể trả tiền mặt khi đến sân không?  
+      - chuyển khoản đặt sân cầu lông được không?  
+      - thanh toán online khi đặt sân có được không?  
+      - có hỗ trợ ví điện tử không?  
+      - tôi có thể dùng thẻ tín dụng để đặt sân không?
+      - Tôi có thể thanh toán đặt sân bằng Momo không?  
+      - Khi đặt sân có cần thanh toán trước không?  
+      - Sân có hỗ trợ quét mã QR để thanh toán không?  
+      - Tôi có thể thanh toán bằng ZaloPay không?  
+      - Có thể trả bằng thẻ ATM nội địa không?  
+      - Đặt sân xong có thể thanh toán sau không?  
+      - Có hoàn tiền nếu hủy sân sau khi thanh toán không?  
+      - Tôi có thể thanh toán một phần trước rồi trả sau không?  
+      - Có thể dùng PayPal để thanh toán không?  
+      - Thanh toán đặt sân có mất phí giao dịch không?
+
+  - intent: cancelled_booking
+    examples: |
+      - làm thế nào để hủy sân cầu lông?
+      - tôi muốn hủy sân đã đặt thì làm sao?
+      - có thể hủy sân sau khi đặt không?
+      - cách hủy sân cầu lông như thế nào?
+      - tôi đặt nhầm sân, làm sao để hủy?
+      - hủy sân cầu lông online được không?
+      - thủ tục hủy sân cầu lông gồm những gì?
+      - có bị phạt khi hủy sân không?
+      - thời hạn hủy sân trước bao lâu?
+      - hủy sân qua điện thoại được không?
+      - tôi cần hủy sân đã book, giúp tôi với
+      - nếu hủy sân thì có được hoàn tiền không?
+      - tôi muốn cancel sân cầu lông đã đặt
+      - Tôi có thể hủy sân trực tiếp tại sân không?  
+      - Nếu hủy sát giờ thì có mất phí không?  
+      - Làm sao để kiểm tra tình trạng hủy sân của tôi?  
+      - Tôi hủy sân nhưng chưa nhận được xác nhận, phải làm sao?  
+      - Có cách nào hủy sân nhanh nhất không?  
+      - Hủy sân xong có thể đặt lại ngay không?  
+      - Nếu không đến sân thì có tự động hủy không?  
+      - Tôi có thể đổi lịch thay vì hủy sân không?  
+      - Hủy sân có cần lý do cụ thể không?  
+      - Nếu tôi hủy nhiều lần có bị hạn chế đặt sân không?
+
+  - intent: ask_yard_services
+    examples: |
+      - Sân cầu lông có dịch vụ gì khác không?  
+      - Ngoài đặt sân, ở đây có dịch vụ nào khác không?  
+      - Sân có cho thuê vợt không?  
+      - Ở đây có bán cầu lông không?  
+      - Có huấn luyện viên hướng dẫn không?  
+      - Sân có hỗ trợ cho người mới tập không?  
+      - Ở sân có khu vực nghỉ ngơi không?  
+      - Sân có phòng thay đồ không?  
+      - Ở đây có phục vụ nước uống không?  
+      - Sân có chỗ để xe miễn phí không?  
+      - Có thể thuê huấn luyện viên riêng không?  
+      - Ở sân có bán phụ kiện cầu lông không?  
+      - Sân có cho thuê giày thể thao không?  
+      - Có dịch vụ massage hoặc giãn cơ không?  
+      - Sân có cho thuê tủ đồ cá nhân không?  
+      - Ở đây có wifi miễn phí không?  
+      - Có khu vực ăn uống gần sân không?  
+      - Sân có cho đặt sân theo tháng không?  
+      - Có tổ chức giải đấu tại sân không?  
+      - Sân có chương trình giảm giá nào không?
+
+  - intent: check_booking
+    examples: |
+      - Lịch đặt sân [hôm nay](check_date) của tôi
+      - [Hôm nay](check_date) tôi có lịch nào không?
+      - Kiểm tra lịch sân [hôm nay](check_date) giúp tôi
+      - Cho tôi biết lịch sân [ngày mai](check_date)
+      - Có lịch đặt sân nào vào [ngày mai](check_date) không?
+      - Tôi đã đặt sân [hôm nay](check_date) chưa?
+      - Lịch sân của tôi vào [ngày mai](check_date) là gì?
+      - Tôi có chơi cầu lông vào [hôm nay](check_date) không?
+      - Sân tôi đặt [ngày mai](check_date) ở đâu?
+      - Có sân nào đã được đặt [hôm nay](check_date) không?
+      - Check giúp lịch [ngày mai](check_date) có sân chưa?
+      - [Hôm nay](check_date) có lịch sân nào của tôi không?
+      - Xem lịch chơi cầu lông [ngày mai](check_date)
+      - Lịch thi đấu của tôi vào [hôm nay](check_date) là gì?
+      - Tôi có lịch đánh cầu lông [hôm nay](check_date) không?
+      - Kiểm tra hộ tôi xem [ngày mai](check_date) có sân nào không?
+      - Lịch sử đặt sân [hôm nay](check_date) của tôi đâu?
+      - Tôi có phải đến sân [ngày mai](check_date) không?
+      - Có đặt sân nào cho [ngày mai](check_date) chưa?
+      - Nhắc lịch đánh cầu lông [hôm nay](check_date) đi
+      - Cho tôi xem lịch chơi [ngày mai](check_date)
+      - Có booking nào [hôm nay](check_date) không?
+      - Booking sân [ngày mai](check_date) là lúc mấy giờ?
+      - Tôi có lịch vào [hôm nay](check_date) không?
+      - Giúp tôi kiểm tra lịch đặt vào [ngày mai](check_date)
+      - Tôi đã đặt sân lúc nào vào [hôm nay](check_date)?
+      - Cho tôi lịch đánh cầu lông [ngày mai](check_date)
+      - [Ngày mai](check_date) có lịch sân chưa?
+      - Có lịch chơi nào [hôm nay](check_date) không?
+      - Danh sách lịch sân [ngày mai](check_date) giúp tôi

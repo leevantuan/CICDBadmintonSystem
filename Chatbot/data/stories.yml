@@ -65,7 +65,7 @@ stories:
           - yardName: "Cầu Lông Long Vũ"
           - startTime: "14:00"
           - endTime: "16:00"
-          - quantityDate: 0
+          - quantityDate: "0"
       - action: action_check_yard_availability
       - action: utter_ask_booking
       - intent: booking_yard
@@ -85,7 +85,7 @@ stories:
           - yardName: "Cầu Lông Long Vũ"
           - startTime: "14:00"
           - endTime: "16:00"
-          - quantityDate: 0
+          - quantityDate: "0"
       - action: action_check_yard_availability
       - action: utter_ask_support
 
@@ -98,7 +98,7 @@ stories:
           - yardName: "Cầu Lông Long Vũ"
           - startTime: "14:00"
           - endTime: "16:00"
-          - quantityDate: 0
+          - quantityDate: "0"
       - action: action_check_yard_availability
       - action: utter_ask_support
       - intent: booking_yard
@@ -133,7 +133,7 @@ stories:
           - yardName: "Cầu Lông Long Vũ"
           - startTime: "14:00"
           - endTime: "16:00"
-          - quantityDate: 0
+          - quantityDate: "0"
       - action: action_check_yard_availability
       - action: utter_ask_booking
       - intent: booking_yard
@@ -168,3 +168,39 @@ stories:
       - slot_was_set:
           - quantity: "3"
       - action: action_fetch_top_clubs
+
+  - story: book full court with all info
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: book_court_full
+        entities:
+          - book_clubName: "Cầu lông Way station"
+          - book_startTime: "16:00"
+          - book_endTime: "20:00"
+          - book_date: "ngày mai"
+      - action: action_confirm_booking
+      - intent: provide_email
+        entities:
+          - email: "leevantuan2002@gmail.com"
+      - action: action_create_booking
+
+  # Customer stories
+  - story: return top club
+    steps:
+      - intent: ask_top_rated_clubs
+      - slot_was_set:
+          - quantity: "3" # Mặc định
+      - action: action_fetch_top_clubs
+
+  # Check booking
+  - story: check booking
+    steps:
+      - intent: check_booking
+      - slot_was_set:
+          - check_date: "hôm nay"
+      - action: action_check_booking
+      - intent: provide_email
+        entities:
+          - email: "leevantuan2002@gmail.com"
+      - action: action_handle_booking
