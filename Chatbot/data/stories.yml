@@ -174,7 +174,7 @@ stories:
       - intent: greet
       - action: utter_greet
       - intent: book_court_full
-        entities:
+      - slot_was_set:
           - book_clubName: "Cầu lông Way station"
           - book_startTime: "16:00"
           - book_endTime: "20:00"
