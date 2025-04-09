@@ -161,12 +161,20 @@ nlu:
 
   - intent: ask_yard_availability
     examples: |
-      - [The Champion](yardName) còn sân [sáng nay](quantityDate:0) từ [8:00](startTime) tới [10:00](endTime) không?
-      - [Victory Arena](yardName) còn sân [chiều nay](quantityDate:0) từ [14:00](startTime) tới [16:00](endTime) không?
-      - [Golden Field](yardName) còn sân [tối mai](quantityDate:1) từ [18:00](startTime) tới [20:00](endTime) không?
-      - [Tối nay](quantityDate:0) [Smash Arena](yardName) còn sân trống khoảng [19:30](startTime) không?
-      - [Tối nay](quantityDate:0) [Galaxy Court](yardName) còn sân trống khoảng [20:00](startTime) không?  
-      - [Tối nay](quantityDate:0) [Elite Stadium](yardName) còn sân trống khoảng [18:45](startTime) không?  
+      - [The Champion](yardName) còn sân [sáng nay](quantityDate:0) từ [8:00](check_startTime) tới [10:00](check_endTime) không?
+      - [Victory Arena](yardName) còn sân [chiều nay](quantityDate:0) từ [14:00](check_startTime) tới [16:00](check_endTime) không?
+      - [Golden Field](yardName) còn sân [tối mai](quantityDate:1) từ [18:00](check_startTime) tới [20:00](check_endTime) không?
+      - [Tối nay](quantityDate:0) [Smash Arena](yardName) còn sân trống khoảng [19:30](check_startTime) không?
+      - [Tối nay](quantityDate:0) [Galaxy Court](yardName) còn sân trống khoảng [20:00](check_startTime) không?  
+      - [Tối nay](quantityDate:0) [Elite Stadium](yardName) còn sân trống khoảng [18:45](check_startTime) không?
+      - [Ngày mai](quantityDate:1) [Way station](yardName) còn sân từ [16:00](check_startTime) đến [18:00](check_endTime) không?
+      - [Ngày mai](quantityDate:1) [Way station](yardName) còn sân từ [16h](check_startTime) đến [18h](check_endTime) không?
+      - [Ngày mai](quantityDate:1) [Way station](yardName) còn sân từ [16h](check_startTime) - [18h](check_endTime) không?
+      - [Tối nay](quantityDate:0) [Elite Stadium](yardName) còn sân trống khoảng [18:45](check_startTime) không?  
+      - [Ngày mai](quantityDate:1) [Way station](yardName) còn sân lúc [16:00](check_startTime) đến [18:00](check_endTime) không?
+      - [Ngày mai](quantityDate:1) [Way station](yardName) còn sân lúc [16h](check_startTime) đến [18h](check_endTime) không?
+      - [Ngày mai](quantityDate:1) [Way station](yardName) còn sân lúc [16h](check_startTime) - [18h](check_endTime) không?
+      - [Ngày mai](quantityDate:1) [Way station](yardName) còn sân từ [16:00](check_startTime) đến [18:00](check_endTime) chứ?
       - [Ngày kia](quantityDate:2) [Racket Pro](yardName) còn sân cả ngày không?
       - [Ngày kia](quantityDate:2) [Smash Center](yardName) còn sân cả ngày không?  
       - [Ngày kia](quantityDate:2) [Power Court](yardName) còn sân cả ngày không?  
@@ -175,120 +183,120 @@ nlu:
       - [1 ngày nữa](quantityDate:1) [Smash Arena](yardName) còn sân buổi chiều không?
       - [1 ngày nữa](quantityDate:1) [Elite Court](yardName) còn sân buổi chiều không?
       - [1 ngày nữa](quantityDate:1) [Galaxy Sports](yardName) còn sân buổi chiều không?
-      - [Sân Cầu Lông ABC](yardName) [hôm nay](quantityDate:0) còn trống từ [15:30](startTime) đến [17:00](endTime) chứ?
-      - [Sân Elite Club](yardName) [ngày mai](quantityDate:1) còn sân từ [16:00](startTime) đến [18:00](endTime) không?
+      - [Sân Cầu Lông ABC](yardName) [hôm nay](quantityDate:0) còn trống từ [15:30](check_startTime) đến [17:00](check_endTime) chứ?
+      - [Sân Elite Club](yardName) [ngày mai](quantityDate:1) còn sân từ [16:00](check_startTime) đến [18:00](check_endTime) không?
       - [Sân Smash Center](yardName) [2 ngày sau](quantityDate:2) còn sân buổi chiều không?
       - [3 ngày tới](quantityDate:3) [Net King](yardName) còn sân tối không?
-      - [4 ngày tới](quantityDate:4) [Racket Pro](yardName) còn sân sau [19:00](startTime) không?
+      - [4 ngày tới](quantityDate:4) [Racket Pro](yardName) còn sân sau [19:00](check_startTime) không?
       - [5 ngày tới](quantityDate:5) [Shuttle Master](yardName) có sân trống buổi tối không?
-      - [Sáng mai](quantityDate:1) [Shuttle Master](yardName) còn sân từ [7:00](startTime) đến [9:00](endTime) không?
-      - [Sáng ngày kia](quantityDate:2) [Elite Court](yardName) có sân từ [6:30](startTime) đến [8:30](endTime) không?
+      - [Sáng mai](quantityDate:1) [Shuttle Master](yardName) còn sân từ [7:00](check_startTime) đến [9:00](check_endTime) không?
+      - [Sáng ngày kia](quantityDate:2) [Elite Court](yardName) có sân từ [6:30](check_startTime) đến [8:30](check_endTime) không?
       - [Sáng 3 ngày sau](quantityDate:3) [Way Station](yardName) còn sân sớm không?
       - [Chiều mai](quantityDate:1) [Club B](yardName) còn sân trống không?
-      - [Chiều ngày kia](quantityDate:2) [Smash Arena](yardName) có sân từ [14:00](startTime) đến [16:00](endTime) không?
+      - [Chiều ngày kia](quantityDate:2) [Smash Arena](yardName) có sân từ [14:00](check_startTime) đến [16:00](check_endTime) không?
       - [Chiều 4 ngày sau](quantityDate:4) [Power Court](yardName) còn sân buổi chiều không?
-      - [2 ngày sau](quantityDate:2) [Sân Cầu Lông XYZ](yardName) còn sân từ [13:00](startTime) tới [15:00](endTime) chứ?
-      - [3 ngày nữa](quantityDate:3) [Galaxy Sports](yardName) còn sân từ [14:00](startTime) tới [16:00](endTime) không?
+      - [2 ngày sau](quantityDate:2) [Sân Cầu Lông XYZ](yardName) còn sân từ [13:00](check_startTime) tới [15:00](check_endTime) chứ?
+      - [3 ngày nữa](quantityDate:3) [Galaxy Sports](yardName) còn sân từ [14:00](check_startTime) tới [16:00](check_endTime) không?
       - [5 ngày sau](quantityDate:5) [The Champion](yardName) có sân trống không?
-      - [Tối mai](quantityDate:1) [Way Station](yardName) còn sân sau [20:00](startTime) không?
-      - [Tối ngày kia](quantityDate:2) [Shuttle Master](yardName) còn sân từ [19:30](startTime) không?
+      - [Tối mai](quantityDate:1) [Way Station](yardName) còn sân sau [20:00](check_startTime) không?
+      - [Tối ngày kia](quantityDate:2) [Shuttle Master](yardName) còn sân từ [19:30](check_startTime) không?
       - [Tối 3 ngày sau](quantityDate:3) [Elite Stadium](yardName) có sân trống buổi tối không?
       - [Club A](yardName) có còn sân trống không?
       - [Club C](yardName) còn sân không?
       - [Club D](yardName) có sân nào trống hôm nay không?
-      - [Cầu Lông Long Vũ](yardName) còn sân từ [14:00](startTime) đến [16:00](endTime) không?
-      - [Net King](yardName) còn sân từ [15:00](startTime) đến [17:00](endTime) không?
+      - [Cầu Lông Long Vũ](yardName) còn sân từ [14:00](check_startTime) đến [16:00](check_endTime) không?
+      - [Net King](yardName) còn sân từ [15:00](check_startTime) đến [17:00](check_endTime) không?
       - [Racket Pro](yardName) có sân trống buổi chiều không?
       - [Smash Arena](yardName) còn sân [ngày mai](quantityDate:1) không?
       - [The Champion](yardName) còn sân trống vào [2 ngày sau](quantityDate:2) không?
       - [Way Station](yardName) còn sân nào sáng [3 ngày sau](quantityDate:3) không?
-      - [Net King](yardName) còn sân từ [18:00](startTime) đến [20:00](endTime) [ngày kia](quantityDate:2) không?
-      - [Shuttle Master](yardName) còn sân từ [17:30](startTime) đến [19:30](endTime) [3 ngày sau](quantityDate:3) không?
+      - [Net King](yardName) còn sân từ [18:00](check_startTime) đến [20:00](check_endTime) [ngày kia](quantityDate:2) không?
+      - [Shuttle Master](yardName) còn sân từ [17:30](check_startTime) đến [19:30](check_endTime) [3 ngày sau](quantityDate:3) không?
       - [Elite Court](yardName) có sân trống [4 ngày tới](quantityDate:4) buổi tối không?
       - [3 ngày sau](quantityDate:3) [Racket Pro](yardName) còn sân trống không?
       - [4 ngày sau](quantityDate:4) [Club B](yardName) còn sân nào sáng không?
       - [5 ngày sau](quantityDate:5) [Power Court](yardName) có sân trống nguyên ngày không?
-      - [Hôm nay](quantityDate:0) [The Champion](yardName) còn sân từ [09:00](startTime) đến [11:00](endTime) không?
-      - [Ngày mai](quantityDate:1) [Smash Arena](yardName) còn sân từ [10:00](startTime) đến [12:00](endTime) không?
+      - [Hôm nay](quantityDate:0) [The Champion](yardName) còn sân từ [09:00](check_startTime) đến [11:00](check_endTime) không?
+      - [Ngày mai](quantityDate:1) [Smash Arena](yardName) còn sân từ [10:00](check_startTime) đến [12:00](check_endTime) không?
       - [2 ngày sau](quantityDate:2) [Way Station](yardName) có sân trống buổi sáng không?
       - [Club Cầu Lông Way Station](yardName) còn sân [chiều nay](quantityDate:0) không?
       - [Club Shuttle Master](yardName) còn sân trống [chiều mai](quantityDate:1) không?
       - [Club Power Court](yardName) có sân nào trống vào [chiều ngày kia](quantityDate:2) không?
       - [Ngày mai](quantityDate:1) [Shuttle Master](yardName) còn sân buổi tối không?
-      - [2 ngày sau](quantityDate:2) [Elite Court](yardName) còn sân từ [19:00](startTime) không?
-      - [3 ngày sau](quantityDate:3) [Club A](yardName) có sân trống sau [18:30](startTime) không?
+      - [2 ngày sau](quantityDate:2) [Elite Court](yardName) còn sân từ [19:00](check_startTime) không?
+      - [3 ngày sau](quantityDate:3) [Club A](yardName) có sân trống sau [18:30](check_startTime) không?
       - [2 ngày nữa](quantityDate:2) [Club A](yardName) còn sân không?
       - [3 ngày tới](quantityDate:3) [Club C](yardName) còn sân trống vào buổi tối không?
       - [5 ngày sau](quantityDate:5) [Club D](yardName) có sân nào trống không?
-      - [Sân Cầu Lông XYZ](yardName) còn trống [tối nay](quantityDate:0) từ [19:00](startTime) đến [21:00](endTime) không?
-      - [Sân Elite Club](yardName) còn sân [ngày mai](quantityDate:1) từ [18:30](startTime) đến [20:30](endTime) không?
+      - [Sân Cầu Lông XYZ](yardName) còn trống [tối nay](quantityDate:0) từ [19:00](check_startTime) đến [21:00](check_endTime) không?
+      - [Sân Elite Club](yardName) còn sân [ngày mai](quantityDate:1) từ [18:30](check_startTime) đến [20:30](check_endTime) không?
       - [Sân Shuttle Master](yardName) có sân nào trống vào [3 ngày sau](quantityDate:3) không?
-      - [Cầu Lông Long Vũ](yardName) [ngày mai](quantityDate:1) có sân trống từ [16:00](startTime) đến [20:00](endTime) không?
-      - [Ngày mai](quantityDate:1) sân [Cầu Lông Long Vũ](yardName) còn trống từ [17:00](startTime) đến [21:00](endTime) chứ?
-      - Tôi muốn kiểm tra sân trống tại [Cầu Lông Long Vũ](yardName) [ngày mai](quantityDate:1) từ [14:00](startTime) đến [19:00](endTime).
-      - [Cầu Lông Long Vũ](yardName) có sân nào trống vào [ngày mai](quantityDate:1) từ [18:00](startTime) đến [22:00](endTime) không?
-      - Sân [Cầu Lông Long Vũ](yardName) [mai](quantityDate:1) có slot trống từ [13:00](startTime) đến [16:00](endTime) không?
-      - [Ngày mai](quantityDate:1) từ [15:00](startTime) đến [20:00](endTime) còn sân trống ở [Cầu Lông Long Vũ](yardName) không?
-      - Tôi muốn đặt sân ở [Cầu Lông Long Vũ](yardName) vào [ngày mai](quantityDate:1) lúc [17:00](startTime) - [20:00](endTime), còn sân không?
-      - [Cầu Lông Long Vũ](yardName) có sân nào rảnh [ngày mai](quantityDate:1) từ [12:00](startTime) đến [14:00](endTime) không?
-      - [Ngày mai](quantityDate:1) sân ở [Cầu Lông Long Vũ](yardName) từ [10:00](startTime) đến [12:00](endTime) còn chỗ không?
-      - [Cầu Lông Long Vũ](yardName) có sân free vào [ngày mai](quantityDate:1) lúc [19:00](startTime) - [22:00](endTime) không?
-      - Kiểm tra giúp tôi xem [Cầu Lông Long Vũ](yardName) có sân trống [mai](quantityDate:1) từ [09:00](startTime) đến [11:00](endTime) không?
-      - [Ngày mai](quantityDate:1) sân [Cầu Lông Long Vũ](yardName) còn chỗ trống từ [08:00](startTime) đến [10:00](endTime) chứ?
-      - [Mai](quantityDate:1) từ [20:00](startTime) đến [22:00](endTime) [Cầu Lông Long Vũ](yardName) có sân nào không?
-      - [Cầu Lông Long Vũ](yardName) [mai](quantityDate:1) có thể đặt sân từ [07:00](startTime) đến [09:00](endTime) không?
-      - Cho tôi kiểm tra sân [Cầu Lông Long Vũ](yardName) [ngày mai](quantityDate:1) từ [06:00](startTime) đến [08:00](endTime) còn chỗ không?
-      - [Ngày mai](quantityDate:1) sân cầu lông ở [Long Vũ](yardName) có thể đặt từ [14:00](startTime) đến [16:00](endTime) không?
-      - Sân [Cầu Lông Long Vũ](yardName) [ngày mai](quantityDate:1) từ [11:00](startTime) đến [13:00](endTime) còn trống không?
-      - [Ngày mai](quantityDate:1) tôi muốn book sân ở [Cầu Lông Long Vũ](yardName) từ [10:00](startTime) đến [14:00](endTime), còn sân không?
-      - [Mai](quantityDate:1) từ [18:00](startTime) đến [21:00](endTime) còn sân trống ở [Cầu Lông Long Vũ](yardName) chứ?
-      - Sân cầu lông [Long Vũ](yardName) [ngày mai](quantityDate:1) từ [15:30](startTime) đến [17:30](endTime) có thể đặt không?
-      - [Cầu Lông Long Vũ](yardName) [ngày mai](quantityDate:1) từ [17:00](startTime) đến [19:00](endTime) còn sân trống không?
-      - Tôi cần kiểm tra lịch sân [Cầu Lông Long Vũ](yardName) [ngày mai](quantityDate:1) từ [12:00](startTime) đến [16:00](endTime), còn sân không?
-      - Sân [Cầu Lông Long Vũ](yardName) [ngày mai](quantityDate:1) còn slot nào từ [09:00](startTime) đến [11:00](endTime) không?
-      - [The Champion](yardName) còn sân [hôm nay](quantityDate:0) từ [16h](startTime) đến [20h](endTime) không?
-      - [Victory Arena](yardName) còn sân [chiều nay](quantityDate:0) từ [16h](startTime) tới [20h](endTime) không?
-      - [Golden Field](yardName) còn sân [tối mai](quantityDate:1) từ [16h](startTime) tới [20h](endTime) không?
-      - [Sáng mai](quantityDate:1) [Smash Arena](yardName) còn sân từ [16h](startTime) đến [20h](endTime) không?
-      - [Chiều mai](quantityDate:1) [Galaxy Court](yardName) có sân từ [16h](startTime) đến [20h](endTime) không?
-      - [Sân Elite Club](yardName) [ngày mai](quantityDate:1) còn sân từ [16h](startTime) đến [20h](endTime) không?
-      - [Sân Smash Center](yardName) [2 ngày sau](quantityDate:2) còn sân từ [16h](startTime) đến [20h](endTime) không?
-      - [Sáng 3 ngày sau](quantityDate:3) [Net King](yardName) còn sân từ [16h](startTime) đến [20h](endTime) không?
-      - [Chiều 4 ngày sau](quantityDate:4) [Power Court](yardName) có sân từ [16h](startTime) đến [20h](endTime) không?
-      - [5 ngày sau](quantityDate:5) [Shuttle Master](yardName) còn sân từ [16h](startTime) đến [20h](endTime) không?
-      - [Tối mai](quantityDate:1) [Way Station](yardName) còn sân từ [16h](startTime) đến [20h](endTime) không?
-      - [Tối ngày kia](quantityDate:2) [Shuttle Master](yardName) có sân từ [16h](startTime) đến [20h](endTime) không?
-      - [Tối 3 ngày sau](quantityDate:3) [Elite Stadium](yardName) còn sân từ [16h](startTime) đến [20h](endTime) không?
-      - Cho tôi đặt sân ở [The Champion](yardName) [sáng mai](quantityDate:1) từ [7:00](startTime) đến [9:00](endTime).
-      - Làm ơn kiểm tra giúp sân ở [Smash Arena](yardName) tối [ngày mai](quantityDate:1) khoảng [18:00](startTime) đến [20:00](endTime) có trống không?
-      - Tôi cần đặt sân ở [Way Station](yardName) [ngày kia](quantityDate:2) từ [16:00](startTime) tới [18:00](endTime).
-      - [Thứ sáu tuần này](quantityDate:4) sân [Club A](yardName) có khung [19:00](startTime) - [21:00](endTime) không?
-      - [Smash Arena](yardName) có sân trống [ngày mốt](quantityDate:2) từ [17:00](startTime) đến [19:00](endTime) không?
-      - Đặt trước sân [Galaxy Court](yardName) [ngày mai](quantityDate:1) từ [10:00](startTime) tới [12:00](endTime) nhé.
-      - Em muốn book sân ở [Elite Court](yardName) [thứ bảy](quantityDate:5) từ [8:00](startTime) đến [10:00](endTime).
-      - Có sân nào ở [Smash Center](yardName) trống [tối nay](quantityDate:0) sau [19:00](startTime) không?
-      - Tối mai [Galaxy Sports](yardName) có sân từ [18:00](startTime) đến [20:00](endTime) không vậy?
-      - [The Champion](yardName) có khung giờ từ [6:00](startTime) đến [7:30](endTime) [sáng mai](quantityDate:1) không?
-      - Kiểm tra giúp mình slot [15:00](startTime) - [17:00](endTime) ở [Shuttle Master](yardName) [ngày kia](quantityDate:2).
+      - [Cầu Lông Long Vũ](yardName) [ngày mai](quantityDate:1) có sân trống từ [16:00](check_startTime) đến [20:00](check_endTime) không?
+      - [Ngày mai](quantityDate:1) sân [Cầu Lông Long Vũ](yardName) còn trống từ [17:00](check_startTime) đến [21:00](check_endTime) chứ?
+      - Tôi muốn kiểm tra sân trống tại [Cầu Lông Long Vũ](yardName) [ngày mai](quantityDate:1) từ [14:00](check_startTime) đến [19:00](check_endTime).
+      - [Cầu Lông Long Vũ](yardName) có sân nào trống vào [ngày mai](quantityDate:1) từ [18:00](check_startTime) đến [22:00](check_endTime) không?
+      - Sân [Cầu Lông Long Vũ](yardName) [mai](quantityDate:1) có slot trống từ [13:00](check_startTime) đến [16:00](check_endTime) không?
+      - [Ngày mai](quantityDate:1) từ [15:00](check_startTime) đến [20:00](check_endTime) còn sân trống ở [Cầu Lông Long Vũ](yardName) không?
+      - Tôi muốn đặt sân ở [Cầu Lông Long Vũ](yardName) vào [ngày mai](quantityDate:1) lúc [17:00](check_startTime) - [20:00](check_endTime), còn sân không?
+      - [Cầu Lông Long Vũ](yardName) có sân nào rảnh [ngày mai](quantityDate:1) từ [12:00](check_startTime) đến [14:00](check_endTime) không?
+      - [Ngày mai](quantityDate:1) sân ở [Cầu Lông Long Vũ](yardName) từ [10:00](check_startTime) đến [12:00](check_endTime) còn chỗ không?
+      - [Cầu Lông Long Vũ](yardName) có sân free vào [ngày mai](quantityDate:1) lúc [19:00](check_startTime) - [22:00](check_endTime) không?
+      - Kiểm tra giúp tôi xem [Cầu Lông Long Vũ](yardName) có sân trống [mai](quantityDate:1) từ [09:00](check_startTime) đến [11:00](check_endTime) không?
+      - [Ngày mai](quantityDate:1) sân [Cầu Lông Long Vũ](yardName) còn chỗ trống từ [08:00](check_startTime) đến [10:00](check_endTime) chứ?
+      - [Mai](quantityDate:1) từ [20:00](check_startTime) đến [22:00](check_endTime) [Cầu Lông Long Vũ](yardName) có sân nào không?
+      - [Cầu Lông Long Vũ](yardName) [mai](quantityDate:1) có thể đặt sân từ [07:00](check_startTime) đến [09:00](check_endTime) không?
+      - Cho tôi kiểm tra sân [Cầu Lông Long Vũ](yardName) [ngày mai](quantityDate:1) từ [06:00](check_startTime) đến [08:00](check_endTime) còn chỗ không?
+      - [Ngày mai](quantityDate:1) sân cầu lông ở [Long Vũ](yardName) có thể đặt từ [14:00](check_startTime) đến [16:00](check_endTime) không?
+      - Sân [Cầu Lông Long Vũ](yardName) [ngày mai](quantityDate:1) từ [11:00](check_startTime) đến [13:00](check_endTime) còn trống không?
+      - [Ngày mai](quantityDate:1) tôi muốn book sân ở [Cầu Lông Long Vũ](yardName) từ [10:00](check_startTime) đến [14:00](check_endTime), còn sân không?
+      - [Mai](quantityDate:1) từ [18:00](check_startTime) đến [21:00](check_endTime) còn sân trống ở [Cầu Lông Long Vũ](yardName) chứ?
+      - Sân cầu lông [Long Vũ](yardName) [ngày mai](quantityDate:1) từ [15:30](check_startTime) đến [17:30](check_endTime) có thể đặt không?
+      - [Cầu Lông Long Vũ](yardName) [ngày mai](quantityDate:1) từ [17:00](check_startTime) đến [19:00](check_endTime) còn sân trống không?
+      - Tôi cần kiểm tra lịch sân [Cầu Lông Long Vũ](yardName) [ngày mai](quantityDate:1) từ [12:00](check_startTime) đến [16:00](check_endTime), còn sân không?
+      - Sân [Cầu Lông Long Vũ](yardName) [ngày mai](quantityDate:1) còn slot nào từ [09:00](check_startTime) đến [11:00](check_endTime) không?
+      - [The Champion](yardName) còn sân [hôm nay](quantityDate:0) từ [16h](check_startTime) đến [20h](check_endTime) không?
+      - [Victory Arena](yardName) còn sân [chiều nay](quantityDate:0) từ [16h](check_startTime) tới [20h](check_endTime) không?
+      - [Golden Field](yardName) còn sân [tối mai](quantityDate:1) từ [16h](check_startTime) tới [20h](check_endTime) không?
+      - [Sáng mai](quantityDate:1) [Smash Arena](yardName) còn sân từ [16h](check_startTime) đến [20h](check_endTime) không?
+      - [Chiều mai](quantityDate:1) [Galaxy Court](yardName) có sân từ [16h](check_startTime) đến [20h](check_endTime) không?
+      - [Sân Elite Club](yardName) [ngày mai](quantityDate:1) còn sân từ [16h](check_startTime) đến [20h](check_endTime) không?
+      - [Sân Smash Center](yardName) [2 ngày sau](quantityDate:2) còn sân từ [16h](check_startTime) đến [20h](check_endTime) không?
+      - [Sáng 3 ngày sau](quantityDate:3) [Net King](yardName) còn sân từ [16h](check_startTime) đến [20h](check_endTime) không?
+      - [Chiều 4 ngày sau](quantityDate:4) [Power Court](yardName) có sân từ [16h](check_startTime) đến [20h](check_endTime) không?
+      - [5 ngày sau](quantityDate:5) [Shuttle Master](yardName) còn sân từ [16h](check_startTime) đến [20h](check_endTime) không?
+      - [Tối mai](quantityDate:1) [Way Station](yardName) còn sân từ [16h](check_startTime) đến [20h](check_endTime) không?
+      - [Tối ngày kia](quantityDate:2) [Shuttle Master](yardName) có sân từ [16h](check_startTime) đến [20h](check_endTime) không?
+      - [Tối 3 ngày sau](quantityDate:3) [Elite Stadium](yardName) còn sân từ [16h](check_startTime) đến [20h](check_endTime) không?
+      - Cho tôi đặt sân ở [The Champion](yardName) [sáng mai](quantityDate:1) từ [7:00](check_startTime) đến [9:00](check_endTime).
+      - Làm ơn kiểm tra giúp sân ở [Smash Arena](yardName) tối [ngày mai](quantityDate:1) khoảng [18:00](check_startTime) đến [20:00](check_endTime) có trống không?
+      - Tôi cần đặt sân ở [Way Station](yardName) [ngày kia](quantityDate:2) từ [16:00](check_startTime) tới [18:00](check_endTime).
+      - [Thứ sáu tuần này](quantityDate:4) sân [Club A](yardName) có khung [19:00](check_startTime) - [21:00](check_endTime) không?
+      - [Smash Arena](yardName) có sân trống [ngày mốt](quantityDate:2) từ [17:00](check_startTime) đến [19:00](check_endTime) không?
+      - Đặt trước sân [Galaxy Court](yardName) [ngày mai](quantityDate:1) từ [10:00](check_startTime) tới [12:00](check_endTime) nhé.
+      - Em muốn book sân ở [Elite Court](yardName) [thứ bảy](quantityDate:5) từ [8:00](check_startTime) đến [10:00](check_endTime).
+      - Có sân nào ở [Smash Center](yardName) trống [tối nay](quantityDate:0) sau [19:00](check_startTime) không?
+      - Tối mai [Galaxy Sports](yardName) có sân từ [18:00](check_startTime) đến [20:00](check_endTime) không vậy?
+      - [The Champion](yardName) có khung giờ từ [6:00](check_startTime) đến [7:30](check_endTime) [sáng mai](quantityDate:1) không?
+      - Kiểm tra giúp mình slot [15:00](check_startTime) - [17:00](check_endTime) ở [Shuttle Master](yardName) [ngày kia](quantityDate:2).
       - Sân [Smash Arena](yardName) trống lúc nào [cuối tuần này](quantityDate:5)?
-      - Em muốn đặt khung [20:00](startTime) - [22:00](endTime) tại [Way Station](yardName) vào [thứ bảy](quantityDate:5).
-      - Mai [Shuttle Master](yardName) có khung [17:30](startTime) đến [19:30](endTime) không?
+      - Em muốn đặt khung [20:00](check_startTime) - [22:00](check_endTime) tại [Way Station](yardName) vào [thứ bảy](quantityDate:5).
+      - Mai [Shuttle Master](yardName) có khung [17:30](check_startTime) đến [19:30](check_endTime) không?
       - Đặt sân tại [Smash Center](yardName) [ngày kia](quantityDate:2) buổi sáng khung nào cũng được.
-      - [Galaxy Court](yardName) có sân nào rảnh [tối mai](quantityDate:1) từ [18:30](startTime)?
-      - [Cầu Lông Long Vũ](yardName) trống slot từ [7:00](startTime) tới [9:00](endTime) [ngày mai](quantityDate:1) không?
-      - Book sân ở [Elite Court](yardName) vào [thứ hai tới](quantityDate:7) từ [13:00](startTime) đến [15:00](endTime).
+      - [Galaxy Court](yardName) có sân nào rảnh [tối mai](quantityDate:1) từ [18:30](check_startTime)?
+      - [Cầu Lông Long Vũ](yardName) trống slot từ [7:00](check_startTime) tới [9:00](check_endTime) [ngày mai](quantityDate:1) không?
+      - Book sân ở [Elite Court](yardName) vào [thứ hai tới](quantityDate:7) từ [13:00](check_startTime) đến [15:00](check_endTime).
       - Có khung nào buổi chiều ở [Galaxy Sports](yardName) [thứ năm này](quantityDate:3) không?
-      - [Shuttle Master](yardName) có trống buổi sáng [ngày mốt](quantityDate:2) từ [9:00](startTime)?
-      - Em cần sân [Smash Arena](yardName) [sáng chủ nhật](quantityDate:5) khung [6:00](startTime) đến [8:00](endTime).
-      - [Way Station](yardName) có slot [15:00](startTime) đến [17:00](endTime) [ngày kia](quantityDate:2) không?
+      - [Shuttle Master](yardName) có trống buổi sáng [ngày mốt](quantityDate:2) từ [9:00](check_startTime)?
+      - Em cần sân [Smash Arena](yardName) [sáng chủ nhật](quantityDate:5) khung [6:00](check_startTime) đến [8:00](check_endTime).
+      - [Way Station](yardName) có slot [15:00](check_startTime) đến [17:00](check_endTime) [ngày kia](quantityDate:2) không?
       - Cho mình xem khung giờ trống ở [The Champion](yardName) vào [cuối tuần](quantityDate:5).
-      - Đặt sân ở [Galaxy Court](yardName) [tối mai](quantityDate:1) từ [20:00](startTime) đến [22:00](endTime).
-      - [Cầu Lông Long Vũ](yardName) [ngày mai](quantityDate:1) còn sân khung [14:00](startTime) tới [16:00](endTime) không?
-      - Em muốn giữ sân [Smash Center](yardName) từ [9:00](startTime) đến [11:00](endTime) [ngày mốt](quantityDate:2).
-      - Cho mình check slot ở [Smash Arena](yardName) [tối nay](quantityDate:0) sau [19:00](startTime).
+      - Đặt sân ở [Galaxy Court](yardName) [tối mai](quantityDate:1) từ [20:00](check_startTime) đến [22:00](check_endTime).
+      - [Cầu Lông Long Vũ](yardName) [ngày mai](quantityDate:1) còn sân khung [14:00](check_startTime) tới [16:00](check_endTime) không?
+      - Em muốn giữ sân [Smash Center](yardName) từ [9:00](check_startTime) đến [11:00](check_endTime) [ngày mốt](quantityDate:2).
+      - Cho mình check slot ở [Smash Arena](yardName) [tối nay](quantityDate:0) sau [19:00](check_startTime).
       - [Elite Court](yardName) còn sân buổi chiều [ngày kia](quantityDate:2) không?
-      - Mình muốn book khung [10:00](startTime) - [12:00](endTime) tại [Way Station](yardName) [sáng mai](quantityDate:1).
-      - Hỏi giúp sân [The Champion](yardName) tối [thứ bảy](quantityDate:5) có từ [18:00](startTime) không?
+      - Mình muốn book khung [10:00](check_startTime) - [12:00](check_endTime) tại [Way Station](yardName) [sáng mai](quantityDate:1).
+      - Hỏi giúp sân [The Champion](yardName) tối [thứ bảy](quantityDate:5) có từ [18:00](check_startTime) không?
 
   - intent: book_court_date_only
     examples: |
