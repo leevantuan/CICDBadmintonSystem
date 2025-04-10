@@ -63,9 +63,9 @@ stories:
       - intent: ask_yard_availability
       - slot_was_set:
           - yardName: "Cầu Lông Long Vũ"
+          - quantityDate: "0"
           - check_startTime: "04:00"
           - check_endTime: "22:00"
-          - quantityDate: "0"
       - action: action_check_yard_availability
       - action: utter_ask_booking
       - intent: booking_yard
@@ -83,9 +83,9 @@ stories:
       - intent: ask_yard_availability
       - slot_was_set:
           - yardName: "Cầu Lông Long Vũ"
+          - quantityDate: "0"
           - check_startTime: "04:00"
           - check_endTime: "22:00"
-          - quantityDate: "0"
       - action: action_check_yard_availability
       - action: utter_ask_support
 
@@ -96,9 +96,9 @@ stories:
       - intent: ask_yard_availability
       - slot_was_set:
           - yardName: "Cầu Lông Long Vũ"
+          - quantityDate: "0"
           - check_startTime: "04:00"
           - check_endTime: "22:00"
-          - quantityDate: "0"
       - action: action_check_yard_availability
       - action: utter_ask_support
       - intent: booking_yard
@@ -131,9 +131,9 @@ stories:
       - intent: ask_yard_availability
       - slot_was_set:
           - yardName: "Cầu Lông Long Vũ"
+          - quantityDate: "0"
           - check_startTime: "04:00"
           - check_endTime: "22:00"
-          - quantityDate: "0"
       - action: action_check_yard_availability
       - action: utter_ask_booking
       - intent: booking_yard
@@ -173,12 +173,21 @@ stories:
     steps:
       - intent: greet
       - action: utter_greet
-      - intent: book_court_full
+      - intent: ask_yard_availability
+      - slot_was_set:
+          - yardName: "Cầu Lông Long Vũ"
+          - quantityDate: "0"
+          - check_startTime: "04:00"
+          - check_endTime: "22:00"
+      - action: action_check_yard_availability
+      - action: utter_ask_booking
+      - intent: book_court_date_only
       - slot_was_set:
           - book_clubName: "Cầu lông Way station"
-          - book_startTime: "16:00"
-          - book_endTime: "20:00"
           - book_date: "ngày mai"
+          - book_timeSlot: "16:00 - 20:00"
+          # - book_startTime: "16:00"
+          # - book_endTime: "20:00"
       - action: action_confirm_booking
       - intent: provide_email
         entities:
@@ -204,3 +213,18 @@ stories:
         entities:
           - email: "leevantuan2002@gmail.com"
       - action: action_handle_booking
+
+  - story: book full court with all info default
+    steps:
+      - intent: book_court_date_only
+      - slot_was_set:
+          - book_clubName: "Cầu lông Way station"
+          - book_date: "ngày mai"
+          - book_timeSlot: "16:00 - 20:00"
+          # - book_startTime: "16:00"
+          # - book_endTime: "20:00"
+      - action: action_confirm_booking
+      - intent: provide_email
+      - slot_was_set:
+          - email: "leevantuan2002@gmail.com"
+      - action: action_create_booking

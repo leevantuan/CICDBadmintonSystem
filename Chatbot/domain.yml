@@ -20,16 +20,17 @@ intents:
 entities:
   - quantity
   - yardName
-  - check_startTime
-  - check_endTime
   - quantityDate
   - club_name
   - book_clubName
-  - book_startTime
-  - book_endTime
   - book_date
   - email
   - check_date
+  - book_timeSlot
+  - check_startTime
+  - check_endTime
+  # - book_startTime
+  # - book_endTime
 
 slots:
   quantity:
@@ -74,17 +75,23 @@ slots:
       - type: from_entity
         entity: book_clubName
 
-  book_startTime:
-    type: text
-    mappings:
-      - type: from_entity
-        entity: book_startTime
+  # book_startTime:
+  #   type: text
+  #   mappings:
+  #     - type: from_entity
+  #       entity: book_startTime
 
-  book_endTime:
+  # book_endTime:
+  #   type: text
+  #   mappings:
+  #     - type: from_entity
+  #       entity: book_endTime
+
+  book_timeSlot:
     type: text
     mappings:
       - type: from_entity
-        entity: book_endTime
+        entity: book_timeSlot
 
   book_date:
     type: text
@@ -171,10 +178,8 @@ responses:
         3. Chọn thời gian đặt sân
         4. Xác nhận và thanh toán
         5. Nhận mã đặt sân qua email
-
         Cách 2: Hãy nhập theo ví dụ sau: 
         Tôi muốn đặt sân tại A lúc 18:00 đến 20:00 vào ngày mai
-
         Trong đó:
         A là tên sân bạn muốn đặt  
         18:00 là thời gian bắt đầu  

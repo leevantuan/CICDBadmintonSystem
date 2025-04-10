@@ -1,4 +1,4 @@
-from typing import Any, Text, Dict, List
+from typing import Any, Text, Dict, List, Tuple, Optional
 from rasa_sdk import Action, Tracker, executor
 from rasa_sdk.events import SlotSet
 from rasa_sdk.events import UserUtteranceReverted
@@ -6,6 +6,7 @@ from utils.quantity_processcor import process_quantity
 from urllib.parse import quote
 from datetime import datetime, timedelta
 
+import re
 import requests
 
 url = "https://bookingweb.shop/api/v1"
@@ -82,13 +83,18 @@ class ActionCheckYardAvailability(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         
-        # Xử lý các entity với giá trị mặc định
         yard_name = next(tracker.get_latest_entity_values("yardName"), tracker.get_slot("yardName"))
-        start_time = next(tracker.get_latest_entity_values("check_startTime"), tracker.get_slot("check_startTime"))
-        end_time = next(tracker.get_latest_entity_values("check_endTime"), tracker.get_slot("check_endTime"))
+        start_time = next(tracker.get_latest_entity_values("check_startTime"), tracker.get_slot("check_startTime") or "00:00")
+        end_time = next(tracker.get_latest_entity_values("check_endTime"), tracker.get_slot("check_endTime")  or "22:00")
         days_ahead = int(next(tracker.get_latest_entity_values("quantityDate"), tracker.get_slot("quantityDate")))
         
-        # Kiểm tra bắt buộc có yardName
+        # yard_name = tracker.get_slot("yardName")
+        # days_ahead = int(tracker.get_slot("quantityDate"))
+        # start_time = tracker.get_slot("check_startTime") or "00:00"
+        # end_time = tracker.get_slot("check_endTime") or "22:00"
+        
+        print(f"club name: {yard_name}, start time: {start_time}, end time: {end_time}, date: {days_ahead}")
+        
         if not yard_name:
             dispatcher.utter_message(text="Vui lòng cung cấp tên sân cầu lông.")
             return []
@@ -99,7 +105,20 @@ class ActionCheckYardAvailability(Action):
         dispatcher.utter_message(text=response)
         
         return []
+    def extract_time_range(self,time_slot: str) -> Tuple[Optional[str], Optional[str]]:
 
+        time_slot = time_slot.strip()
+        
+        pattern = r"(\d{1,2}:\d{2})\s*(?:đến|tới|-)\s*(\d{1,2}:\d{2})"
+        match = re.search(pattern, time_slot)
+
+        if match:
+            start_time = match.group(1)
+            end_time = match.group(2)
+            return start_time, end_time
+        else:
+            return None, None
+        
     # GET API FREE TIME
     def format_time(self, s: str) -> str:
         return s[:2] + ":00" if len(s) >= 2 else "00:00"
@@ -120,12 +139,6 @@ class ActionCheckYardAvailability(Action):
             tenant_code = self._fetch_code_clubs(yardName)
             if not tenant_code:
                 raise ValueError("Rất xin lỗi! Vui lòng kiểm tra lại tên câu lạc bộ!")
-            
-            if len(startTime) >= 3 and startTime[2] == "h":
-                startTime = self.format_time(startTime)
-                
-            if len(endTime) >= 3 and endTime[2] == "h":
-                endTime = self.format_time(endTime)
             
             params = {
                 "date": target_date,
@@ -256,15 +269,34 @@ class ActionConfirmBooking(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
         club_name = tracker.get_slot("book_clubName")
-        start_time = tracker.get_slot("book_startTime")
-        end_time = tracker.get_slot("book_endTime")
         booking_date = int(tracker.get_slot("book_date"))
+        time_slot = tracker.get_slot("book_timeSlot")
+        
+        start_time, end_time = self.extract_time_range(time_slot)
+        
+        # print(f"club name: {club_name}, start time: {start_time}, end time: {end_time}, date: {booking_date}")
 
         message = self._fetch_check_free_times(booking_date,start_time,end_time,club_name);
         dispatcher.utter_message(text=message)
 
         return []
 
+    def extract_time_range(self,time_slot: str) -> Tuple[Optional[str], Optional[str]]:
+        """
+        Tách startTime và endTime từ book_timeSlot (VD: '18:00 đến 20:00', '14:00 - 16:00', '10:00 tới 12:00')
+        """
+        time_slot = time_slot.strip()
+        
+        pattern = r"(\d{1,2}:\d{2})\s*(?:đến|tới|-)\s*(\d{1,2}:\d{2})"
+        match = re.search(pattern, time_slot)
+
+        if match:
+            start_time = match.group(1)
+            end_time = match.group(2)
+            return start_time, end_time
+        else:
+            return None, None
+    
     def format_time(self, s: str) -> str:
         return s[:2] + ":00" if len(s) >= 2 else "00:00"
     
@@ -281,11 +313,11 @@ class ActionConfirmBooking(Action):
             # Handler tenant Code
             tenant_code = self._fetch_code_clubs(yardName)
 
-            if len(startTime) >= 3 and startTime[2] == "h":
-                startTime = self.format_time(startTime)
+            # if len(startTime) >= 3 and startTime[2] == "h":
+            #     startTime = self.format_time(startTime)
                 
-            if len(endTime) >= 3 and endTime[2] == "h":
-                endTime = self.format_time(endTime)
+            # if len(endTime) >= 3 and endTime[2] == "h":
+            #     endTime = self.format_time(endTime)
             
             params = {
                 "date": target_date,
@@ -297,7 +329,7 @@ class ActionConfirmBooking(Action):
             response = requests.get(
                 f"{url}/bookings/check-unbooked?",
                 params=params,
-                timeout=5
+                timeout=30
             )
             
             response.raise_for_status()
@@ -328,13 +360,14 @@ class ActionConfirmBooking(Action):
         time_slots_str = ", ".join(time_slots)
 
         response_text = (
-            f"✅ Hãy nhập email của bạn để đặt sân tại **{yardName}** vào các khung giờ sau: {time_slots_str} nhé!"
+            f"✅ Hãy nhập email của bạn để đặt sân tại {yardName} vào các khung giờ sau: {time_slots_str} nhé!"
         )
 
         return response_text
 
 
      # GET API CODE CLUBS
+    
     def _fetch_code_clubs(self, yardName: str) -> str:
         """Lấy Code Club"""
         try:
@@ -367,16 +400,39 @@ class ActionCreateBooking(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
         email = tracker.get_slot("email")
+        # club_name = tracker.get_slot("book_clubName")
+        # start_time = tracker.get_slot("book_startTime")
+        # end_time = tracker.get_slot("book_endTime")
+        # booking_date = int(tracker.get_slot("book_date"))
         club_name = tracker.get_slot("book_clubName")
-        start_time = tracker.get_slot("book_startTime")
-        end_time = tracker.get_slot("book_endTime")
         booking_date = int(tracker.get_slot("book_date"))
+        time_slot = tracker.get_slot("book_timeSlot")
+        
+        start_time, end_time = self.extract_time_range(time_slot)
+        
+        print(f"club name: {club_name}, start time: {start_time}, end time: {end_time}, date: {booking_date},email: {email} ")
 
         message = self._fetch_create_times(booking_date,start_time,end_time,club_name,email);
         dispatcher.utter_message(text=message)
 
         return []
     
+    def extract_time_range(self,time_slot: str) -> Tuple[Optional[str], Optional[str]]:
+        """
+        Tách startTime và endTime từ book_timeSlot (VD: '18:00 đến 20:00', '14:00 - 16:00', '10:00 tới 12:00')
+        """
+        time_slot = time_slot.strip()
+        
+        pattern = r"(\d{1,2}:\d{2})\s*(?:đến|tới|-)\s*(\d{1,2}:\d{2})"
+        match = re.search(pattern, time_slot)
+
+        if match:
+            start_time = match.group(1)
+            end_time = match.group(2)
+            return start_time, end_time
+        else:
+            return None, None
+        
     def format_time(self, s: str) -> str:
         return s[:2] + ":00" if len(s) >= 2 else "00:00"
     
@@ -392,8 +448,8 @@ class ActionCreateBooking(Action):
             
             # Handler tenant Code
             tenant_code = self._fetch_code_clubs(yardName)
-            startTime = self.format_time(startTime)
-            endTime = self.format_time(endTime)
+            # startTime = self.format_time(startTime)
+            # endTime = self.format_time(endTime)
             
             params = {
                 "date": target_date,
