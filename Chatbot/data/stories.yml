@@ -221,9 +221,13 @@ stories:
           - book_clubName: "Cầu lông Way station"
           - book_date: "ngày mai"
           - book_timeSlot: "16:00 - 20:00"
+          - book_email: "leevantuan2002@gmail.com"
           # - book_startTime: "16:00"
           # - book_endTime: "20:00"
-      - action: action_confirm_booking
+      - action: action_create_booking
+
+  - story: book full court with all info default email
+    steps:
       - intent: provide_email
       - slot_was_set:
           - email: "leevantuan2002@gmail.com"

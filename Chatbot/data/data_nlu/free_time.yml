@@ -51,21 +51,21 @@ nlu:
 
   - intent: book_court_date_only
     examples: |
-      - Tôi muốn đặt sân tại [Way station](book_clubName) [18:00 đến 21:00](book_timeSlot) vào [hôm nay](book_date)
-      - Mình muốn đặt sân ở [Cầu lông Tân Bình](book_clubName) [14:00 - 16:00](book_timeSlot) [ngày mai](book_date)
-      - Hãy đặt sân cho tôi tại [Cầu lông Linh Trung](book_clubName) [10:00 tới 12:00](book_timeSlot) [hôm nay](book_date)
-      - Đặt sân cho mình ở [Cầu lông Nguyễn Văn Cừ](book_clubName) [15:00 đến 17:00](book_timeSlot) [ngày mai](book_date)
-      - Em muốn đặt sân [Cầu lông Hòa Bình](book_clubName) [09:00 - 11:00](book_timeSlot) [hôm nay](book_date)
-      - Mình cần đặt sân tại [Cầu lông Phú Thọ](book_clubName) [17:00 tới 19:00](book_timeSlot) [ngày mai](book_date)
-      - Hãy đặt giúp tôi sân [Cầu lông Tân Sơn Nhất](book_clubName) [13:00-15:00](book_timeSlot) [hôm nay](book_date)
-      - Đặt sân cho em ở [Cầu lông Gia Định](book_clubName) [08:00 đến 10:00](book_timeSlot) [ngày mai](book_date)
-      - Tôi muốn chơi tại [Cầu lông Quận 7](book_clubName) [18:00 - 20:00](book_timeSlot) [ngày mai](book_date)
-      - Mình đặt sân ở [Cầu lông Trường Sơn](book_clubName) [07:00 tới 09:00](book_timeSlot) [hôm nay](book_date)
-      - Hãy đặt sân cho mình tại [Cầu lông Mega Club](book_clubName) [11:00 đến 13:00](book_timeSlot) [ngày mai](book_date)
-      - Em muốn chơi ở [Cầu lông Lý Thường Kiệt](book_clubName) [14:00 - 16:00](book_timeSlot) [hôm nay](book_date)
-      - Mình muốn thuê sân tại [Cầu lông Cộng Hòa](book_clubName) [12:00 tới 14:00](book_timeSlot) [ngày mai](book_date)
-      - Đặt sân giúp tôi ở [Cầu lông Nguyễn Tri Phương](book_clubName) [15:00 đến 17:00](book_timeSlot) [hôm nay](book_date)
-      - Tôi cần đặt sân ở [Cầu lông An Phú Đông](book_clubName) [09:00 - 11:00](book_timeSlot) [ngày mai](book_date)
+      - Tôi muốn đặt sân tại [Way station](book_clubName) [18:00 đến 21:00](book_timeSlot) vào [hôm nay](book_date) [leevantuan2002@gmail.com](book_email)
+      - Mình muốn đặt sân ở [Cầu lông Tân Bình](book_clubName) [14:00 - 16:00](book_timeSlot) [ngày mai](book_date) [ledangviet001@gmail.com](book_email)
+      - Hãy đặt sân cho tôi tại [Cầu lông Linh Trung](book_clubName) [10:00 tới 12:00](book_timeSlot) [hôm nay](book_date) [ledangviet001@gmail.com](book_email)
+      - Đặt sân cho mình ở [Cầu lông Nguyễn Văn Cừ](book_clubName) [15:00 đến 17:00](book_timeSlot) [ngày mai](book_date) [leevantuan2002@gmail.com](book_email)
+      - Em muốn đặt sân [Cầu lông Hòa Bình](book_clubName) [09:00 - 11:00](book_timeSlot) [hôm nay](book_date) [ledangviet001@gmail.com](book_email)
+      - Mình cần đặt sân tại [Cầu lông Phú Thọ](book_clubName) [17:00 tới 19:00](book_timeSlot) [ngày mai](book_date) [buiductu@gmail.com](book_email)
+      - Hãy đặt giúp tôi sân [Cầu lông Tân Sơn Nhất](book_clubName) [13:00-15:00](book_timeSlot) [hôm nay](book_date) [dinhquangdung@gmail.com](book_email)
+      - Đặt sân cho em ở [Cầu lông Gia Định](book_clubName) [08:00 đến 10:00](book_timeSlot) [ngày mai](book_date) [waystation@gmail.com](book_email)
+      - Tôi muốn chơi tại [Cầu lông Quận 7](book_clubName) [18:00 - 20:00](book_timeSlot) [ngày mai](book_date) [aloalo@gmail.com](book_email)
+      - Mình đặt sân ở [Cầu lông Trường Sơn](book_clubName) [07:00 tới 09:00](book_timeSlot) [hôm nay](book_date) [bookingsan@gmail.com](book_email)
+      - Hãy đặt sân cho mình tại [Cầu lông Mega Club](book_clubName) [11:00 đến 13:00](book_timeSlot) [ngày mai](book_date) [badminton@gmail.com](book_email)
+      - Em muốn chơi ở [Cầu lông Lý Thường Kiệt](book_clubName) [14:00 - 16:00](book_timeSlot) [hôm nay](book_date) [leevantuan2002@gmail.com](book_email)
+      - Mình muốn thuê sân tại [Cầu lông Cộng Hòa](book_clubName) [12:00 tới 14:00](book_timeSlot) [ngày mai](book_date) [badminsystem@gmail.com](book_email)
+      - Đặt sân giúp tôi ở [Cầu lông Nguyễn Tri Phương](book_clubName) [15:00 đến 17:00](book_timeSlot) [hôm nay](book_date) [leevantuan2002@gmail.com](book_email)
+      - Tôi cần đặt sân ở [Cầu lông An Phú Đông](book_clubName) [09:00 - 11:00](book_timeSlot) [ngày mai](book_date) [leevantuan2002@gmail.com](book_email)
 
   - intent: provide_email
     examples: |

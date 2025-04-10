@@ -29,6 +29,7 @@ entities:
   - book_timeSlot
   - check_startTime
   - check_endTime
+  - book_email
   # - book_startTime
   # - book_endTime
 
@@ -110,6 +111,12 @@ slots:
     mappings:
       - type: from_entity
         entity: email
+
+  book_email:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: book_email
 
 synonyms:
   "nhất": "1"
