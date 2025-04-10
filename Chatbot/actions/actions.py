@@ -84,10 +84,10 @@ class ActionCheckYardAvailability(Action):
         
         # Xử lý các entity với giá trị mặc định
         yard_name = next(tracker.get_latest_entity_values("yardName"), tracker.get_slot("yardName"))
-        start_time = next(tracker.get_latest_entity_values("startTime"), tracker.get_slot("startTime") or "05:00")
-        end_time = next(tracker.get_latest_entity_values("endTime"), tracker.get_slot("endTime") or "22:00")
-        days_ahead = int(next(tracker.get_latest_entity_values("quantityDate"), tracker.get_slot("quantityDate") or "0"))
-
+        start_time = next(tracker.get_latest_entity_values("check_startTime"), tracker.get_slot("check_startTime"))
+        end_time = next(tracker.get_latest_entity_values("check_endTime"), tracker.get_slot("check_endTime"))
+        days_ahead = int(next(tracker.get_latest_entity_values("quantityDate"), tracker.get_slot("quantityDate")))
+        
         # Kiểm tra bắt buộc có yardName
         if not yard_name:
             dispatcher.utter_message(text="Vui lòng cung cấp tên sân cầu lông.")
@@ -118,8 +118,14 @@ class ActionCheckYardAvailability(Action):
             
             # Handler tenant Code
             tenant_code = self._fetch_code_clubs(yardName)
-            startTime = self.format_time(startTime)
-            endTime = self.format_time(endTime)
+            if not tenant_code:
+                raise ValueError("Rất xin lỗi! Vui lòng kiểm tra lại tên câu lạc bộ!")
+            
+            if len(startTime) >= 3 and startTime[2] == "h":
+                startTime = self.format_time(startTime)
+                
+            if len(endTime) >= 3 and endTime[2] == "h":
+                endTime = self.format_time(endTime)
             
             params = {
                 "date": target_date,
@@ -274,8 +280,12 @@ class ActionConfirmBooking(Action):
             
             # Handler tenant Code
             tenant_code = self._fetch_code_clubs(yardName)
-            startTime = self.format_time(startTime)
-            endTime = self.format_time(endTime)
+
+            if len(startTime) >= 3 and startTime[2] == "h":
+                startTime = self.format_time(startTime)
+                
+            if len(endTime) >= 3 and endTime[2] == "h":
+                endTime = self.format_time(endTime)
             
             params = {
                 "date": target_date,

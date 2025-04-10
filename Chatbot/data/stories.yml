@@ -63,8 +63,8 @@ stories:
       - intent: ask_yard_availability
       - slot_was_set:
           - yardName: "Cầu Lông Long Vũ"
-          - startTime: "14:00"
-          - endTime: "16:00"
+          - check_startTime: "04:00"
+          - check_endTime: "22:00"
           - quantityDate: "0"
       - action: action_check_yard_availability
       - action: utter_ask_booking
@@ -83,8 +83,8 @@ stories:
       - intent: ask_yard_availability
       - slot_was_set:
           - yardName: "Cầu Lông Long Vũ"
-          - startTime: "14:00"
-          - endTime: "16:00"
+          - check_startTime: "04:00"
+          - check_endTime: "22:00"
           - quantityDate: "0"
       - action: action_check_yard_availability
       - action: utter_ask_support
@@ -96,8 +96,8 @@ stories:
       - intent: ask_yard_availability
       - slot_was_set:
           - yardName: "Cầu Lông Long Vũ"
-          - startTime: "14:00"
-          - endTime: "16:00"
+          - check_startTime: "04:00"
+          - check_endTime: "22:00"
           - quantityDate: "0"
       - action: action_check_yard_availability
       - action: utter_ask_support
@@ -131,8 +131,8 @@ stories:
       - intent: ask_yard_availability
       - slot_was_set:
           - yardName: "Cầu Lông Long Vũ"
-          - startTime: "14:00"
-          - endTime: "16:00"
+          - check_startTime: "04:00"
+          - check_endTime: "22:00"
           - quantityDate: "0"
       - action: action_check_yard_availability
       - action: utter_ask_booking
@@ -174,7 +174,7 @@ stories:
       - intent: greet
       - action: utter_greet
       - intent: book_court_full
-        entities:
+      - slot_was_set:
           - book_clubName: "Cầu lông Way station"
           - book_startTime: "16:00"
           - book_endTime: "20:00"

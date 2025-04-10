@@ -20,8 +20,8 @@ intents:
 entities:
   - quantity
   - yardName
-  - startTime
-  - endTime
+  - check_startTime
+  - check_endTime
   - quantityDate
   - club_name
   - book_clubName
@@ -44,17 +44,17 @@ slots:
       - type: from_entity
         entity: yardName
 
-  startTime:
+  check_startTime:
     type: text
     mappings:
       - type: from_entity
-        entity: startTime
+        entity: check_startTime
 
-  endTime:
+  check_endTime:
     type: text
     mappings:
       - type: from_entity
-        entity: endTime
+        entity: check_endTime
 
   quantityDate:
     type: text
@@ -165,25 +165,21 @@ responses:
 
   utter_step_by_step:
     - text: |
-        Để đặt sân cầu lông, bạn hãy làm theo các bước sau:
+        Cách 1: Để đặt sân cầu lông, bạn hãy làm theo các bước sau: 
         1. Truy cập website: https://bookingweb.shop
         2. Tìm kiếm sân phù hợp
         3. Chọn thời gian đặt sân
         4. Xác nhận và thanh toán
         5. Nhận mã đặt sân qua email
-    - text: |
-        Bạn có thể đặt sân theo các bước sau:
-        1. Mở trang web: https://bookingweb.shop
-        2. Chọn sân mong muốn
-        3. Đặt giờ chơi
-        4. Hoàn tất thanh toán
-        5. Kiểm tra email để nhận mã đặt sân
-    - text: |
-        Hướng dẫn đặt sân cầu lông:
-        1. Truy cập https://bookingweb.shop
-        2. Chọn sân và giờ chơi
-        3. Thanh toán trực tuyến
-        4. Nhận mã đặt sân qua email
+
+        Cách 2: Hãy nhập theo ví dụ sau: 
+        Tôi muốn đặt sân tại A lúc 18:00 đến 20:00 vào ngày mai
+
+        Trong đó:
+        A là tên sân bạn muốn đặt  
+        18:00 là thời gian bắt đầu  
+        20:00 là thời gian kết thúc  
+        Ngày mai là thời gian bạn muốn chơi vào ngày nào
 
   utter_cancelled_booking:
     - text: |
