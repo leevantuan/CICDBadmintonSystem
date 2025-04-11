@@ -46,37 +46,6 @@ stories:
       - action: action_fetch_top_clubs
       - action: utter_ask_more_club_info
 
-  - story: User ask top clubs
-    steps:
-      - intent: greet
-      - action: utter_greet
-      - intent: ask_top_rated_clubs
-      - slot_was_set:
-          - quantity: "3"
-      - action: action_fetch_top_clubs
-      - action: utter_ask_more_club_info
-      - intent: ask_general_club_info
-      - slot_was_set:
-          - club_name: "Way station"
-      - action: action_provide_club_info
-      - action: utter_ask_booking
-      - intent: ask_yard_availability
-      - slot_was_set:
-          - yardName: "Cầu Lông Long Vũ"
-          - quantityDate: "0"
-          - check_startTime: "04:00"
-          - check_endTime: "22:00"
-      - action: action_check_yard_availability
-      - action: utter_ask_booking
-      - intent: booking_yard
-      - action: utter_step_by_step
-      - intent: yard_price
-      - action: utter_yard_price
-      - intent: payment_method
-      - action: utter_payment_method
-      - intent: goodbye
-      - action: utter_goodbye
-
   # Free time
   - story: Happy path - check yard availability with all info core
     steps:
@@ -84,31 +53,9 @@ stories:
       - slot_was_set:
           - yardName: "Cầu Lông Long Vũ"
           - quantityDate: "0"
-          - check_startTime: "04:00"
-          - check_endTime: "22:00"
+          - check_freeTime: "00:00 - 22:00"
       - action: action_check_yard_availability
       - action: utter_ask_support
-
-  - story: Happy path - check yard availability with all info
-    steps:
-      - intent: greet
-      - action: utter_greet
-      - intent: ask_yard_availability
-      - slot_was_set:
-          - yardName: "Cầu Lông Long Vũ"
-          - quantityDate: "0"
-          - check_startTime: "04:00"
-          - check_endTime: "22:00"
-      - action: action_check_yard_availability
-      - action: utter_ask_support
-      - intent: booking_yard
-      - action: utter_step_by_step
-      - intent: yard_price
-      - action: utter_yard_price
-      - intent: payment_method
-      - action: utter_payment_method
-      - intent: goodbye
-      - action: utter_goodbye
 
   # Info
   - story: ask general club info core
@@ -119,45 +66,11 @@ stories:
       - action: action_provide_club_info
       - action: utter_ask_support
 
-  - story: ask general club info
-    steps:
-      - intent: greet
-      - action: utter_greet
-      - intent: ask_general_club_info
-      - slot_was_set:
-          - club_name: "Way station"
-      - action: action_provide_club_info
-      - action: utter_ask_support
-      - intent: ask_yard_availability
-      - slot_was_set:
-          - yardName: "Cầu Lông Long Vũ"
-          - quantityDate: "0"
-          - check_startTime: "04:00"
-          - check_endTime: "22:00"
-      - action: action_check_yard_availability
-      - action: utter_ask_booking
-      - intent: booking_yard
-      - action: utter_step_by_step
-      - intent: yard_price
-      - action: utter_yard_price
-      - intent: payment_method
-      - action: utter_payment_method
-      - intent: goodbye
-      - action: utter_goodbye
-
+  # more service
   - story: User asks about yard services core
     steps:
       - intent: ask_yard_services
       - action: utter_yard_services
-
-  - story: User asks about yard services
-    steps:
-      - intent: greet
-      - action: utter_greet
-      - intent: ask_yard_services
-      - action: utter_yard_services
-      - intent: goodbye
-      - action: utter_goodbye
 
   # Get clubs Default
   - story: Get clubs default
@@ -169,32 +82,12 @@ stories:
           - quantity: "3"
       - action: action_fetch_top_clubs
 
-  - story: book full court with all info
-    steps:
-      - intent: greet
-      - action: utter_greet
-      - intent: ask_yard_availability
-      - slot_was_set:
-          - yardName: "Cầu Lông Long Vũ"
-          - quantityDate: "0"
-          - check_startTime: "04:00"
-          - check_endTime: "22:00"
-      - action: action_check_yard_availability
-      - action: utter_ask_booking
-      - intent: book_court_date_only
-      - slot_was_set:
-          - book_clubName: "Cầu lông Way station"
-          - book_date: "ngày mai"
-          - book_timeSlot: "16:00 - 20:00"
-          - book_email: "leevantuan2002@gmail.com"
-      - action: action_confirm_booking
-
   # Customer stories
   - story: return top club
     steps:
       - intent: ask_top_rated_clubs
       - slot_was_set:
-          - quantity: "3" # Mặc định
+          - quantity: "3"
       - action: action_fetch_top_clubs
 
   # Check booking
@@ -203,12 +96,10 @@ stories:
       - intent: check_booking
       - slot_was_set:
           - check_date: "hôm nay"
-      - action: action_check_booking
-      - intent: provide_email
-        entities:
-          - email: "leevantuan2002@gmail.com"
+          - check_email: "leevantuan2002@gmail.com"
       - action: action_handle_booking
 
+  # Booking auto
   - story: book full court with all info default
     steps:
       - intent: book_court_date_only
@@ -217,11 +108,4 @@ stories:
           - book_date: "ngày mai"
           - book_timeSlot: "16:00 - 20:00"
           - book_email: "leevantuan2002@gmail.com"
-      - action: action_create_booking
-
-  - story: book full court with all info default email
-    steps:
-      - intent: provide_email
-      - slot_was_set:
-          - email: "leevantuan2002@gmail.com"
       - action: action_create_booking

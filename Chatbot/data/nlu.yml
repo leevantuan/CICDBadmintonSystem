@@ -49,33 +49,33 @@ nlu:
 
   - intent: check_booking
     examples: |
-      - Lịch đặt sân [hôm nay](check_date) của tôi
-      - [Hôm nay](check_date) tôi có lịch nào không?
-      - Kiểm tra lịch sân [hôm nay](check_date) giúp tôi
-      - Cho tôi biết lịch sân [ngày mai](check_date)
-      - Có lịch đặt sân nào vào [ngày mai](check_date) không?
-      - Tôi đã đặt sân [hôm nay](check_date) chưa?
-      - Lịch sân của tôi vào [ngày mai](check_date) là gì?
-      - Tôi có chơi cầu lông vào [hôm nay](check_date) không?
-      - Sân tôi đặt [ngày mai](check_date) ở đâu?
-      - Có sân nào đã được đặt [hôm nay](check_date) không?
-      - Check giúp lịch [ngày mai](check_date) có sân chưa?
-      - [Hôm nay](check_date) có lịch sân nào của tôi không?
-      - Xem lịch chơi cầu lông [ngày mai](check_date)
-      - Lịch thi đấu của tôi vào [hôm nay](check_date) là gì?
-      - Tôi có lịch đánh cầu lông [hôm nay](check_date) không?
-      - Kiểm tra hộ tôi xem [ngày mai](check_date) có sân nào không?
-      - Lịch sử đặt sân [hôm nay](check_date) của tôi đâu?
-      - Tôi có phải đến sân [ngày mai](check_date) không?
-      - Có đặt sân nào cho [ngày mai](check_date) chưa?
-      - Nhắc lịch đánh cầu lông [hôm nay](check_date) đi
-      - Cho tôi xem lịch chơi [ngày mai](check_date)
-      - Có booking nào [hôm nay](check_date) không?
-      - Booking sân [ngày mai](check_date) là lúc mấy giờ?
-      - Tôi có lịch vào [hôm nay](check_date) không?
-      - Giúp tôi kiểm tra lịch đặt vào [ngày mai](check_date)
-      - Tôi đã đặt sân lúc nào vào [hôm nay](check_date)?
-      - Cho tôi lịch đánh cầu lông [ngày mai](check_date)
-      - [Ngày mai](check_date) có lịch sân chưa?
-      - Có lịch chơi nào [hôm nay](check_date) không?
-      - Danh sách lịch sân [ngày mai](check_date) giúp tôi
+      - Lịch đặt sân [hôm nay](check_date) của tôi [tranvanan@gmail.com](check_email)
+      - [Hôm nay](check_date) tôi có lịch nào không? [nguyenvanb@gmail.com](check_email)
+      - Kiểm tra lịch sân [hôm nay](check_date) giúp tôi [phamthic@gmail.com](check_email)
+      - Cho tôi biết lịch sân [ngày mai](check_date) [lehoangd@gmail.com](check_email)
+      - Có lịch đặt sân nào vào [ngày mai](check_date) không? [dothue@gmail.com](check_email)
+      - Tôi đã đặt sân [hôm nay](check_date) chưa? [trieuvanl@gmail.com](check_email)
+      - Lịch sân của tôi vào [ngày mai](check_date) là gì? [tranthim@gmail.com](check_email)
+      - Tôi có chơi cầu lông vào [hôm nay](check_date) không? [nguyendinhq@gmail.com](check_email)
+      - Sân tôi đặt [ngày mai](check_date) ở đâu? [votuananh@gmail.com](check_email)
+      - Có sân nào đã được đặt [hôm nay](check_date) không? [lethihong@gmail.com](check_email)
+      - Check giúp lịch [ngày mai](check_date) có sân chưa? [dangmanhh@gmail.com](check_email)
+      - [Hôm nay](check_date) có lịch sân nào của tôi không? [phuongtranng@gmail.com](check_email)
+      - Xem lịch chơi cầu lông [ngày mai](check_date) [tranhoangyen@gmail.com](check_email)
+      - Lịch thi đấu của tôi vào [hôm nay](check_date) là gì? [phamduct@gmail.com](check_email)
+      - Tôi có lịch đánh cầu lông [hôm nay](check_date) không? [huynhnhatl@gmail.com](check_email)
+      - Kiểm tra hộ tôi xem [ngày mai](check_date) có sân nào không? [dangkimh@gmail.com](check_email)
+      - Lịch sử đặt sân [hôm nay](check_date) của tôi đâu? [vuhoanglong@gmail.com](check_email)
+      - Tôi có phải đến sân [ngày mai](check_date) không? [nguyenthih@gmail.com](check_email)
+      - Có đặt sân nào cho [ngày mai](check_date) chưa? [tranquoctuan@gmail.com](check_email)
+      - Nhắc lịch đánh cầu lông [hôm nay](check_date) đi [nguyenmyanh@gmail.com](check_email)
+      - Cho tôi xem lịch chơi [ngày mai](check_date) [hoanglongit@gmail.com](check_email)
+      - Có booking nào [hôm nay](check_date) không? [luantrungdev@gmail.com](check_email)
+      - Booking sân [ngày mai](check_date) là lúc mấy giờ? [phamminhtam@gmail.com](check_email)
+      - Tôi có lịch vào [hôm nay](check_date) không? [doanphuong@gmail.com](check_email)
+      - Giúp tôi kiểm tra lịch đặt vào [ngày mai](check_date) [tranhuylinh@gmail.com](check_email)
+      - Tôi đã đặt sân lúc nào vào [hôm nay](check_date)? [tuananhbadminton@gmail.com](check_email)
+      - Cho tôi lịch đánh cầu lông [ngày mai](check_date) [linhnguyen2001@gmail.com](check_email)
+      - [Ngày mai](check_date) có lịch sân chưa? [phanductrung@gmail.com](check_email)
+      - Có lịch chơi nào [hôm nay](check_date) không? [truongthanhdung@gmail.com](check_email)
+      - Danh sách lịch sân [ngày mai](check_date) giúp tôi [hoangphucbk@gmail.com](check_email)

@@ -84,14 +84,9 @@ class ActionCheckYardAvailability(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         
         yard_name = next(tracker.get_latest_entity_values("yardName"), tracker.get_slot("yardName"))
-        start_time = next(tracker.get_latest_entity_values("check_startTime"), tracker.get_slot("check_startTime") or "00:00")
-        end_time = next(tracker.get_latest_entity_values("check_endTime"), tracker.get_slot("check_endTime")  or "22:00")
         days_ahead = int(next(tracker.get_latest_entity_values("quantityDate"), tracker.get_slot("quantityDate")))
-        
-        # yard_name = tracker.get_slot("yardName")
-        # days_ahead = int(tracker.get_slot("quantityDate"))
-        # start_time = tracker.get_slot("check_startTime") or "00:00"
-        # end_time = tracker.get_slot("check_endTime") or "22:00"
+        time_slot = tracker.get_slot("check_freeTime")
+        start_time, end_time = self.extract_time_range(time_slot)
         
         print(f"club name: {yard_name}, start time: {start_time}, end time: {end_time}, date: {days_ahead}")
         
@@ -105,6 +100,7 @@ class ActionCheckYardAvailability(Action):
         dispatcher.utter_message(text=response)
         
         return []
+    
     def extract_time_range(self,time_slot: str) -> Tuple[Optional[str], Optional[str]]:
 
         time_slot = time_slot.strip()
@@ -118,10 +114,6 @@ class ActionCheckYardAvailability(Action):
             return start_time, end_time
         else:
             return None, None
-        
-    # GET API FREE TIME
-    def format_time(self, s: str) -> str:
-        return s[:2] + ":00" if len(s) >= 2 else "00:00"
 
     def _fetch_free_times(self, date: int,startTime:str,endTime:str,yardName:str) -> str:
         """Lấy free times"""
@@ -258,137 +250,6 @@ class ActionProvideClubInfo(Action):
             return []
     # Format response
    
-# =========================== ACTION Confirm ====================================
-
-class ActionConfirmBooking(Action):
-    def name(self) -> Text:
-        return "action_confirm_booking"
-
-    def run(self, dispatcher: executor.CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-
-        club_name = tracker.get_slot("book_clubName")
-        booking_date = int(tracker.get_slot("book_date"))
-        time_slot = tracker.get_slot("book_timeSlot")
-        
-        start_time, end_time = self.extract_time_range(time_slot)
-        
-        # print(f"club name: {club_name}, start time: {start_time}, end time: {end_time}, date: {booking_date}")
-
-        message = self._fetch_check_free_times(booking_date,start_time,end_time,club_name);
-        dispatcher.utter_message(text=message)
-
-        return []
-
-    def extract_time_range(self,time_slot: str) -> Tuple[Optional[str], Optional[str]]:
-        """
-        Tách startTime và endTime từ book_timeSlot (VD: '18:00 đến 20:00', '14:00 - 16:00', '10:00 tới 12:00')
-        """
-        time_slot = time_slot.strip()
-        
-        pattern = r"(\d{1,2}:\d{2})\s*(?:đến|tới|-)\s*(\d{1,2}:\d{2})"
-        match = re.search(pattern, time_slot)
-
-        if match:
-            start_time = match.group(1)
-            end_time = match.group(2)
-            return start_time, end_time
-        else:
-            return None, None
-    
-    def format_time(self, s: str) -> str:
-        return s[:2] + ":00" if len(s) >= 2 else "00:00"
-    
-    # Check free time
-    def _fetch_check_free_times(self, date: int,startTime:str,endTime:str,yardName:str) -> str:
-        """Lấy free times"""
-        try:
-            # Handler date format and time now format
-            if date == 0:
-                target_date = datetime.now().strftime("%Y-%m-%d")  # Format: 2025-03-27
-            else:
-                target_date = (datetime.now() + timedelta(days=date)).strftime("%Y-%m-%d")
-            
-            # Handler tenant Code
-            tenant_code = self._fetch_code_clubs(yardName)
-
-            # if len(startTime) >= 3 and startTime[2] == "h":
-            #     startTime = self.format_time(startTime)
-                
-            # if len(endTime) >= 3 and endTime[2] == "h":
-            #     endTime = self.format_time(endTime)
-            
-            params = {
-                "date": target_date,
-                "startTime": startTime,
-                "endTime": endTime,
-                "tenant": tenant_code,
-            }
-            
-            response = requests.get(
-                f"{url}/bookings/check-unbooked?",
-                params=params,
-                timeout=30
-            )
-            
-            response.raise_for_status()
-
-            api_data = response.json()
-
-            if not api_data.get("isSuccess") or not api_data.get("value"):
-                raise ValueError("Rất xin lỗi! Thời gian bạn chọn không còn sân trống. Vui lòng kiểm tra lại!")
-            
-            # Tạo response text
-            response_text = self._format_response(api_data["value"], yardName)
-            
-            return response_text
-        
-        except Exception as e:
-            return f"Error: {str(e)}"
-    
-    def _format_response(self, value_data, yardName):
-        if not value_data:
-            return "❌ Hiện tại chưa có khung giờ nào khả dụng để đặt sân."
-
-        time_slots = []
-        for item in value_data:
-            start = item.get("startTime", "??:??")
-            end = item.get("endTime", "??:??")
-            time_slots.append(f"{start} đến {end}")
-
-        time_slots_str = ", ".join(time_slots)
-
-        response_text = (
-            f"✅ Hãy nhập email của bạn để đặt sân tại {yardName} vào các khung giờ sau: {time_slots_str} nhé!"
-        )
-
-        return response_text
-
-
-     # GET API CODE CLUBS
-    
-    def _fetch_code_clubs(self, yardName: str) -> str:
-        """Lấy Code Club"""
-        try:
-            encoded_name = quote(yardName)
-            
-            response = requests.get(
-                f"{url}/clubs/get-code/{encoded_name}",
-                timeout=5
-            )
-            response.raise_for_status()
-
-            api_data = response.json()
-
-            if not api_data.get("isSuccess", False):
-                raise ValueError("API returned unsuccessful status")
-
-            return api_data.get("value", {}).get("code", "")
-
-        except Exception as e:
-            return []
- 
 # =========================== ACTION Create ====================================
 
 class ActionCreateBooking(Action):
@@ -527,30 +388,6 @@ class ActionFallback(Action):
     
 # =========================== ACTION Check booking ====================================
 
-class ActionCheckBooking(Action):
-    def name(self) -> Text:
-        return "action_check_booking"
-
-    def run(self, dispatcher: executor.CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-
-        date = int(tracker.get_slot("check_date"))
-        
-        if date is None:
-            dispatcher.utter_message(text="Vui lòng cung cấp thời gian chính xác.")
-            return []
-
-        if date == 0:
-            target_date = datetime.now().strftime("%d-%m-%Y")  # Format: 2025-03-27
-        else:
-            target_date = (datetime.now() + timedelta(days=date)).strftime("%Y-%m-%d")
-            
-        dispatcher.utter_message(text=f"Vui lòng nhập Email cần kiểm tra lịch cho ngày {target_date}")
-
-        return []
-
-
 class ActionHandleCheckBooking(Action):
     def name(self) -> Text:
         return "action_handle_booking"
@@ -560,17 +397,17 @@ class ActionHandleCheckBooking(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
         date = int(tracker.get_slot("check_date"))
-        email = tracker.get_slot("email")
+        email = next(tracker.get_latest_entity_values("check_email"), tracker.get_slot("check_email") or  tracker.get_slot("book_email"))
+        
+        print(f"date: {date}, email: {email}")
         
         message = self._fetch_check_booking(date,email);
         dispatcher.utter_message(text=message)
         
         return []
     
-        
     # Check free time
     def _fetch_check_booking(self, date: int, email:str) -> str:
-        """Lấy free times"""
         try:
             # Handler date format and time now format
             if date == 0:
@@ -589,12 +426,6 @@ class ActionHandleCheckBooking(Action):
                 timeout=30
             )
             
-            # response = requests.get(
-            #     f"{url}/bookings/create-booking-by-chat?",
-            #     params=params,
-            #     timeout=30
-            # )
-            
             response.raise_for_status()
             api_data = response.json()
 
@@ -602,21 +433,26 @@ class ActionHandleCheckBooking(Action):
                 raise ValueError("Rất xin lỗi thông tin không chính xác! Vui lòng kiểm tra lại!")
             
             # Tạo response text
-            response_text = self._format_response(api_data["value"])
+            response_text = self._format_response(api_data["value"], date)
             
             return response_text
         
         except Exception as e:
             return f"Error: {str(e)}"
     
-    def _format_response(self, bookings: list) -> str:
+    def _format_response(self, bookings: list, date:int) -> str:
         responses = []
-
+        
+        if date == 0:
+            target_date = "Hôm nay"  # Format: 2025-03-27
+        else:
+            target_date = "Ngày mai"
+                
         for booking in bookings:
             club_name = booking.get("clubName", "không rõ sân")
             start_time = booking.get("startTime", "không rõ thời gian")
 
-            response = f"Hôm nay bạn có lịch tại sân {club_name} lúc {start_time}"
+            response = f"{target_date} bạn có lịch tại sân {club_name} bắt đầu lúc {start_time}"
             responses.append(response)
 
         return "\n".join(responses)

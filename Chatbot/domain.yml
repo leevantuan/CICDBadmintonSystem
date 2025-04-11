@@ -24,14 +24,11 @@ entities:
   - club_name
   - book_clubName
   - book_date
-  - email
+  - check_email
   - check_date
   - book_timeSlot
-  - check_startTime
-  - check_endTime
   - book_email
-  # - book_startTime
-  # - book_endTime
+  - check_freeTime
 
 slots:
   quantity:
@@ -46,23 +43,17 @@ slots:
       - type: from_entity
         entity: yardName
 
-  check_startTime:
-    type: text
-    mappings:
-      - type: from_entity
-        entity: check_startTime
-
-  check_endTime:
-    type: text
-    mappings:
-      - type: from_entity
-        entity: check_endTime
-
   quantityDate:
     type: text
     mappings:
       - type: from_entity
         entity: quantityDate
+
+  check_freeTime:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: check_freeTime
 
   club_name:
     type: text
@@ -75,18 +66,6 @@ slots:
     mappings:
       - type: from_entity
         entity: book_clubName
-
-  # book_startTime:
-  #   type: text
-  #   mappings:
-  #     - type: from_entity
-  #       entity: book_startTime
-
-  # book_endTime:
-  #   type: text
-  #   mappings:
-  #     - type: from_entity
-  #       entity: book_endTime
 
   book_timeSlot:
     type: text
@@ -106,11 +85,11 @@ slots:
       - type: from_entity
         entity: check_date
 
-  email:
+  check_email:
     type: text
     mappings:
       - type: from_entity
-        entity: email
+        entity: check_email
 
   book_email:
     type: text
@@ -281,10 +260,8 @@ actions:
   - action_fetch_top_clubs
   - action_check_yard_availability
   - action_provide_club_info
-  - action_confirm_booking
   - action_create_booking
   - action_default_fallback
-  - action_check_booking
   - action_handle_booking
 
 session_config:
