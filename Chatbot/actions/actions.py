@@ -399,11 +399,7 @@ class ActionCreateBooking(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        email = tracker.get_slot("email")
-        # club_name = tracker.get_slot("book_clubName")
-        # start_time = tracker.get_slot("book_startTime")
-        # end_time = tracker.get_slot("book_endTime")
-        # booking_date = int(tracker.get_slot("book_date"))
+        email = tracker.get_slot("book_email")
         club_name = tracker.get_slot("book_clubName")
         booking_date = int(tracker.get_slot("book_date"))
         time_slot = tracker.get_slot("book_timeSlot")
