@@ -3,51 +3,36 @@ version: "3.1"
 nlu:
   - intent: ask_yard_availability
     examples: |
-      - [The Champion](yardName) còn sân [sáng nay](quantityDate:0) từ [8:00](check_startTime) tới [10:00](check_endTime) không?
-      - [Tối nay](quantityDate:0) [Smash Arena](yardName) còn sân trống khoảng [19:30](check_startTime) không?
-      - [Ngày mai](quantityDate:1) [Way station](yardName) còn sân từ [16:00](check_startTime) đến [18:00](check_endTime) không?
-      - [Tối nay](quantityDate:0) [Elite Stadium](yardName) còn sân trống khoảng [18:45](check_startTime) không?  
-      - [Ngày mai](quantityDate:1) [Way station](yardName) còn sân lúc [16h](check_startTime) - [18h](check_endTime) không?
-      - [Ngày kia](quantityDate:2) [Smash Center](yardName) còn sân cả ngày không?  
-      - [1 ngày nữa](quantityDate:1) [Cầu Lông Long Vũ](yardName) còn sân buổi chiều không?
-      - [1 ngày nữa](quantityDate:1) [Galaxy Sports](yardName) còn sân buổi chiều không?
-      - [Sân Smash Center](yardName) [2 ngày sau](quantityDate:2) còn sân buổi chiều không?
-      - [5 ngày tới](quantityDate:5) [Shuttle Master](yardName) có sân trống buổi tối không?
-      - [Sáng 3 ngày sau](quantityDate:3) [Way Station](yardName) còn sân sớm không?
-      - [Chiều 4 ngày sau](quantityDate:4) [Power Court](yardName) còn sân buổi chiều không?
-      - [5 ngày sau](quantityDate:5) [The Champion](yardName) có sân trống không?
-      - [Tối 3 ngày sau](quantityDate:3) [Elite Stadium](yardName) có sân trống buổi tối không?
-      - [Club D](yardName) có sân nào trống hôm nay không?
-      - [Racket Pro](yardName) có sân trống buổi chiều không?
-      - [Way Station](yardName) còn sân nào sáng [3 ngày sau](quantityDate:3) không?
-      - [Elite Court](yardName) có sân trống [4 ngày tới](quantityDate:4) buổi tối không?
-      - [5 ngày sau](quantityDate:5) [Power Court](yardName) có sân trống nguyên ngày không?
-      - [2 ngày sau](quantityDate:2) [Way Station](yardName) có sân trống buổi sáng không?
-      - [Club Power Court](yardName) có sân nào trống vào [chiều ngày kia](quantityDate:2) không?
-      - [3 ngày sau](quantityDate:3) [Club A](yardName) có sân trống sau [18:30](check_startTime) không?
-      - [5 ngày sau](quantityDate:5) [Club D](yardName) có sân nào trống không?
-      - [Sân Shuttle Master](yardName) có sân nào trống vào [3 ngày sau](quantityDate:3) không?
-      - Tôi muốn kiểm tra sân trống tại [Cầu Lông Long Vũ](yardName) [ngày mai](quantityDate:1) từ [14:00](check_startTime) đến [19:00](check_endTime).
-      - [Ngày mai](quantityDate:1) từ [15:00](check_startTime) đến [20:00](check_endTime) còn sân trống ở [Cầu Lông Long Vũ](yardName) không?
-      - [Ngày mai](quantityDate:1) sân ở [Cầu Lông Long Vũ](yardName) từ [10:00](check_startTime) đến [12:00](check_endTime) còn chỗ không?
-      - [Ngày mai](quantityDate:1) sân [Cầu Lông Long Vũ](yardName) còn chỗ trống từ [08:00](check_startTime) đến [10:00](check_endTime) chứ?
-      - Cho tôi kiểm tra sân [Cầu Lông Long Vũ](yardName) [ngày mai](quantityDate:1) từ [06:00](check_startTime) đến [08:00](check_endTime) còn chỗ không?
-      - [Ngày mai](quantityDate:1) tôi muốn book sân ở [Cầu Lông Long Vũ](yardName) từ [10:00](check_startTime) đến [14:00](check_endTime), còn sân không?
-      - [Cầu Lông Long Vũ](yardName) [ngày mai](quantityDate:1) từ [17:00](check_startTime) đến [19:00](check_endTime) còn sân trống không?
-      - [The Champion](yardName) còn sân [hôm nay](quantityDate:0) từ [16h](check_startTime) đến [20h](check_endTime) không?
-      - [Sáng mai](quantityDate:1) [Smash Arena](yardName) còn sân từ [16h](check_startTime) đến [20h](check_endTime) không?
-      - [Sân Smash Center](yardName) [2 ngày sau](quantityDate:2) còn sân từ [16h](check_startTime) đến [20h](check_endTime) không?
-      - [5 ngày sau](quantityDate:5) [Shuttle Master](yardName) còn sân từ [16h](check_startTime) đến [20h](check_endTime) không?
-      - [Tối 3 ngày sau](quantityDate:3) [Elite Stadium](yardName) còn sân từ [16h](check_startTime) đến [20h](check_endTime) không?
-      - Tôi cần đặt sân ở [Way Station](yardName) [ngày kia](quantityDate:2) từ [16:00](check_startTime) tới [18:00](check_endTime).
-      - Đặt trước sân [Galaxy Court](yardName) [ngày mai](quantityDate:1) từ [10:00](check_startTime) tới [12:00](check_endTime) nhé.
-      - Tối mai [Galaxy Sports](yardName) có sân từ [18:00](check_startTime) đến [20:00](check_endTime) không vậy?
-      - Sân [Smash Arena](yardName) trống lúc nào [cuối tuần này](quantityDate:5)?
-      - Đặt sân tại [Smash Center](yardName) [ngày kia](quantityDate:2) buổi sáng khung nào cũng được.
-      - Book sân ở [Elite Court](yardName) vào [thứ hai tới](quantityDate:7) từ [13:00](check_startTime) đến [15:00](check_endTime).
-      - Em cần sân [Smash Arena](yardName) [sáng chủ nhật](quantityDate:5) khung [6:00](check_startTime) đến [8:00](check_endTime).
-      - Đặt sân ở [Galaxy Court](yardName) [tối mai](quantityDate:1) từ [20:00](check_startTime) đến [22:00](check_endTime).
-      - Cho mình check slot ở [Smash Arena](yardName) [tối nay](quantityDate:0) sau [19:00](check_startTime).
+      - [hôm nay](quantityDate:0) từ [14:00 - 16:00](check_freeTime) [Smash Arena](yardName) còn sân không?
+      - [Way Station](yardName) từ [18:00 đến 20:00](check_freeTime) [hôm nay](quantityDate:0) còn sân nào không?
+      - Lúc [15:00 đến 17:00](check_freeTime), [ngày mai](quantityDate:1) [Elite Stadium](yardName) còn sân không?
+      - [ngày mai](quantityDate:1), [The Champion](yardName) có còn sân nào từ [10:00 tới 12:00](check_freeTime) không?
+      - Trong khoảng [13:00 đến 15:00](check_freeTime), [hôm nay](quantityDate:0) [Shuttle Master](yardName) còn sân trống không?
+      - [hôm nay](quantityDate:0) từ khoảng [9:00 đến 11:00](check_freeTime) có sân nào không ở [Way Station](yardName)?
+      - Có sân nào ở [Smash Arena](yardName) trong khung giờ [12:00 - 14:00](check_freeTime) [hôm nay](quantityDate:0) không?
+      - Từ [15:00 tới 17:00](check_freeTime), [Elite Stadium](yardName) còn sân nào không [ngày mai](quantityDate:1)?
+      - [ngày mai](quantityDate:1) từ [17:30 đến 19:30](check_freeTime), kiểm tra giúp [The Champion](yardName) còn sân không?
+      - Tối [hôm nay](quantityDate:0), lúc [18:00 đến 20:00](check_freeTime), [Way Station](yardName) có sân nào không?
+      - Lúc [14:00 tới 16:00](check_freeTime) [Shuttle Master](yardName), [hôm nay](quantityDate:0) còn sân không?
+      - Có còn sân nào ở [Smash Arena](yardName) giữa [13:00 và 15:00](check_freeTime) [hôm nay](quantityDate:0) không?
+      - Từ [10:00 tới 12:00](check_freeTime) [ngày mai](quantityDate:1), [Elite Stadium](yardName) còn sân trống không?
+      - [hôm nay](quantityDate:0) lúc [9:00 - 11:00](check_freeTime), [The Champion](yardName) có sân nào không?
+      - [Way Station](yardName) có sân nào từ [16:00 đến 18:00](check_freeTime) [hôm nay](quantityDate:0) không?
+      - Trong khoảng thời gian [14:00 tới 16:00](check_freeTime), [ngày mai](quantityDate:1) [Shuttle Master](yardName) còn sân nào trống không?
+      - [ngày mai](quantityDate:1), từ [18:00 đến 20:00](check_freeTime), còn sân nào ở [Smash Arena](yardName) không?
+      - Lúc [15:00 đến 17:00](check_freeTime) [hôm nay](quantityDate:0) [Elite Stadium](yardName) có còn sân nào không?
+      - [hôm nay](quantityDate:0) từ [12:30 tới 14:30](check_freeTime), còn sân nào ở [The Champion](yardName) không?
+      - [Way Station](yardName) còn sân nào trong khoảng [16:00 đến 18:00](check_freeTime) [hôm nay](quantityDate:0) không?
+      - Còn sân nào ở [Shuttle Master](yardName) lúc [13:00 - 15:00](check_freeTime) [ngày mai](quantityDate:1) không?
+      - [ngày mai](quantityDate:1) từ khoảng [10:00 đến 12:00](check_freeTime), [Smash Arena](yardName) còn sân trống không?
+      - [Elite Stadium](yardName) [hôm nay](quantityDate:0) có còn sân nào từ [17:00 tới 19:00](check_freeTime) không?
+      - Có còn sân nào ở [The Champion](yardName) giữa lúc [14:00 và 16:00](check_freeTime) [hôm nay](quantityDate:0) không?
+      - Lúc [15:30 đến 17:30](check_freeTime), [ngày mai](quantityDate:1), [Way Station](yardName) có sân trống không?
+      - [ngày mai](quantityDate:1) [Shuttle Master](yardName) có còn sân nào trong thời gian [13:00 đến 15:00](check_freeTime) không?
+      - Từ khoảng [12:00 đến 14:00](check_freeTime), [hôm nay](quantityDate:0) có sân nào trống ở [Smash Arena](yardName) không?
+      - [ngày mai](quantityDate:1), lúc [16:00 - 18:00](check_freeTime), còn sân nào không ở [Elite Stadium](yardName)?
+      - [hôm nay](quantityDate:0) [The Champion](yardName) có sân nào lúc [9:00 đến 11:00](check_freeTime) không?
+      - Trong khoảng từ [17:00 tới 19:00](check_freeTime), [ngày mai](quantityDate:1) [Way Station](yardName) còn sân nào không?
 
   - intent: book_court_date_only
     examples: |
@@ -66,66 +51,3 @@ nlu:
       - Mình muốn thuê sân tại [Cầu lông Cộng Hòa](book_clubName) [12:00 tới 14:00](book_timeSlot) [ngày mai](book_date) [badminsystem@gmail.com](book_email)
       - Đặt sân giúp tôi ở [Cầu lông Nguyễn Tri Phương](book_clubName) [15:00 đến 17:00](book_timeSlot) [hôm nay](book_date) [leevantuan2002@gmail.com](book_email)
       - Tôi cần đặt sân ở [Cầu lông An Phú Đông](book_clubName) [09:00 - 11:00](book_timeSlot) [ngày mai](book_date) [leevantuan2002@gmail.com](book_email)
-
-  - intent: provide_email
-    examples: |
-      - email của tôi: [tuan@gmail.com](email)
-      - Email liên hệ: [tuan@gmail.com](email)
-      - Bạn có thể gửi tới [tuan@gmail.com](email)
-      - Vui lòng email cho tôi qua [tuan@gmail.com](email)
-      - Gửi phản hồi đến địa chỉ: [tuan@gmail.com](email)
-      - Thư đến [tuan@gmail.com](email) nhé
-      - Liên hệ tại email [tuan@gmail.com](email)
-      - Email đăng ký: [tuan@gmail.com](email)
-      - Đây là email của tôi: [tuan@gmail.com](email)
-      - Email: [tuan@gmail.com](email)
-      - Mail: [tuan@gmail.com](email)
-      - Email chính: [tuan@gmail.com](email)
-      - Tài khoản email: [tuan@gmail.com](email)
-      - Địa chỉ email là [tuan@gmail.com](email)
-      - Mọi thứ gửi về: [tuan@gmail.com](email)
-      - Xin gửi qua: [tuan@gmail.com](email)
-      - Liên hệ qua email: [tuan@gmail.com](email)
-      - Mình dùng email: [tuan@gmail.com](email)
-      - Gmail của mình: [tuan@gmail.com](email)
-      - Đăng nhập bằng [tuan@gmail.com](email)
-      - Email cũ: [tuan@gmail.com](email)
-      - Gửi thông tin về [tuan@gmail.com](email)
-      - Đây là địa chỉ mail: [tuan@gmail.com](email)
-      - Dùng [tuan@gmail.com](email) nhé
-      - Bạn có thể liên hệ tại [tuan@gmail.com](email)
-      - Email phụ: [tuan@gmail.com](email)
-      - Gmail: [tuan@gmail.com](email)
-      - Email tôi đang dùng: [tuan@gmail.com](email)
-      - Dưới đây là email: [tuan@gmail.com](email)
-      - Thông tin chi tiết xin gửi về [tuan@gmail.com](email)
-      - [tuan@gmail.com](email)
-      - Email liên hệ: [linhtran@yahoo.com](email)
-      - Bạn có thể gửi tới [minh.nguyen98@gmail.com](email)
-      - Vui lòng email cho tôi qua [huydo123@outlook.com](email)
-      - Gửi phản hồi đến địa chỉ: [thao.le@zmail.vn](email)
-      - Thư đến [hanh.vo1996@gmail.com](email) nhé
-      - Liên hệ tại email [ngoc.bui@mail.com](email)
-      - Email đăng ký: [cuongpham@gmail.com](email)
-      - Đây là email của tôi: [anhtuan.dev@gmail.com](email)
-      - Email: [meo_meo99@yahoo.com](email)
-      - Mail: [longtran@abc.vn](email)
-      - Email chính: [user001@example.com](email)
-      - Tài khoản email: [tien.nguyen@zmail.com](email)
-      - Địa chỉ email là [hiep.le.1993@gmail.com](email)
-      - Mọi thứ gửi về: [phuongtrang@domain.vn](email)
-      - Xin gửi qua: [contact.lananh@gmail.com](email)
-      - Liên hệ qua email: [khoa.tran@hotmail.com](email)
-      - Mình dùng email: [duyen.dang@email.com](email)
-      - Gmail của mình: [bich.nguyen2110@gmail.com](email)
-      - Đăng nhập bằng [admin@myapp.com](email)
-      - Email cũ: [testing.mail@demo.vn](email)
-      - Gửi thông tin về [sonpham.official@gmail.com](email)
-      - Đây là địa chỉ mail: [user_test2001@ymail.com](email)
-      - Dùng [huynh.hoa@fakemail.org](email) nhé
-      - Bạn có thể liên hệ tại [leminh.tester@gmail.com](email)
-      - Email phụ: [backup.email@something.com](email)
-      - Gmail: [quangvinh2020@gmail.com](email)
-      - Email tôi đang dùng: [guest.email@host.com](email)
-      - Dưới đây là email: [my.name@company.vn](email)
-      - Thông tin chi tiết xin gửi về [info@domain.com](email)
