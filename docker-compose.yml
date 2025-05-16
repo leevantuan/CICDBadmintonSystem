@@ -138,49 +138,49 @@ services:
   #   environment:
   #     JENKINS_OPTS: --httpPort=8080
 
-  rasa_server:
-    container_name: rasa_server
-    build:
-      context: ./Chatbot
-      dockerfile: Dockerfile
-    ports:
-      - 5005:5005
-    volumes:
-      - ./Chatbot:/app
-      - ./Chatbot/.cache:/app/.cache
-    command:
-      [
-        "run",
-        "-m",
-        "/app/models",
-        "--enable-api",
-        "--cors",
-        "*",
-        "--debug",
-        "--endpoints",
-        "endpoints.yml",
-        "--debug",
-      ]
-    networks:
-      - deploy_bmtsys_network
-    user: root
-    depends_on:
-      - rasa_action
+  # rasa_server:
+  #   container_name: rasa_server
+  #   build:
+  #     context: ./Chatbot
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     - 5005:5005
+  #   volumes:
+  #     - ./Chatbot:/app
+  #     - ./Chatbot/.cache:/app/.cache
+  #   command:
+  #     [
+  #       "run",
+  #       "-m",
+  #       "/app/models",
+  #       "--enable-api",
+  #       "--cors",
+  #       "*",
+  #       "--debug",
+  #       "--endpoints",
+  #       "endpoints.yml",
+  #       "--debug",
+  #     ]
+  #   networks:
+  #     - deploy_bmtsys_network
+  #   user: root
+  #   depends_on:
+  #     - rasa_action
 
-  rasa_action:
-    container_name: rasa_action
-    build:
-      context: ./Chatbot
-      dockerfile: Dockerfile
-    volumes:
-      - ./Chatbot:/app
-      - ./Chatbot/.cache:/app/.cache
-    ports:
-      - 5055:5055
-    networks:
-      - deploy_bmtsys_network
-    command: ["run", "actions", "--actions", "actions"]
-    user: root
+  # rasa_action:
+  #   container_name: rasa_action
+  #   build:
+  #     context: ./Chatbot
+  #     dockerfile: Dockerfile
+  #   volumes:
+  #     - ./Chatbot:/app
+  #     - ./Chatbot/.cache:/app/.cache
+  #   ports:
+  #     - 5055:5055
+  #   networks:
+  #     - deploy_bmtsys_network
+  #   command: ["run", "actions", "--actions", "actions"]
+  #   user: root
 
 networks:
   deploy_bmtsys_network:
