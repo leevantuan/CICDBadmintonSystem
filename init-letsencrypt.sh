@@ -1,6 +1,6 @@
 #!/bin/bash
 
-domains=(bookingweb.shop www.bookingweb.shop)
+domains=(tuanlee.info.vn www.tuanlee.info.vn)
 rsa_key_size=4096
 data_path="./certbot"
 email="leevantuan2002@gmail.com" # Adding a valid address is strongly recommended
